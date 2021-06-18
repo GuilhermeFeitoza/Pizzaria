@@ -11,6 +11,7 @@ DesktopWEB
 **v2
 -Cadastrar Promoções/Cupom
 -Poder fazer/Controlar reservas
+-Relatórios
 
 Web
 -cliente cadastrar

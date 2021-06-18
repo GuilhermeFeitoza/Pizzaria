@@ -47,5 +47,5 @@ CREATE TABLE tbAvaliacao(
 	Titulo varchar(30),
 	Comentario varchar(50),
 	Nota int,
-	Ativo char(1),
+	Ativo char(1)
 )
