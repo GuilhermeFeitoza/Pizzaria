@@ -1,21 +1,31 @@
 <template>
    <div class="menu">
-      <img id ="logo" src="../assets/logo.png" width="100" height="50"/>
+      <img id ="logo" src="../assets/logo.png" width="70" height="70"/>
       <nav id="linkmenu">
         <ul>
+          <a>
           Clientes
+          </a>
         </ul>
         <ul>
+          <a>
           Funcionários
+          </a>
         </ul>
         <ul>
+          <a>
           Cardapio
+          </a>
         </ul>
         <ul>
+          <a>
           Pedidos
+          </a>
         </ul>
         <ul>
+          <a>
           Avaliações
+          </a>
         </ul>
       </nav>
         <div id ="welcome">
@@ -44,19 +54,21 @@ padding-left: 10vw;
     top: 0;
 }
 #linkmenu {
-  display: inline-flex;
+   display: inline-flex;
+ }
+ ul{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  }
 #welcome{
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight:10px;
   position: absolute;
-  right: 4vw;
+  right: 3vw;
   top:0vw;
 }
 #logo{
-  float: left;
   position: fixed;
-  left: 2px;
+  left: 1px;
 }
 #sair{
   padding-left:10px;
