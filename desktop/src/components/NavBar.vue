@@ -3,13 +3,13 @@
       <img id ="logo" src="../assets/logo.png" width="70" height="70"/>
       <nav id="linkmenu">
         <ul>
-          <a>
-          Clientes
+         <a>
+            Clientes
           </a>
         </ul>
         <ul>
           <a>
-          Funcionários
+            Funcionários
           </a>
         </ul>
         <ul>
@@ -26,10 +26,11 @@
           <a>
           Avaliações
           </a>
+          
         </ul>
       </nav>
         <div id ="welcome">
-      <span>Seja Bem vindo Guilherme!!</span>
+      <span>Seja Bem vindo {{nomeUsuario}}!!</span>
       <a id ="sair"><img src="../assets/exit.png"></a>
      </div>
    </div>
@@ -37,8 +38,14 @@
 
 <script>
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+  data () {
+    return {
+      nomeUsuario: 'Guilherme',
+    }
+  }
 }
+
 </script>
 <style scoped>
 #linkmenu{
@@ -67,7 +74,7 @@ padding-left: 10vw;
   top:0vw;
 }
 #logo{
-  position: fixed;
+  position:absolute;
   left: 1px;
 }
 #sair{
