@@ -1,5 +1,6 @@
 Principais rotinas
-
+Home
+qtde de pedidos no dia
 DesktopWEB
 *v1
 -Cadastrar funcionário
