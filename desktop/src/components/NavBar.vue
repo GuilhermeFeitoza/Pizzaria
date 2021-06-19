@@ -1,11 +1,13 @@
 <template>
    <div class="menu">
+      <router-link to="/">
       <img id ="logo" src="../assets/logo.png" width="70" height="70"/>
+      </router-link>
       <nav id="linkmenu">
         <ul>
-         <a>
+    <router-link to="/clientes">
             Clientes
-          </a>
+    </router-link>
         </ul>
         <ul>
           <a>
@@ -79,5 +81,10 @@ padding-left: 10vw;
 }
 #sair{
   padding-left:10px;
+ }
+ a{
+    text-decoration: none;
+    color: black;
+
  }
 </style>
