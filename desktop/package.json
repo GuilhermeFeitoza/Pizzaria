@@ -8,6 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@progress/kendo-grid-vue-wrapper": "^2021.2.617",
+    "@progress/kendo-theme-default": "^4.39.0",
+    "@progress/kendo-ui": "^2021.2.616",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1"

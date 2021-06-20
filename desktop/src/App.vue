@@ -3,7 +3,8 @@
 <header>
     <NavBar/>
 </header>
-
+<br>
+      <br>
       <br>
       <br>
     <router-view/>
@@ -13,6 +14,7 @@
 <script>
 import NavBar from './components/NavBar.vue'
 import Home from './components/Home.vue'
+
 import '../src/style.css'
 
 
@@ -21,6 +23,7 @@ export default {
   components: {
     NavBar,
     Home,
+    
    }
 }
 </script>
