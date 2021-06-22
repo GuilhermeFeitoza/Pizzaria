@@ -26,7 +26,7 @@ CREATE TABLE tbIngredientes(
 	Nome varchar(30),
 	Descricao varchar(20),
 	QtdCal int,
-	  )
+	  );
 CREATE TABLE tbPizza(
 	IdPizza int identity primary key,
 	Nome varchar(20),

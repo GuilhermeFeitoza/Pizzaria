@@ -10,9 +10,9 @@
     </router-link>
         </ul>
         <ul>
-          <a>
+         <router-link to="/funcionarios">
             Funcionários
-          </a>
+          </router-link>
         </ul>
         <ul>
           <a>

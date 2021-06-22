@@ -1,35 +1,26 @@
 <template>
-  <div>
-    <div id ="headerActions"> 
-        <img src="../assets/icons/mais.png"  v-on:click="openModal">
+<div>
+<div id ="headerActions"> 
+       <img src="../assets/icons/mais.png">
       <img src="../assets/icons/lapis.png">
       <img src="../assets/icons/lixo.png">
-  
+     
       
-    </div>
-    <Grid 
+  </div>
+  <Grid 
                 :selectable="'multiple cell'"
                 :sortable="true"
                 :filterable="true"
-                :groupable="true"
-             >
-    </Grid>
- 
-  </div>
+                :groupable="true">
+                
+</Grid>
+</div>
 </template>
 
 <script>
-import { mapActions,mapGetters } from "vuex";
 export default {
-  
-name:"clientes",
+name:"funcionarios",
 methods: {
-  ...mapActions('modal',['toggleModalCliente']),
-     openModal(){
-     
-          this.toggleModalCliente();
-          
-        },
         onChange: function(ev) {
             var selected = $.map(ev.sender.select(), function(item) {
                 return $(item).text();
