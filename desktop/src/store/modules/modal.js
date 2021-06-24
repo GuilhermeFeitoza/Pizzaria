@@ -20,6 +20,11 @@ const actions = {
       
         commit('toggleModalCliente')   
        
+    },
+    toggleModalFuncionario({commit}){
+      
+        commit('toggleModalFuncionario')   
+       
     }
 }
 const mutations = {

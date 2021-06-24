@@ -1,27 +1,27 @@
 <template>
-  <div id="myModal" class="modal" v-if="getIsModalClienteOpen">
+  <div id="myModal" class="modal" v-if="getIsModalFuncionarioOpen">
 
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close" v-on:click = "closeModal">&times;</span>
-    <h1>Cadastrar cliente </h1>
+    <h1>Cadastrar Funcionário </h1>
 <div id="form">
 <div>
     <label for="txtCliente">*Nome:</label>
     <input type="text" />
   </div>
   <div>
-    <label for="txtCpf">*CPF:</label>
+    <label for="txtCpf">*Usuário:</label>
     <input type="text" />
   </div>
    <div>
-    <label for="txtEmail">*Email:</label>
+    <label for="txtEmail">*Senha:</label>
     <input type="text" />
   </div>
   <div>
-    <label for="txtTelefone">*Telefone:</label>
-    <input type="text" />
-  </div>
+    <label for="txtTelefone">*Data da Admissão:</label>
+    <DatePicker/>
+    </div>
   <div>
     <label for = "dtNasc">*Data de Nascimento</label>
     <DatePicker/>
@@ -29,7 +29,7 @@
   <div>
     <div class="buttonContainer"> 
       <button class="buttonConfirm">Confirmar</button>
-      <button class="buttonExit" @click="Cancelar" style="padding-left:20px">Sair</button>
+      <button class="buttonExit" @click="closeModal" style="padding-left:20px">Cancelar</button>
     </div>
   </div>
 </div>
@@ -43,15 +43,15 @@ import { mapActions,mapGetters } from "vuex";
 export default {
   
     methods:{
-        ...mapActions('modal',['toggleModalCliente']),
+        ...mapActions('modal',['toggleModalFuncionario']),
         closeModal(){
-        this.toggleModalCliente();
+        this.toggleModalFuncionario();
 
 
         }
     },
     computed:{
-      ...mapGetters('modal',['getIsModalClienteOpen'])
+      ...mapGetters('modal',['getIsModalFuncionarioOpen'])
       
 
     }

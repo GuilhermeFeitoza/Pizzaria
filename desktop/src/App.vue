@@ -10,6 +10,7 @@
       <br>
     <router-view/>
     <Cliente-modal/>
+    <Funcionario-modal/>
 
   </div>
 </template>
@@ -19,6 +20,7 @@ import Home from './components/Home.vue'
 import ClienteModal from './components/modal/Cliente-modal.vue'
 
 import '../src/style.css'
+import FuncionarioModal from './components/modal/Funcionario-modal.vue'
 
 
 export default {
@@ -27,6 +29,7 @@ export default {
     NavBar,
     Home,
     ClienteModal,
+    FuncionarioModal,
     
    }
 }
