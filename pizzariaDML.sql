@@ -18,6 +18,7 @@ CREATE TABLE tbFuncionario(
 	Usuario varchar(30),
 	Senha varchar(200),
 	DataAdmissao datetime,
+	DataNascimento datetime,
 	Ativo char(1),
 );
 
@@ -48,4 +49,12 @@ CREATE TABLE tbAvaliacao(
 	Comentario varchar(50),
 	Nota int,
 	Ativo char(1)
+)
+CREATE TABLE tbBebidas(
+	IdBebida int identity,
+	Nome varchar(20),
+	Preco decimal,
+	Ativo char(1),
+	
+
 )

@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import UltimosPedidos from './UltimosPedidos.vue'
-import MaisPedidos from './MaisPedidos.vue'
+import UltimosPedidos from '../components/partial/UltimosPedidos.vue'
+import MaisPedidos from '../components/partial/MaisPedidos.vue'
 
 export default {
   components: {

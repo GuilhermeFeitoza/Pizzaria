@@ -6,7 +6,7 @@
         <img
           align="left"
           id="fotoPopular"
-          src="../assets/imgs/portuguesa.jpg"
+          src="../../assets/imgs/portuguesa.jpg"
         />
         <div>
           <h2>Produto 2</h2>
@@ -17,11 +17,11 @@
     </div>
    
       <div id="cardPopulares">
-        <img
+         <img
           align="left"
           id="fotoPopular"
-          src="../assets/imgs/portuguesa.jpg"
-        />
+          src="../../assets/imgs/portuguesa.jpg"
+        /> 
         <div>
           <h2>Produto 2</h2>
           <h3>Quantidade de vendas</h3>

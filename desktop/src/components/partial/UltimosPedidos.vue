@@ -30,10 +30,10 @@ export default {
         { id: 4, nome: "Toscana" },
         { id: 5, nome: "Teste" },
       ],
-      pedidos: [{img:require("../assets/imgs/brigadeiro.jpg")},
-       {img:require("../assets/imgs/peperoni.jpg")},
-       {img:require("../assets/imgs/manjericao.jpg")},
-       {img:require("../assets/imgs/portuguesa.jpg")},
+      pedidos: [{img:require("../../assets/imgs/brigadeiro.jpg")},
+        {img:require("../../assets/imgs/peperoni.jpg")},
+        {img:require("../../assets/imgs/manjericao.jpg")},
+        {img:require("../../assets/imgs/portuguesa.jpg")},
       
        
        ],
