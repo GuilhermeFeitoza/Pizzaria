@@ -3,30 +3,30 @@ GO
 USE Pizzaria
 GO 
 CREATE TABLE tbCliente(
-	IdCliente int identity primary key,
-	Nome varchar(200),
-	Cpf varchar(11),
-	Email varchar(30),
-	Telefone varchar(12),
-	DataNascimento datetime,
-	Ativo char(1),
+	IdCliente int identity primary key  NOT NULL,
+	Nome varchar(200) NOT NULL,
+	Cpf varchar(11) NOT NULL,
+	Email varchar(30) NOT NULL,
+	Telefone varchar(12) NOT NULL,
+	DataNascimento datetime  NOT NULL,
+	Ativo char(1)  NOT NULL,
 );
 
 CREATE TABLE tbFuncionario(
-	Id int Identity primary key ,
-	Nome varchar(200),
-	Usuario varchar(30),
-	Senha varchar(200),
-	DataAdmissao datetime,
-	DataNascimento datetime,
-	Ativo char(1),
+	Id int Identity primary key  NOT NULL ,
+	Nome varchar(200)  NOT NULL,
+	Usuario varchar(30)  NOT NULL,
+	Senha varchar(200) NOT NULL,
+	DataAdmissao datetime  NOT NULL,
+	DataNascimento datetime NOT NULL,
+	Ativo char(1)  NOT NULL,
 );
 
 CREATE TABLE tbIngredientes(
-	IdIngrediente int identity primary key ,
-	Nome varchar(30),
-	Descricao varchar(20),
-	QtdCal int,
+	IdIngrediente int identity primary key  ,
+	Nome varchar(30)  ,
+	Descricao varchar(20) ,
+	QtdCal int  ,
 	  );
 CREATE TABLE tbPizza(
 	IdPizza int identity primary key,

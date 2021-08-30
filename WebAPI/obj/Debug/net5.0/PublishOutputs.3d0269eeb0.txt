@@ -1,0 +1,15 @@
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\WebAPI.exe
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\appsettings.Development.json
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\appsettings.json
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\WebAPI.dll
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\WebAPI.deps.json
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\WebAPI.runtimeconfig.json
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\WebAPI.pdb
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\Microsoft.OpenApi.dll
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\Newtonsoft.Json.dll
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\Newtonsoft.Json.Bson.dll
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\guilh\Desktop\Pizzaria\WebAPI\bin\publish\Swashbuckle.AspNetCore.SwaggerUI.dll

@@ -3,7 +3,7 @@ Home
 qtde de pedidos no dia
 DesktopWEB
 *v1
--Cadastrar funcionário
+-Cadastrar funcionário - OK
 -Cadastrar Pizzas/Bebidas
 -Controlar pedidos
 -Controlar Clientes 

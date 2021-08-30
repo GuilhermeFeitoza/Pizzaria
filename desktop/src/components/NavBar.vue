@@ -15,9 +15,9 @@
           </router-link>
         </ul>
         <ul>
-          <a>
+          <router-link to="/cardapio">
           Cardapio
-          </a>
+          </router-link>
         </ul>
         <ul>
           <a>
