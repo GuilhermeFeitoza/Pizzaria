@@ -24,12 +24,12 @@
   </div>
   <div>
     <label for = "dtNasc">*Data de Nascimento</label>
-    <DatePicker/>
+    <!-- <DatePicker/> -->
   </div>
   <div>
     <div class="buttonContainer"> 
       <button class="buttonConfirm">Confirmar</button>
-      <button class="buttonExit" @click="Cancelar" style="padding-left:20px">Sair</button>
+      <button class="buttonExit"  style="padding-left:20px">Sair</button>
     </div>
   </div>
 </div>
