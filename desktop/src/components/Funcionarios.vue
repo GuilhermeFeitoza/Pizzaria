@@ -36,6 +36,7 @@ this.toggleModalFuncionario();
 },
     data() {
         return{
+         
 
         }
     }

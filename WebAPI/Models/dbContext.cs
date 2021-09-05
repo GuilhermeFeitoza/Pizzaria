@@ -26,11 +26,7 @@ namespace WebAPI.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-
-             
-            }
+         
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -60,8 +56,7 @@ namespace WebAPI.Models
 
             modelBuilder.Entity<TbCliente>(entity =>
             {
-                entity.HasKey(e => e.IdCliente)
-                    .HasName("PK__tbClient__D5946642C18EC2CB");
+                   entity.HasKey(e => e.IdCliente);
 
                 entity.ToTable("tbCliente");
 
@@ -79,6 +74,8 @@ namespace WebAPI.Models
                 entity.Property(e => e.Email)
                     .HasMaxLength(30)
                     .IsUnicode(false);
+
+                entity.Property(e => e.IdCliente).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(200)
@@ -162,11 +159,6 @@ namespace WebAPI.Models
                 entity.Property(e => e.Senha)
                     .HasMaxLength(200)
                     .IsUnicode(false);
-
-                entity.HasOne(d => d.IdClienteNavigation)
-                    .WithMany(p => p.TbUsuarios)
-                    .HasForeignKey(d => d.IdCliente)
-                    .HasConstraintName("FK__tbUsuario__IdCli__2C3393D0");
             });
 
             OnModelCreatingPartial(modelBuilder);
