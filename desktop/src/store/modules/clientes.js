@@ -17,13 +17,20 @@ const actions = {
    async requestClientes({ commit }) {
         try {
            var response = await axios.get(urlBase + '/api/clientes')
-            console.log(response.data);
+          
             commit("setClientes",response.data);
 
         } catch (error) {
             console.error(error)
 
         }
+
+    },
+    async deleteCliente({commit},param){
+        console.log('IDCliente',param)
+        var response = await axios.delete(urlBase + '/api/clientes/'+ param);
+        console.log(response);
+
 
     },
     async addCliente({ commit },param) {
@@ -55,7 +62,7 @@ const actions = {
 const mutations = {
     setClientes(state,param){
         state.clientes = param;
-        console.log('entrei')
+       
 
     }
 
