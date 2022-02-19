@@ -16,7 +16,8 @@ export default {
   name: "clientes",
   methods: {
     ...mapActions("modal", ["toggleModalCliente"]),
-    ...mapActions("cliente", ["requestClientes","deleteCliente"]),
+    ...mapActions("cliente", ["requestClientes","deleteCliente","setSeletedCliente"]),
+    
     onRowClick(event) {
       event.dataItem[this.clienteSelecionado] =
         !event.dataItem[this.clienteSelecionado];
@@ -47,19 +48,19 @@ export default {
       ],
       change: function (e) {
         var rows = e.sender.select();
-      var self = this;
-       rows.each(function (e) {
+        rows.each(function (e) {
          
           var grid = $("#grid").data("kendoGrid");
-          var  dataItem = grid.dataItem(this);
-          self.clienteSelecionado = dataItem.IdCliente
+      
+          var dataItem = grid.dataItem(rows);
           
         
         
+        
          
-        });
+        })
       
-        console.log(self.clienteSelecionado)
+       
       },
     });
     await this.requestClientes();

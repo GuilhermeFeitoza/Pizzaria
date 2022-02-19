@@ -3,10 +3,12 @@ const urlBase = "https://localhost:5001";
 const axios = require('axios');
 const state = {
     clientes: null,
+    selectedCliente:null,
 
 };
 const getters = {
     getClientes: (state) => state.clientes,
+    getSeletedCliente:(state)=> state.selectedCliente,
 
 };
 
@@ -54,8 +56,11 @@ const actions = {
 
         }
 
-    }
+    },
+    setSeletedCliente({commit},param){
+        commit('setSeletedCliente',param)
 
+    }
 
 }
 
@@ -63,6 +68,10 @@ const mutations = {
     setClientes(state,param){
         state.clientes = param;
        
+
+    },
+    setSeletedCliente(state,param){
+        state.selectedCliente = param;
 
     }
 
