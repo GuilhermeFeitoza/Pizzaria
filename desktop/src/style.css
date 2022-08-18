@@ -35,7 +35,8 @@ body {
 }
 
 ul {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Lato', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
 }
 
 #welcome {
@@ -61,13 +62,65 @@ a {
   font-weight: bold;
 }
 
-.dot {
+.menu-rounded {
   height: 8vw;
   width: 8vw;
   margin-right: 10vw;
   background-color: rgb(57, 55, 55);
   border-radius: 50%;
   display: inline-block;
+  
+}
+.imgCliente{
+  background-image: url('./assets/imgs/cliente-icon.png');
+  background-repeat: no-repeat;
+  background-size: 4vw;
+  background-position: center;
+
+  
+
+}
+.imgFuncionarios{
+  background-image: url('./assets/imgs/funcionarios-icon.png');
+  background-repeat: no-repeat;
+  background-size: 4vw;
+  background-position: center;
+
+  
+
+}
+.imgCardapio{
+  background-image: url('./assets/imgs/menu-icon.png');
+  background-repeat: no-repeat;
+  background-size: 4vw;
+  background-position: center;
+
+  
+
+}
+.imgPedidos{
+  
+    background-image: url('./assets/imgs/pedidos-icon.png');
+    background-repeat: no-repeat;
+    background-size: 4vw;
+    background-position: center;
+   
+  
+
+}
+.imgAvaliacao{
+  background-image: url('./assets/imgs/favorite-icon.png');
+  background-repeat: no-repeat;
+  background-size: 4vw;
+  background-position: center;
+
+  
+
+}
+.dot:hover {
+ 
+  background-color: rgb(234, 94, 14);
+ 
 }
 .menu-text{
   position: relative; 
