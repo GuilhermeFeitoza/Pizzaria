@@ -1,0 +1,84 @@
+
+using WebAPI.Models;
+using WebAPI.Repositories;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace WebAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ClientesController : Controller
+    {
+        private readonly IClienteRepository repository;
+        public ClientesController(IClienteRepository _context)
+        {
+            repository = _context;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<TbCliente>>> GetClientes()
+        {
+            var Clientes = await repository.GetAll();
+            if (Clientes == null)
+            {
+                return BadRequest();
+            }
+            return Ok(Clientes.ToList());
+        }
+        // GET: api/Products/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<TbCliente>> GetCliente(int id)
+        {
+            var Cliente = await repository.GetById(id);
+            if (Cliente == null)
+            {
+                return NotFound("Cliente não encontrado pelo id informado");
+            }
+            return Ok(Cliente);
+        }
+        // POST api/<controller>  
+        [HttpPost]
+        public async Task<IActionResult> PostCliente([FromBody]TbCliente cliente)
+        {
+            if (cliente == null)
+            {
+                return BadRequest("Cliente é null");
+            }            
+            await repository.Insert(cliente);
+            return CreatedAtAction(nameof(GetCliente), new { Id = cliente.IdCliente }, cliente);
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutCliente(int id, TbCliente cliente)
+        {
+            if (id != cliente.IdCliente)
+            {
+                return BadRequest($"O código do produto {id} não confere");
+            }
+            try
+            {
+                await repository.Update(id, cliente);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+            return Ok("Atualização do produto realizada com sucesso");
+        }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<TbCliente>> DeleteCliente(int id)
+        {
+            var cliente = await repository.GetById(id);
+            if (cliente == null)
+            {
+                return NotFound($"Produto de {id} foi não encontrado");
+            }
+            await repository.Delete(id);
+            return Ok(cliente);
+        }
+    }
+
+
+
+}

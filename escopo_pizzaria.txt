@@ -2,11 +2,11 @@ Principais rotinas
 
 DesktopWEB
 *v1
--Cadastrar funcionário
+-Cadastrar funcionário - OK
 -Cadastrar Pizzas/Bebidas
 
 -Controlar pedidos
--Controlar Clientes 
+-Controlar Clientes -OK
 -controlar avaliações
 
 **v2

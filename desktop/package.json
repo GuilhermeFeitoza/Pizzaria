@@ -11,9 +11,12 @@
     "@progress/kendo-grid-vue-wrapper": "^2021.2.617",
     "@progress/kendo-theme-default": "^4.39.0",
     "@progress/kendo-ui": "^2021.2.616",
+    "@progress/kendo-vue-dateinputs": "^2.2.4",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
-    "vue-router": "^3.5.1"
+    "vue-cli": "^2.9.6",
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

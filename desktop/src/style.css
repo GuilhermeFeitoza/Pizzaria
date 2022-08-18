@@ -1,1 +1,217 @@
-h1,h2{font-family: Calibri}
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400&display=swap');
+
+h1,
+h2 {
+  font-family: Calibri
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+
+}
+
+#headerActions {
+  background-color: #ebebeb;
+
+
+}
+
+#linkmenu {
+  padding-left: 10vw;
+
+}
+
+.menu {
+  left: 0;
+  background-color: #FF0000;
+  height: 5vw;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+}
+
+#linkmenu {
+  display: inline-flex;
+}
+
+ul {
+  font-family: 'Lato', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+#welcome {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 10px;
+  position: absolute;
+  right: 3vw;
+  top: 0vw;
+}
+
+#logo {
+  position: absolute;
+  left: 1px;
+}
+
+#sair {
+  padding-left: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.menu-rounded {
+  height: 8vw;
+  width: 8vw;
+  margin-right: 10vw;
+  background-color: rgb(57, 55, 55);
+  border-radius: 50%;
+  display: inline-block;
+  
+}
+.imgCliente{
+  background-image: url('./assets/imgs/cliente-icon.png');
+  background-repeat: no-repeat;
+  background-size: 4vw;
+  background-position: center;
+
+  
+
+}
+.imgFuncionarios{
+  background-image: url('./assets/imgs/funcionarios-icon.png');
+  background-repeat: no-repeat;
+  background-size: 4vw;
+  background-position: center;
+
+  
+
+}
+.imgCardapio{
+  background-image: url('./assets/imgs/menu-icon.png');
+  background-repeat: no-repeat;
+  background-size: 4vw;
+  background-position: center;
+
+  
+
+}
+.imgPedidos{
+  
+    background-image: url('./assets/imgs/pedidos-icon.png');
+    background-repeat: no-repeat;
+    background-size: 4vw;
+    background-position: center;
+   
+  
+
+}
+.imgAvaliacao{
+  background-image: url('./assets/imgs/favorite-icon.png');
+  background-repeat: no-repeat;
+  background-size: 4vw;
+  background-position: center;
+
+  
+
+}
+.dot:hover {
+ 
+  background-color: rgb(234, 94, 14);
+ 
+}
+.menu-text{
+  position: relative; 
+  top: 9vw;
+  left: 1.5vw;
+
+}
+#headerActions>img {
+  height: 20px;
+  width: 20px;
+  margin: 3px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+
+.modal {
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.buttonContainer {
+  position: relative;
+  right: 1px;
+
+}
+
+.buttonConfirm {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+}
+
+.buttonExit {
+  background-color: #f44336;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+
+}
