@@ -1,5 +1,6 @@
 <template>
   <div>
+  
   <Ultimos-pedidos/>
   <Mais-pedidos/>
   
@@ -11,11 +12,13 @@
 import UltimosPedidos from '../components/partial/UltimosPedidos.vue'
 import MaisPedidos from '../components/partial/MaisPedidos.vue'
 
+
 export default {
   components: {
     
     UltimosPedidos,
-    MaisPedidos
+    MaisPedidos,
+
     }
 };
 </script>

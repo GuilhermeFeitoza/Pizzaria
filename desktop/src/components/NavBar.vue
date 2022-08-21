@@ -1,7 +1,7 @@
 <template>
    <div class="menu">
       <router-link to="/">
-      <img id ="logo" src="../assets/logo.png" width="70" height="70"/>
+      <img id ="logo" src="../assets/logo.png"  />
       </router-link>
    
         <div id ="welcome">

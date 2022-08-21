@@ -12,6 +12,7 @@
     "@progress/kendo-theme-default": "^4.39.0",
     "@progress/kendo-ui": "^2021.2.616",
     "@progress/kendo-vue-dateinputs": "^2.2.4",
+    "axios": "^0.27.2",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-cli": "^2.9.6",

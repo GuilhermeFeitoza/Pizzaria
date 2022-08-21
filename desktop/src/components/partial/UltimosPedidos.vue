@@ -44,18 +44,5 @@ export default {
 </script>
 
 <style>
-#imgpedido {
-  width: 15vw;
-  height: 10vw;
-}
-.card{
- box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
- border-style: solid;
-margin-left: 15px;
 
-}
-.card:hover {
-  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-  
-}
 </style>

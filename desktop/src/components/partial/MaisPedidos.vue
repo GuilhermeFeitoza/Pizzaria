@@ -1,52 +1,66 @@
 <template>
   <div>
     <h1>Produtos populares</h1>
-    <div>
-     <div id="cardPopulares">
-        <img
-          align="left"
-          id="fotoPopular"
-          src="../../assets/imgs/portuguesa.jpg"
-        />
-        <div>
-          <h2>Produto 2</h2>
-          <h3>Quantidade de vendas</h3>
-          <strong>200</strong>
-        </div>
-      </div>
+    <div style="display: inline-flex; max-width:70%;flex-wrap: wrap;">
+    <card-pizza
+      :nomeProduto="'Portuguesa'"
+      :numberOfSales="'100'"
+      :imgSrc="'portuguesa.jpg'"
+      :price="'R$50,00'"
+      :description="'Mussarela,palmito,azeitona,presunto,ovo e ervilha'"
+    ></card-pizza>
+     <card-pizza
+      :nomeProduto="'Brigadeiro'"
+      :numberOfSales="'100'"
+      :imgSrc="'brigadeiro.jpg'"
+      :price="'R$60,00'"
+      :description="'Brigadeiro,morango e o delicioso chocolate da casa'"
+    ></card-pizza>
+     <card-pizza
+      :nomeProduto="'Portuguesa'"
+      :numberOfSales="'100'"
+      :imgSrc="'portuguesa.jpg'"
+      :price="'R$50,00'"
+      :description="'Mussarela,palmito,azeitona,presunto,ovo e ervilha'"
+    ></card-pizza>
+     <card-pizza
+      :nomeProduto="'Portuguesa'"
+      :numberOfSales="'100'"
+      :imgSrc="'portuguesa.jpg'"
+      :price="'R$50,00'"
+      :description="'Mussarela,palmito,azeitona,presunto,ovo e ervilha'"
+    ></card-pizza>
+     <card-pizza
+      :nomeProduto="'Portuguesa'"
+      :numberOfSales="'100'"
+      :imgSrc="'portuguesa.jpg'"
+      :price="'R$50,00'"
+      :description="'Mussarela,palmito,azeitona,presunto,ovo e ervilha'"
+    ></card-pizza>
+    
     </div>
-   
-      <div id="cardPopulares">
-         <img
-          align="left"
-          id="fotoPopular"
-          src="../../assets/imgs/portuguesa.jpg"
-        /> 
-        <div>
-          <h2>Produto 2</h2>
-          <h3>Quantidade de vendas</h3>
-          <strong>200</strong>
-        </div>
-      </div>
-    </div>
-
-
+  </div>
 </template>
 
 <script>
-export default {};
+import CardPizza from "./card-produto.vue";
+export default {
+  components: {
+    CardPizza,
+  },
+};
 </script>
 
 <style>
 #cardPopulares {
   width: 50%;
   display: inline-flex;
-  border:solid;
-  border-color:black;
+  border: solid;
+  border-color: black;
   border-width: 1px;
 
   margin-bottom: 5%;
-box-shadow: black;
+  box-shadow: black;
 }
 
 #fotoPopular {
