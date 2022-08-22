@@ -1,3 +1,4 @@
 WebAPI/bin
 WebAPI/obj/
 /config
+/node_modules
