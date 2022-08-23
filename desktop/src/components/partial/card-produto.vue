@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card" style="">
+    <div class="card" style="" >
       <span class="product-name-card">{{ this.nomeProduto }}</span>
       <img class="img-card" :src="require(`@/assets/imgs/${imgSrc}`)" />
       <div style="width: 10vw">

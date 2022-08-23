@@ -16,8 +16,8 @@ body {
 
 }
 .card-pedidos-type-text{
-position: relative;
-left: 10vw;
+position: absolute;
+left: 42vw;
 color: red;
 font-weight: bold;
 
@@ -44,16 +44,17 @@ cursor: pointer;
   position: relative;
   right: 0vw;
   bottom: 1vw;
-  
+
   
   }
 .card-pedidos {
 
-  max-width: 70%;
-  width: 30vw;
+  max-width: 100%;
+  width: 47%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 1vw;
-  margin-left:1vw;
+  margin-top:1vw;
+  
 
 
 

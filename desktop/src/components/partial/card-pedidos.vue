@@ -1,23 +1,23 @@
 <template>
 
-    <div class="card-pedidos">
+    <div  class="card-pedidos" :class="{maisDetalhes:moreDetails}">
         <span>
-         Terça-feira 20/05/2022 20:00
+        {{this.dataPedido}}
 
         </span>
         <span class="card-pedidos-type-text">
-        DELIVERY
+       {{this.tipoPedido}}
         <img class="icon-size detalhes-pedido" @click="toggleMoreDetails" src="../../assets/icons/setabaixo.png">
         </span>
         <br>
         <br>
         <span class="card-pedidos-status-text">
           <img  class="icon-size" :src="require(`@/assets/icons/${imgStatus}`)">  
-          <span>Entregue</span>
+          <span>{{this.status == 'E' ? 'ENTREGUE':'PREPARANDO'}}</span>
         </span>
         <br>
         <span style="font-weigth:bold;">
-          R$50,00
+         R${{this.precoPedido}}
         </span>
         <div v-show="moreDetails">
           <p> 1x Pizza de mussarela</p>
@@ -42,7 +42,12 @@
 <script>
 export default {
 props:{
-    status:'E'
+    status:'E',
+    dataPedido:'',
+    precoPedido:'',
+    tipoPedido:'',
+
+
 
     },
 data(){
@@ -81,5 +86,8 @@ computed:{
 </script>
 
 <style>
+.maisDetalhes{
+height: 25vw;
 
+}
 </style>
