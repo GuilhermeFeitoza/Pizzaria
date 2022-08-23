@@ -24,8 +24,10 @@ font-weight: bold;
 
 }
 .icon-size{
-  height: 2vw;
-  width: 2vw;
+  height: 1.5vw;
+  width: 1.5vw;
+  position: relative;
+  top: 0.3vw;
  
   
 
@@ -41,6 +43,7 @@ cursor: pointer;
 .card-pedidos-status-text{
   position: relative;
   right: 0vw;
+  bottom: 1vw;
   
   
   }
@@ -49,8 +52,8 @@ cursor: pointer;
   max-width: 70%;
   width: 30vw;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  margin-left: 15px;
+  border-radius: 1vw;
+  margin-left:1vw;
 
 
 

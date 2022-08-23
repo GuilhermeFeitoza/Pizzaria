@@ -3,8 +3,12 @@
     <br />
 
     <h1 style="font-family: Calibri">Últimos pedidos</h1>
+    <div style="display: inline-flex; max-width:100%;flex-wrap: wrap;">
      <card-pedidos :status="'E'"></card-pedidos>
-     
+     <card-pedidos :status="'E'"></card-pedidos>
+     <card-pedidos :status="'E'"></card-pedidos>
+     <card-pedidos :status="'E'"></card-pedidos>
+    </div>
     </div>
 
 </template>

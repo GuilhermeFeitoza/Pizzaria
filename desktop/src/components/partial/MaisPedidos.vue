@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Produtos populares</h1>
-    <div style="display: inline-flex; max-width:70%;flex-wrap: wrap;">
+    <div style="display: inline-flex; max-width:100%;flex-wrap: wrap;">
     <card-pizza
       :nomeProduto="'Portuguesa'"
       :numberOfSales="'100'"
