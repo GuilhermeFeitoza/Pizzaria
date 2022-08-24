@@ -17,9 +17,10 @@ body {
 }
 .card-pedidos-type-text{
 position: absolute;
-left: 42vw;
+left: 41vw;
 color: red;
 font-weight: bold;
+
 
 
 }
@@ -41,6 +42,7 @@ cursor: pointer;
 }
 
 .card-pedidos-status-text{
+  font-size: 1vw;
   position: relative;
   right: 0vw;
   bottom: 1vw;
@@ -48,7 +50,7 @@ cursor: pointer;
   
   }
 .card-pedidos {
-
+  font-size:1vw;
   max-width: 100%;
   width: 47%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -72,6 +74,7 @@ cursor: pointer;
   width: 100vw;
   position: absolute;
   top: 0;
+  
 }
 
 #linkmenu {
@@ -85,7 +88,6 @@ ul {
 
 #welcome {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-weight: 10px;
   position: absolute;
   right: 3vw;
   top: 0vw;
@@ -116,26 +118,28 @@ a {
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  margin-left: 15px;
+  border-radius: 0.5vw;
+  margin-left:0.5vw ;
+  font-size:1.5vw;
   width: 20vw;
-  height: fit-content;
+  height: 100%;
+ 
 
 }
 
 .product-name-card {
-  font-size: 1.5vh;
+  font-size: 0.8vw;
   position: relative;
   left: 0.5vw;
-  bottom: 4vw;
+ 
   font-weight: bold;
   color: orangered;
 }
 
 .product-description-card {
-  font-size: 1.3vh;
+  font-size: 0.7vw;
   position: relative;
-  bottom: 2vw;
+  left: 0.2vw;
 
 
 }
@@ -143,7 +147,8 @@ a {
 .product-price-card {
   font-size: 1.3vh;
   position: relative;
-  bottom: 2vw;
+  left: 0.2vw;
+  
   font-weight: bold;
 
 
@@ -152,7 +157,9 @@ a {
 .product-number-sales-card {
   font-size: 1.5vh;
   position: relative;
+  left:0.5vw;
   font-weight: bold;
+
 
 
 }
@@ -161,8 +168,7 @@ a {
   width: 6vw;
   height: 5vw;
   border-radius: 10px;
-  position: relative;
-  left: 10vw;
+float: right;
 }
 
 .card:hover {
@@ -172,9 +178,9 @@ a {
 }
 
 .menu-rounded {
-  height: 8vw;
-  width: 8vw;
-  margin-right: 10vw;
+  height: 6vw;
+  width: 6vw;
+  margin-right: 3vw;
   background-color: rgb(57, 55, 55);
   border-radius: 50%;
   display: inline-block;
@@ -221,7 +227,21 @@ a {
 
 
 }
+.menuButtons{
 
+  position:static;
+
+  top:5vw;
+
+  width: 100%;
+  margin-top: 2.5vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  background-color: white;
+  height: 8vw;
+  padding-left:22vw
+
+}
 .imgAvaliacao {
   background-image: url('./assets/imgs/favorite-icon.png');
   background-repeat: no-repeat;
@@ -231,6 +251,12 @@ a {
 
 
 }
+.text-menu{
+  position:relative; 
+  right:8.5vw;
+  top:1.5vw;
+
+}
 
 .dot:hover {
 
@@ -238,12 +264,7 @@ a {
 
 }
 
-.menu-text {
-  position: relative;
-  top: 9vw;
-  left: 1.5vw;
 
-}
 
 #headerActions>img {
   height: 20px;

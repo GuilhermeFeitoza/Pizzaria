@@ -2,10 +2,9 @@
   <div id="app">
     <header>
       <NavBar />
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+     
+    
+
       <MenuBar />
 
 

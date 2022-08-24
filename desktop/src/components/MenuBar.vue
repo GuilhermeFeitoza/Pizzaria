@@ -1,26 +1,29 @@
 <template>
-  <div style="margin: auto;padding-left: 5%;">
-    <div style="width: auto">
-      <span class="menu-rounded imgFuncionarios"
-        ><router-link to="/funcionarios" class="menu-text">
-          Funcionários
-        </router-link></span
-      >
-      <span class="menu-rounded imgCardapio "
-        ><router-link to="/cardapio" class="menu-text">
-          Cardapio
-        </router-link></span
-      >
+  <div class="menuButtons">
+      <div style="">
+      <router-link to="/funcionarios" class="menu-text">
+        <div class="menu-rounded imgFuncionarios">  </div>
+        <span class="text-menu" style="position:relative;right:9vw">Funcionários</span>
+      </router-link>
+      <router-link to="/cardapio" class="menu-text">
+        <div class="menu-rounded imgCardapio"></div>
+        <span class="text-menu">Cardapio</span>
+      </router-link>
 
-      <span class="menu-rounded imgAvaliacao"><a class="menu-text"> Avaliações </a></span>
-      <span class="menu-rounded imgCliente">
-        <router-link class="menu-text" to="/clientes">
-          Clientes
-        </router-link></span
-      >
-      <span class="menu-rounded imgPedidos">
-        <router-link to="" class="menu-text"> Pedidos </router-link></span
-      >
+      <!-- <span class="menu-rounded imgAvaliacao"
+        ><a class="menu-text"> Avaliações </a></span
+      > -->
+      <router-link to="/clientes">
+        <div class="menu-rounded imgCliente"></div>
+        <span class="text-menu">Clientes</span>
+      </router-link>
+      <router-link to="">
+        <div class="menu-rounded imgPedidos"> </div>
+        <span class="text-menu">Pedidos</span>
+      </router-link>
+
+
+
     </div>
 
     <!-- 

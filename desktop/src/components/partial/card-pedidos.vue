@@ -1,7 +1,7 @@
 <template>
 
     <div  class="card-pedidos" :class="{maisDetalhes:moreDetails}">
-        <span>
+        <span style="">
         {{this.dataPedido}}
 
         </span>
