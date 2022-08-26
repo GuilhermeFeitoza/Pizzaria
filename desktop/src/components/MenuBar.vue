@@ -17,7 +17,7 @@
         <div class="menu-rounded imgCliente"></div>
         <span class="text-menu">Clientes</span>
       </router-link>
-      <router-link to="">
+      <router-link to="/pedidos">
         <div class="menu-rounded imgPedidos"> </div>
         <span class="text-menu">Pedidos</span>
       </router-link>

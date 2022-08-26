@@ -4,6 +4,7 @@ import Home from "./components/Home.vue"
 import Clientes from "./components/Clientes.vue"
 import Funcionarios from "./components/Funcionarios.vue"
 import Cardapio  from "./components/Cardapio.vue"
+import Pedidos from "./components/Pedidos.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -22,6 +23,10 @@ component: Funcionarios,
 {name:'Cardapio',
 path:'/cardapio',
 component: Cardapio,
+},
+{name:'Pedidos',
+path:'/pedidos',
+component: Pedidos,
 }
 
 
