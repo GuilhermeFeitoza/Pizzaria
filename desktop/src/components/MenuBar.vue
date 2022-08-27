@@ -1,6 +1,6 @@
 <template>
   <div class="menuButtons">
-      <div style="">
+      <div style=" padding-left:27vw;">
       <router-link to="/funcionarios" class="menu-text">
         <div class="menu-rounded imgFuncionarios">  </div>
         <span class="text-menu" style="position:relative;right:9vw">Funcionários</span>
@@ -10,9 +10,7 @@
         <span class="text-menu">Cardapio</span>
       </router-link>
 
-      <!-- <span class="menu-rounded imgAvaliacao"
-        ><a class="menu-text"> Avaliações </a></span
-      > -->
+
       <router-link to="/clientes">
         <div class="menu-rounded imgCliente"></div>
         <span class="text-menu">Clientes</span>
@@ -25,12 +23,6 @@
 
 
     </div>
-
-    <!-- 
-
-    <span class="menu-rounded"></span>
-    <span class="menu-rounded"></span>
-    <span class="menu-rounded"></span> -->
   </div>
 </template>
 

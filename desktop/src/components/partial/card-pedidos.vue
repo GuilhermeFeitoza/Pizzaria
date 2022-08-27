@@ -87,7 +87,7 @@ computed:{
 
 <style>
 .maisDetalhes{
-height: 25vw;
+height: 27vw;
 
 }
 </style>

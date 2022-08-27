@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
 
   <Ultimos-pedidos/>
   <Mais-pedidos/>
@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import UltimosPedidos from '../components/partial/UltimosPedidos.vue'
-import MaisPedidos from '../components/partial/MaisPedidos.vue'
+import UltimosPedidos from './partial/ultimos-pedidos.vue'
+import MaisPedidos from './partial/mais-pedidos.vue'
 
 
 

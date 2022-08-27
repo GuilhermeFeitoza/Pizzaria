@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="">
     <br />
 
     <h1 style="font-family: Calibri">Últimos pedidos</h1>

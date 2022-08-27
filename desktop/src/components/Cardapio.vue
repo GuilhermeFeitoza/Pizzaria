@@ -6,7 +6,7 @@
       <img src="../assets/icons/lapis.png" />
     </div>
     <h1 style="font-family: Calibri">Cardapio</h1>
-    <div style="display: inline-flex; max-width: 100%; flex-wrap: wrap">
+    <div style="display: inline-flex; max-width: 80%; flex-wrap: wrap">
       <card-pizza
         :nomeProduto="'Portuguesa'"
         :imgSrc="'portuguesa.jpg'"
