@@ -277,7 +277,12 @@ button:hover {
   text-align: center;
   margin: 24px 0 12px 0;
 }
-
+#loginbg{
+  background-image: url('./assets/imgs/bgLogin.jpg');
+  background-repeat: no-repeat;
+  height: 100%;
+  background-size: 100vw;
+}
 img.avatar {
   width: 40%;
   border-radius: 50%;
@@ -288,7 +293,14 @@ img.avatar {
   position: relative;
   left: 40vw;
   top: 10vw;
-  width: 50%;
+  width: 20%;
+  height: 35%;
+  background-color: white;
+
+  /* border-style: solid;
+  border-radius: 0.3vw;
+  
+  border-color: #000; */
 }
 
 span.psw {

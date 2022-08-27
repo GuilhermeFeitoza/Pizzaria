@@ -1,6 +1,5 @@
 <template>
-  <div id="loginbg">
-   a
+
 
     <div id="loginform" action="/home" method="post">
    
@@ -27,8 +26,7 @@
         <span class="psw">Esqueci a <a href="#">senha?</a></span>
       </div>
     </div>
-  </div>
-</template>
+ </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
