@@ -1,10 +1,10 @@
 <template>
 
-
     <div id="loginform" action="/home" method="post">
    
 
       <div class="container">
+      <div >
         <label for="uname"><b>Login</b></label>
         <input type="text" placeholder="Insira o usuário" name="uname" required />
 
@@ -19,6 +19,7 @@
         <button @click="buttonClickLogin"  >Login</button>
         <label>
           <input type="checkbox" checked="checked" name="remember" /> Lembre-me        </label>
+     </div>
       </div>
 
       <div class="container" style="background-color: #f1f1f1">

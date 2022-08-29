@@ -13,10 +13,8 @@
       <Cliente-modal />
       <Funcionario-modal />
     </div>
-
-    <div id="loginbg">
-      <login v-if="!getIsLogado"></login>
-    </div>
+<login v-if="!getIsLogado"></login>
+ 
   </div>
 </template>
 <script>

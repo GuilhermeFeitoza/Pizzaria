@@ -281,7 +281,12 @@ button:hover {
   background-image: url('./assets/imgs/bgLogin.jpg');
   background-repeat: no-repeat;
   height: 100%;
+     -webkit-filter: blur(4px);
   background-size: 100vw;
+   /* Add the blur effect */
+   filter: blur(2px);
+
+ 
 }
 img.avatar {
   width: 40%;
@@ -296,6 +301,7 @@ img.avatar {
   width: 20%;
   height: 35%;
   background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
   /* border-style: solid;
   border-radius: 0.3vw;
