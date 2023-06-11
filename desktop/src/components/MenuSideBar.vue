@@ -1,5 +1,9 @@
 <template>
   <div id="mySidebar" class="sidebar">
+      <router-link to="/home" class="menu-text">
+      
+        <span>Home</span>
+      </router-link>
        <router-link to="/funcionarios" class="menu-text">
       
         <span>Funcionários</span>

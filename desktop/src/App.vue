@@ -1,5 +1,6 @@
 <template>
   <div style="width: 100vw">
+    <login v-if="!getIsLogado"></login>
     <div v-if="getIsLogado">
       <header>
         <NavBar />
@@ -15,7 +16,7 @@
         <Funcionario-modal />
       </div>
     </div>
-    <login v-if="!getIsLogado"></login>
+  
   </div>
 </template>
 <script>

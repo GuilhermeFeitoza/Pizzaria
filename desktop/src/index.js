@@ -41,7 +41,8 @@ component: Login,
 
 
 const router = new VueRouter({
-    routes
+    routes,
+    mode: 'history',
 
 })
 
