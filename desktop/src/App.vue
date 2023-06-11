@@ -1,20 +1,21 @@
 <template>
-  <div style="width:100vw;">
+  <div style="width: 100vw">
     <div v-if="getIsLogado">
       <header>
         <NavBar />
-        <MenuBar />
+        <menu-side-bar></menu-side-bar>
       </header>
       <br />
       <br />
       <br />
       <br />
-      <router-view />
-      <Cliente-modal />
-      <Funcionario-modal />
+      <div style="margin-left:12%">
+        <router-view />
+        <Cliente-modal />
+        <Funcionario-modal />
+      </div>
     </div>
-<login v-if="!getIsLogado"></login>
- 
+    <login v-if="!getIsLogado"></login>
   </div>
 </template>
 <script>
@@ -27,6 +28,7 @@ import FuncionarioModal from "./components/modal/Funcionario-modal.vue";
 import MenuBar from "./components/MenuBar.vue";
 import Login from "./components/login.vue";
 import { mapGetters, mapActions } from "vuex";
+import MenuSideBar from "./components/MenuSideBar.vue";
 
 export default {
   name: "App",
@@ -41,6 +43,7 @@ export default {
     FuncionarioModal,
     MenuBar,
     Login,
+    MenuSideBar,
   },
 };
 </script>

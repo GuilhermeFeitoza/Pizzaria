@@ -1,7 +1,6 @@
 <template>
    <div class="menu">
       <router-link to="/home">
-      <img id ="logo" src="../assets/logo.png"  />
       </router-link>
    
         <div id ="welcome">
@@ -26,11 +25,18 @@ export default {
   },
   methods:{
     ...mapActions('login',['logout']),
-    
-
-
-  }
+   }
 }
 
 </script>
+<style scoped>
+
+#mySideBar{
+    width: 15vw;
+    margin-left: 15vw;
+
+}
+
+
+</style>
 
