@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100vw">
+  <div>
     <login v-if="!getIsLogado"></login>
     <div v-if="getIsLogado">
       <header>

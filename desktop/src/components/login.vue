@@ -1,33 +1,24 @@
 <template>
-
-    <div id="loginform" action="/home" method="post">
-   
-
-      <div class="container">
-      <div >
-        <label for="uname"><b>Login</b></label>
-        <input type="text" placeholder="Insira o usuário" name="uname" required />
-
-        <label for="psw"><b>Senha</b></label>
-        <input
-          type="password"
-          placeholder="Insira senha"
-          name="psw"
-          required
-        />
-
-        <button @click="buttonClickLogin"  >Login</button>
-        <label>
-          <input type="checkbox" checked="checked" name="remember" /> Lembre-me        </label>
-     </div>
-      </div>
-
-      <div class="container" style="background-color: #f1f1f1">
-        <!-- <button   type="button" class="cancelbtn">Cancel</button> -->
-        <span class="psw">Esqueci a <a href="#">senha?</a></span>
+  <div class="login-bg">
+    <div class="loginBox">
+      <div class="fields">
+        <div style="max-width: 70%">
+          <input type="text" placeholder="Login" name="uname" required />
+        </div>
+        <div style="max-width: 70%">
+          <input type="password" placeholder="Senha" name="psw" required />
+        </div>
+        <div style="max-width: 70%">
+          <button @click="buttonClickLogin">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember" />
+            Lembre-me
+          </label>
+        </div>
       </div>
     </div>
- </template>
+  </div>
+</template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
@@ -46,5 +37,21 @@ export default {
 </script>
 
 <style>
+.loginBox {
+  width: 20%;
+  margin: auto;
+  position: fixed;
+  left: 40%;
+  top: 25%;
+  height: 50%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
+}
+.fields{
+    margin: 2vw;
+    position: relative;
+    left: 2vw;
+    top: 2vw;
+}
 </style>

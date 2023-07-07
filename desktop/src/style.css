@@ -273,14 +273,22 @@ float: right;
 
 
 }
+.login-bg{
+  width: 100%;
+  background-image: url('./assets/imgs/bgLogin.jpg');
+  background-repeat: no-repeat;
+  background-size: 100vw;
+
+
+  height: 1000vw;
+
+}
 html,body {
   height:100%;
   width:100%;
   margin:0;
 }
-body {
-  display:flex;
-}
+
 .divLogin{
 
 
@@ -350,20 +358,6 @@ img.avatar {
 }
 
 
-#loginform  {
-  position: relative;
-  left: 40vw;
-  top: 10vw;
-  width: 20%;
-  height: 35%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
-  /* border-style: solid;
-  border-radius: 0.3vw;
-  
-  border-color: #000; */
-}
 
 span.psw {
   float: right;
@@ -380,6 +374,7 @@ span.psw {
      width: 100%;
   }
 }
+
 
 .imgPedidos {
 
