@@ -8,6 +8,7 @@
       
   </div>
   <Grid 
+                :dataSource="getFuncionarios" :id="'grid'"
                 :selectable="'multiple cell'"
                 :sortable="true"
                 :filterable="true"
@@ -23,6 +24,7 @@ export default {
 name:"funcionarios",
 methods: {
     ...mapActions('modal',['toggleModalFuncionario']),
+    ...mapActions('funcionarios',['requestFuncionarios']),
         onChange: function(ev) {
             var selected = $.map(ev.sender.select(), function(item) {
                 return $(item).text();
@@ -34,6 +36,15 @@ this.toggleModalFuncionario();
 
     }
 },
+async mounted(){
+ await this.requestFuncionarios();
+
+},
+computed:{
+...mapGetters('funcionarios',['getFuncionarios'])
+
+},//
+
     data() {
         return{
          

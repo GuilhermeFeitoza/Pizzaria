@@ -42,6 +42,7 @@ namespace WebAPI
             }
             );
             services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<IFuncionarioRepository,FuncionarioRepository>();
             services.AddDbContext<dbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));

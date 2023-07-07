@@ -4,6 +4,7 @@ import login from './modules/login';
 
 import Vue from 'vue';
 import Vuex from 'vuex';
+import funcionarios from './modules/funcionarios';
 
 Vue.use(Vuex);
 
@@ -11,7 +12,8 @@ export default new Vuex.Store({
   modules: {
     modal: { namespaced: true, ...modal },
     cliente:{namespaced:true, ...cliente},
-    login : { namespaced: true , ...login}
+    login : { namespaced: true , ...login},
+    funcionarios:{namespaced:true,...funcionarios}
   }
 });
 
