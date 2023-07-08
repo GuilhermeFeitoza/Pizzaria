@@ -58,3 +58,19 @@ CREATE TABLE tbBebidas(
 	
 
 )
+
+
+CREATE TABLE tbPizza_Ingrediente(
+IdPizzaIngrediente INT IDENTITY PRIMARY KEY,
+IdPizza int foreign key (IdPizza) References tbPizza,
+IdIngrediente int foreign key (IdIngrediente) References tbIngredientes,
+)
+
+CREATE TABLE tbPedido(
+IdPedido INT IDENTITY PRIMARY KEY ,
+StatusPedido CHAR(1),
+ValorPedido Decimal,
+TipoPedido CHAR(1),
+FormaPagamentoPedido Varchar(20),
+)
+
