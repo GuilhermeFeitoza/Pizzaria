@@ -3,7 +3,7 @@
     <br />
     <div id="headerActions">
       <img src="../assets/icons/mais.png" @click="openModal()" />
-      <img src="../assets/icons/lapis.png" />
+
     </div>
     <h1 style="font-family: Calibri">Cardapio</h1>
     <div style="display: inline-flex; max-width: 80%; flex-wrap: wrap">
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import CardPizza from "./partial/card-produto.vue";
 export default {
   data() {
@@ -63,6 +64,15 @@ export default {
   components: {
     CardPizza,
   },
+methods:{      
+  ...mapActions('modal',['toggleModalPizza']),
+  openModal(){
+    this.toggleModalPizza();
+
+  }
+
+
+  }
 };
 </script>
 

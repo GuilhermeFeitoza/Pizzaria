@@ -2,6 +2,7 @@
   <div style="margin-top:1vw">
     <div class="card" style="" >
       <span class="product-name-card">{{ this.nomeProduto }}</span>
+         <img src="../../assets/icons/lapis.png" style="display:none"/>
       <img class="img-card" :src="require(`@/assets/imgs/${imgSrc}`)" />
       <div style="width: 10vw">
         <span class="product-description-card">{{ this.description }}</span>
@@ -36,4 +37,12 @@ export default {
 </script>
 
 <style>
+.isMenuScreen{
+
+width:2vw;
+height:2vw;
+float:right;
+display: block;
+
+}
 </style>

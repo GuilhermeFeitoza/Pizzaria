@@ -6,6 +6,7 @@ import Funcionarios from "./components/Funcionarios.vue"
 import Cardapio  from "./components/Cardapio.vue"
 import Pedidos from "./components/Pedidos.vue"
 import Login from "./components/login.vue"
+import NovoPedido from "./components/NovoPedido.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -33,6 +34,12 @@ component: Pedidos,
 {name:'Login',
 path:'/',
 component: Login,
+},
+{
+    name: 'NovoPedido',
+    path: '/novopedido',
+    component: NovoPedido
+
 }
 
 

@@ -3,6 +3,7 @@ export const modal = 'modal'
 const state =  {
 IsModalClienteOpen:false,
 IsModalFuncionarioOpen:false,
+IsModalPizzaOpen:false,
 
 
 
@@ -10,7 +11,8 @@ IsModalFuncionarioOpen:false,
 const getters = {
 
     getIsModalClienteOpen: (state) => state.IsModalClienteOpen,
-    getIsModalFuncionarioOpen:(state) => state.IsModalFuncionarioOpen
+    getIsModalFuncionarioOpen:(state) => state.IsModalFuncionarioOpen,
+    getPizzaModalOpen:(state) => state.IsModalPizzaOpen
 
 }
 
@@ -19,6 +21,11 @@ const actions = {
     toggleModalCliente({commit}){
       
         commit('toggleModalCliente')   
+       
+    },
+    toggleModalPizza({commit}){
+      
+        commit('toggleModalPizza')   
        
     },
     toggleModalFuncionario({commit}){
@@ -36,6 +43,10 @@ const mutations = {
     
     toggleModalFuncionario(state){
         state.IsModalFuncionarioOpen = !state.IsModalFuncionarioOpen
+
+    },
+    toggleModalPizza(state){
+        state.IsModalPizzaOpen = !state.IsModalPizzaOpen
 
     }
 

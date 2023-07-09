@@ -14,6 +14,7 @@
         <router-view />
         <Cliente-modal />
         <Funcionario-modal />
+        <Pizza-modal/>
       </div>
     </div>
   
@@ -30,6 +31,7 @@ import MenuBar from "./components/MenuBar.vue";
 import Login from "./components/login.vue";
 import { mapGetters, mapActions } from "vuex";
 import MenuSideBar from "./components/MenuSideBar.vue";
+import PizzaModal from './components/modal/Pizza-modal.vue';
 
 export default {
   name: "App",
@@ -45,6 +47,7 @@ export default {
     MenuBar,
     Login,
     MenuSideBar,
+    PizzaModal,
   },
 };
 </script>
