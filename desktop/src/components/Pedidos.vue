@@ -1,10 +1,11 @@
 <template>
   <div style="display: inline">
     <br />
-       <router-link to="/novopedido" class="menu-text" style="float:right">
-       
-        <span >Novo pedido</span>
+    <div id="headerActions">
+      <router-link to="/novopedido" class="menu-text" style="float: right">
+        <span>Novo pedido</span>
       </router-link>
+    </div>
     <card-pedidos
       :dataPedido="'Terça-Feira,11 de agosto de 2022 20:05'"
       :precoPedido="'35,00'"

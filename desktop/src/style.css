@@ -228,6 +228,13 @@ a {
 float: right;
 }
 
+.img-card-cart {
+  width: 11vw;
+  height: 7vw;
+  border-radius: 10px;
+
+}
+
 .card:hover {
   transform: scale(1.05);
   /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
@@ -421,6 +428,13 @@ span.psw {
 
 
 #headerActions>img {
+  height: 20px;
+  width: 20px;
+  margin: 3px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+#headerActions>span {
   height: 20px;
   width: 20px;
   margin: 3px;
