@@ -1,8 +1,8 @@
 <template>
   <div style="padding: 10px" class="card">
-    <img class="img-card-cart" src="../../assets/imgs/frangoc.jpg" />
+    <img class="img-card-cart" :src="require(`@/assets/imgs/${this.img}`)"/>
     <br />
-    <span>Pizza de mussarela </span>
+    <span>{{this.nomeProduto}}</span>
     <br />
     <span class="price"
       ><b>R${{ formatPrice(this.valorProduto) }}</b></span
@@ -17,10 +17,15 @@
 
 <script>
 export default {
+  props:{
+    bebida:false,
+    img:'',
+    valorProduto: 0,
+    nomeProduto:'',
+  },
   data() {
     return {
       quantidade: 0,
-      valorProduto: 50.0,
     };
   },
   methods: {
@@ -71,9 +76,9 @@ export default {
 }
 .card {
   max-width: 60%;
-  width: 37%;
+  width: 20%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 1.2vw;
-  margin-top: 1vw;
+  height: 20vw;
 }
 </style>

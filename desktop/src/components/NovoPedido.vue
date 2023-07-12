@@ -22,27 +22,44 @@
     <br />
     <br />
     <br />
+    <h2
+        v-if="isPizza"
+     > Pizzas</h2>
     <div
+      style="display: inline-flex; max-width: 80%; flex-wrap: wrap"
       v-if="isPizza"
-      style="display: inline-flex; max-width: 80%; flex-wrap: wrap"
+     
     >
-      <Card-pizza-carrinho></Card-pizza-carrinho>
-      <Card-pizza-carrinho></Card-pizza-carrinho>
+    
+      <Card-pizza-carrinho
+       v-for="item in pizzas"
+      v-bind:key="item.id"
+        :nomeProduto="item.nome"
+        :valorProduto="item.preco"
+        :img="item.img"
+      ></Card-pizza-carrinho>
     </div>
-
-    <div
-      v-if="isBebida"
+  
+  <h2  v-if="isBebida"> Bebidas</h2>
+      <div
       style="display: inline-flex; max-width: 80%; flex-wrap: wrap"
+      v-if="isBebida"
+     
     >
-      <Card-pizza-carrinho :bebida = 'true'></Card-pizza-carrinho>
-      <Card-pizza-carrinho :bebida = 'true'></Card-pizza-carrinho>
+      
+      <Card-pizza-carrinho
+       v-for="item in bebidas"
+      v-bind:key="item.id"
+        :nomeProduto="item.nome"
+        :valorProduto="item.preco"
+        :img="item.img"
+      ></Card-pizza-carrinho>
     </div>
     <div
       class="button-container"
       style="
         justify-content: space-around;
         display: flex;
-        float: bottom;
         position: fixed;
         width: 100%;
         bottom: 0;
@@ -60,8 +77,21 @@ export default {
   data() {
     return {
       valorPedido: 0.0,
-      isBebida:false,
-      isPizza:true,
+      isBebida: false,
+      isPizza: true,
+      pizzas: [
+        { img: "frangoc.jpg", nome: "Pizza de frango com catupiry", preco: "35.00" },
+        { img: "calabresa.jpg", nome: "Pizza de calabresa", preco: "35.00" },
+        { img: "portuguesa.jpg", nome: "Pizza de manjericao", preco: "40.00" },
+        { img: "peperoni.jpg", nome: "Pizza de peperoni", preco: "35.00" },
+      ],
+        bebidas: [
+        { img: "bebida.jpg", nome: "Coca-Cola", preco: "10.00" },
+        { img: "bebida.jpg", nome: "Coca-Cola", preco: "10.00" },
+        { img: "bebida.jpg", nome: "Guaraná", preco: "10.00" },
+        { img: "bebida.jpg", nome: "Pepsi", preco: "10.00" },
+        { img: "bebida.jpg", nome: "Dolly", preco: "10.00" },
+      ],
     };
   },
   components: {
@@ -75,7 +105,7 @@ export default {
     changeMenu(menu) {
       if (menu === "pizza") {
         this.isPizza = true;
-        this.isBebida = false; 
+        this.isBebida = false;
       }
       if (menu === "bebida") {
         this.isBebida = true;
