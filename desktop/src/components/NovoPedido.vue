@@ -17,7 +17,7 @@
     </div>
 
     <span class="order-price"
-      >Total do Pedido : <b>R${{ formatPrice(this.getValorPedido) }}</b></span
+      >Total do Pedido : <b>R${{ formatPrice(this.getTotalPedido) }}</b></span
     >
     <br />
     <br />
@@ -33,7 +33,7 @@
     
       <Card-pizza-carrinho
        v-for="item in pizzas"
-      v-bind:key="item.id"
+      :key="item.id"
         :nomeProduto="item.nome"
         :valorProduto="item.preco"
         :img="item.img"
@@ -63,6 +63,7 @@
         position: fixed;
         width: 100%;
         bottom: 0;
+        padding-top:10vh;
       "
     >
       <button class="buttonConfirm" style="width: 50%">Confirmar Pedido</button>
@@ -80,23 +81,24 @@ export default {
       isBebida: false,
       isPizza: true,
       pizzas: [
-        { img: "frangoc.jpg", nome: "Pizza de frango com catupiry", preco: "35.00" },
-        { img: "calabresa.jpg", nome: "Pizza de calabresa", preco: "35.00" },
-        { img: "portuguesa.jpg", nome: "Pizza de manjericao", preco: "40.00" },
-        { img: "peperoni.jpg", nome: "Pizza de peperoni", preco: "35.00" },
+        { img: "frangoc.jpg", nome: "Pizza de frango com catupiry", preco: 35.00 },
+        { img: "calabresa.jpg", nome: "Pizza de calabresa", preco: 35.00 },
+        { img: "portuguesa.jpg", nome: "Pizza de manjericao", preco:40.00 },
+        { img: "peperoni.jpg", nome: "Pizza de peperoni", preco: 35.00 },
       ],
         bebidas: [
-        { img: "bebida.jpg", nome: "Coca-Cola", preco: "10.00" },
-        { img: "bebida.jpg", nome: "Coca-Cola", preco: "10.00" },
-        { img: "bebida.jpg", nome: "Guaraná", preco: "10.00" },
-        { img: "bebida.jpg", nome: "Pepsi", preco: "10.00" },
-        { img: "bebida.jpg", nome: "Dolly", preco: "10.00" },
+        { img: "bebida.jpg", nome: "Coca-Cola", preco: 10.00 },
+        { img: "bebida.jpg", nome: "Coca-Cola", preco: 10.00 },
+        { img: "bebida.jpg", nome: "Guaraná", preco: 10.00 },
+        { img: "bebida.jpg", nome: "Pepsi", preco: 10.00 },
+        { img: "bebida.jpg", nome: "Dolly", preco: 10.00 },
       ],
     };
   },
   components: {
     CardPizzaCarrinho,
   },
+  
   methods: {
     formatPrice(value) {
       let val = (value / 1).toFixed(2).replace(".", ",");
@@ -114,6 +116,8 @@ export default {
     },
   },
   computed: {
+  ...mapGetters('novoPedido',['getTotalPedido']),
+
     getValorPedido() {
       return this.valorPedido;
     },

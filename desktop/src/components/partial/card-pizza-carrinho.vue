@@ -16,11 +16,12 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   props:{
     bebida:false,
     img:'',
-    valorProduto: 0,
+    valorProduto: Number,
     nomeProduto:'',
   },
   data() {
@@ -29,11 +30,17 @@ export default {
     };
   },
   methods: {
+    ...mapActions('novoPedido',['addTotalPedido','removeTotalPedido']),
     addQuantidade() {
       this.quantidade = this.quantidade + 1;
+      this.addTotalPedido(this.valorProduto);
     },
     removeQuantidade() {
-      if (this.quantidade > 0) this.quantidade = this.quantidade - 1;
+      if (this.quantidade > 0){
+       this.quantidade = this.quantidade - 1; 
+        this.removeTotalPedido(this.valorProduto)
+      }
+
     },
     formatPrice(value) {
       let val = (value / 1).toFixed(2).replace(".", ",");
