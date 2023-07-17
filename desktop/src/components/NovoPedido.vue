@@ -22,50 +22,31 @@
     <br />
     <br />
     <br />
-    <h2
-        v-if="isPizza"
-     > Pizzas</h2>
-    <div
-      style="display: inline-flex; max-width: 80%; flex-wrap: wrap"
-      v-if="isPizza"
-     
-    >
-    
+    <h2 v-if="isPizza">Pizzas</h2>
+    <div class="div-produtos" v-if="isPizza">
       <Card-pizza-carrinho
-       v-for="item in pizzas"
-      :key="item.id"
+        v-for="item in pizzas"
+        v-bind:key="item.id"
         :nomeProduto="item.nome"
         :valorProduto="item.preco"
         :img="item.img"
       ></Card-pizza-carrinho>
     </div>
-  
-  <h2  v-if="isBebida"> Bebidas</h2>
-      <div
-      style="display: inline-flex; max-width: 80%; flex-wrap: wrap"
-      v-if="isBebida"
-     
-    >
-      
+
+    <h2 v-if="isBebida">Bebidas</h2>
+    <div v-if="isBebida" class="div-produtos">
       <Card-pizza-carrinho
-       v-for="item in bebidas"
-      v-bind:key="item.id"
-        :nomeProduto="item.nome"
-        :valorProduto="item.preco"
-        :img="item.img"
+        v-for="bebida in bebidas"
+        v-bind:key="bebida.id"
+        :nomeProduto="bebida.nome"
+        :valorProduto="bebida.preco"
+        :img="bebida.img"
       ></Card-pizza-carrinho>
     </div>
-    <div
-      class="button-container"
-      style="
-        justify-content: space-around;
-        display: flex;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-        padding-top:10vh;
-      "
-    >
+    <br />
+    <br />
+    <br />
+    <div class="button-container bottom-buttons">
       <button class="buttonConfirm" style="width: 50%">Confirmar Pedido</button>
       <button style="width: 50%" class="buttonExit">Cancelar Pedido</button>
     </div>
@@ -81,24 +62,24 @@ export default {
       isBebida: false,
       isPizza: true,
       pizzas: [
-        { img: "frangoc.jpg", nome: "Pizza de frango com catupiry", preco: 35.00 },
-        { img: "calabresa.jpg", nome: "Pizza de calabresa", preco: 35.00 },
-        { img: "portuguesa.jpg", nome: "Pizza de manjericao", preco:40.00 },
-        { img: "peperoni.jpg", nome: "Pizza de peperoni", preco: 35.00 },
+        { id:1,img: "frangoc.jpg", nome: "Pizza de frango com catupiry", preco: 35.0,},
+        { id:2,img: "calabresa.jpg", nome: "Pizza de calabresa", preco: 35.0 },
+        { id:3,img: "portuguesa.jpg", nome: "Pizza de manjericao", preco: 40.0 },
+        { id:4,img: "peperoni.jpg", nome: "Pizza de peperoni", preco: 35.0 },
       ],
-        bebidas: [
-        { img: "bebida.jpg", nome: "Coca-Cola", preco: 10.00 },
-        { img: "bebida.jpg", nome: "Coca-Cola", preco: 10.00 },
-        { img: "bebida.jpg", nome: "Guaraná", preco: 10.00 },
-        { img: "bebida.jpg", nome: "Pepsi", preco: 10.00 },
-        { img: "bebida.jpg", nome: "Dolly", preco: 10.00 },
+      bebidas: [
+        { id: 10, img: "bebida.jpg", nome: "Coca-Cola", preco: 10.0 },
+        { id: 12, img: "bebida.jpg", nome: "Coca-Cola", preco: 10.0 },
+        { id: 13, img: "bebida.jpg", nome: "Guaraná", preco: 10.0 },
+        { id: 14, img: "bebida.jpg", nome: "Pepsi", preco: 10.0 },
+        { id: 15, img: "bebida.jpg", nome: "Dolly", preco: 10.0 },
       ],
     };
   },
   components: {
     CardPizzaCarrinho,
   },
-  
+
   methods: {
     formatPrice(value) {
       let val = (value / 1).toFixed(2).replace(".", ",");
@@ -116,7 +97,7 @@ export default {
     },
   },
   computed: {
-  ...mapGetters('novoPedido',['getTotalPedido']),
+    ...mapGetters("novoPedido", ["getTotalPedido"]),
 
     getValorPedido() {
       return this.valorPedido;
@@ -129,10 +110,23 @@ export default {
   font-size: 42px;
   float: right;
 }
+.bottom-buttons {
+  justify-content: space-around;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding-top: 10vh;
+}
 .img-submenu {
   width: 40px;
   height: 40px;
   position: relative;
   top: 10px;
+}
+.div-produtos {
+  display: inline-flex;
+  max-width: 80%;
+  flex-wrap: wrap;
 }
 </style>
