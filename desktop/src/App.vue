@@ -15,6 +15,7 @@
         <Cliente-modal />
         <Funcionario-modal />
         <Pizza-modal/>
+        <Resumo-pedido-modal></Resumo-pedido-modal>
       </div>
     </div>
   
@@ -32,6 +33,7 @@ import Login from "./components/login.vue";
 import { mapGetters, mapActions } from "vuex";
 import MenuSideBar from "./components/MenuSideBar.vue";
 import PizzaModal from './components/modal/Pizza-modal.vue';
+import ResumoPedidoModal from './components/modal/Resumo-pedido-modal.vue';
 
 export default {
   name: "App",
@@ -48,6 +50,7 @@ export default {
     Login,
     MenuSideBar,
     PizzaModal,
+    ResumoPedidoModal,
   },
 };
 </script>

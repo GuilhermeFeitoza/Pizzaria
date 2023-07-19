@@ -1,8 +1,8 @@
 <template>
   <div style="padding: 10px" class="card">
-    <img class="img-card-cart" :src="require(`@/assets/imgs/${this.img}`)"/>
+    <img class="img-card-cart" :src="require(`@/assets/imgs/${this.img}`)" />
     <br />
-    <span>{{this.nomeProduto}}</span>
+    <span>{{ this.nomeProduto }}</span>
     <br />
     <span class="price"
       ><b>R${{ formatPrice(this.valorProduto) }}</b></span
@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 export default {
-  props:{
-    bebida:false,
-    img:'',
+  props: {
+    bebida: false,
+    img: "",
     valorProduto: Number,
-    nomeProduto:'',
+    nomeProduto: "",
   },
   data() {
     return {
@@ -30,17 +30,28 @@ export default {
     };
   },
   methods: {
-    ...mapActions('novoPedido',['addTotalPedido','removeTotalPedido']),
+    ...mapActions("novoPedido", [
+      "addTotalPedido",
+      "removeTotalPedido",
+      "addProdutoPedido",
+    ]),
     addQuantidade() {
       this.quantidade = this.quantidade + 1;
       this.addTotalPedido(this.valorProduto);
+      this.addItemPedido();
+    },
+    addItemPedido() {
+      let pizza = {
+        nome: this.nomeProduto,
+        valor: this.valorProduto,
+      };
+      this.addProdutoPedido(pizza);
     },
     removeQuantidade() {
-      if (this.quantidade > 0){
-       this.quantidade = this.quantidade - 1; 
-        this.removeTotalPedido(this.valorProduto)
+      if (this.quantidade > 0) {
+        this.quantidade = this.quantidade - 1;
+        this.removeTotalPedido(this.valorProduto);
       }
-
     },
     formatPrice(value) {
       let val = (value / 1).toFixed(2).replace(".", ",");
