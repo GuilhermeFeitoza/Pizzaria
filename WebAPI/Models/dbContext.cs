@@ -29,7 +29,7 @@ namespace WebAPI.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-L0N3OP9\\FTZ;Initial Catalog=Pizzaria;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-MT4EHQR\\DB;Initial Catalog=Pizzaria;Integrated Security=True");
             }
         }
 
@@ -60,10 +60,11 @@ namespace WebAPI.Models
 
             modelBuilder.Entity<TbCliente>(entity =>
             {
-                entity.HasNoKey();
 
                 entity.ToTable("tbCliente");
 
+                entity.HasKey(e => e.IdCliente)
+                                    .HasName("PK__tbClient__D5946642D79AE591");
                 entity.Property(e => e.Ativo)
                     .HasMaxLength(1)
                     .IsUnicode(false)

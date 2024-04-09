@@ -17,6 +17,7 @@ using WebAPI.Models;
 using WebAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using AutoMapper;
 
 
 
@@ -43,6 +44,8 @@ namespace WebAPI
             );
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IFuncionarioRepository,FuncionarioRepository>();
+
+            services.AddAutoMapper(typeof(FuncionarioProfile));
             services.AddDbContext<dbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));

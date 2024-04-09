@@ -8,16 +8,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebAPI.Models
 {
-    [Table("tbAvaliacao")]
-    public partial class TbAvaliacao
+    [Keyless]
+    [Table("tbBebidas")]
+    public partial class TbBebida
     {
-        [Key]
-        public int IdAvaliacao { get; set; }
-        [StringLength(30)]
-        public string Titulo { get; set; }
-        [StringLength(50)]
-        public string Comentario { get; set; }
-        public int? Nota { get; set; }
+        public int IdBebida { get; set; }
+        [StringLength(20)]
+        public string Nome { get; set; }
+        [Column(TypeName = "decimal(18, 0)")]
+        public decimal? Preco { get; set; }
         [StringLength(1)]
         public string Ativo { get; set; }
     }

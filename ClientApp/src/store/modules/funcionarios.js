@@ -35,24 +35,17 @@ const actions = {
 
 
     },
-    async addFuncionario({ commit },param) {
+
+
+
+    async addFuncionario({commit},payload) {
         try {
-           
-            let payload = {
-                Nome:param.Nome,
-                Cpf:param.Cpf,
-                Telefone:param.Telefone,
-                Email:param.Email,
-                DataNascimento:param.DataNascimento,
-               
-
-
-            }
+        console.log(payload);
            var request = await axios.post(urlBase + '/api/funcionarios',payload)
       
         
         } catch (error) {
-            console.error(error)
+            throw error;
 
         }
 

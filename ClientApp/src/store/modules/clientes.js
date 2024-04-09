@@ -44,10 +44,11 @@ const actions = {
                 Telefone:param.Telefone,
                 Email:param.Email,
                 DataNascimento:param.DataNascimento,
-               
+                Ativo : "S"
 
 
             }
+            console.log(payload);
            var request = await axios.post(urlBase + '/api/clientes',payload)
       
         

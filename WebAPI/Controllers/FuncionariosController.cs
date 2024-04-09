@@ -6,21 +6,25 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using WebAPI.ViewModel;
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class FuncionariosController : Controller
     {
-        private readonly IFuncionarioRepository repository;
-        public FuncionariosController(IFuncionarioRepository _context)
+        private readonly IFuncionarioRepository _repository;
+        private readonly IMapper _mapper;
+        public FuncionariosController(IFuncionarioRepository context,IMapper mapper)
         {
-            repository = _context;
+            _repository = context;
+            _mapper = mapper;
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TbFuncionario>>> GetFuncionarios()
         {
-            var funcionarios = await repository.GetAll();
+            var funcionarios = await _repository.GetAll();
             if (funcionarios == null)
             {
                 return BadRequest();
@@ -31,7 +35,7 @@ namespace WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<TbFuncionario>> GetFuncionario(int id)
         {
-            var funcionario = await repository.GetById(id);
+            var funcionario = await _repository.GetById(id);
             if (funcionario == null)
             {
                 return NotFound("Cliente não encontrado pelo id informado");
@@ -40,13 +44,17 @@ namespace WebAPI.Controllers
         }
         // POST api/<controller>  
         [HttpPost]
-        public async Task<IActionResult> PostFuncionario([FromBody]TbFuncionario funcionario)
+        public async Task<IActionResult> PostFuncionario([FromBody]FuncionarioViewModel funcionario)
         {
+
+
             if (funcionario == null)
             {
-                return BadRequest("Cliente é null");
-            }            
-            await repository.Insert(funcionario);
+                return BadRequest("Funcionario é null");
+            }      
+
+            var funcionarioModel = _mapper.Map<TbFuncionario>(funcionario);      
+            await _repository.Insert(funcionarioModel);
             return CreatedAtAction(nameof(GetFuncionario), new { Id = funcionario.Id }, funcionario);
         }
         [HttpPut("{id}")]
@@ -54,11 +62,11 @@ namespace WebAPI.Controllers
         {
             if (id != funcionario.Id)
             {
-                return BadRequest($"O código do produto {id} não confere");
+                return BadRequest($"O código do funcionario {id} não confere");
             }
             try
             {
-                await repository.Update(id, funcionario);
+                await _repository.Update(id, funcionario);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -69,12 +77,12 @@ namespace WebAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<TbFuncionario>> DeleteFuncionario(int id)
         {
-            var funcionario = await repository.GetById(id);
+            var funcionario = await _repository.GetById(id);
             if (funcionario == null)
             {
-                return NotFound($"Produto de {id} foi não encontrado");
+                return NotFound($"funcionario de {id} foi não encontrado");
             }
-            await repository.Delete(id);
+            await _repository.Delete(id);
             return Ok(funcionario);
         }
     }
