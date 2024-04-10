@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XWdV314bMXQgY9SLt1JibliaDIfeA0zl1jX/bAs3cUAgKuX4826mfXMV5v2YNaCMT2jf6GHvpo9tW6NSlbnKzA==",
+  "dgSpecHash": "0g3ajlU2rR6/7VRG47l0IxfKPfXcYg6X8TfaVLfSjxp8E32N4P9Zn0PkUfLcOtP/fdo7Qy9ckgUPhaL5LkdEJg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Guilherme Feitoza\\Desktop\\Pizzaria\\Pizzaria.WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
@@ -149,27 +149,27 @@
       "message": "WebAPI depende de AutoMapper.Extensions.Microsoft.DependencyInjection (>= 5.2.0), mas AutoMapper.Extensions.Microsoft.DependencyInjection 5.2.0 não foi encontrado. A melhor correspondência aproximada de AutoMapper.Extensions.Microsoft.DependencyInjection 6.0.0 foi resolvida.",
       "libraryId": "AutoMapper.Extensions.Microsoft.DependencyInjection",
       "targetGraphs": [
-        "net5.0"
+        "net8.0"
       ]
     },
     {
       "code": "NU1902",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'System.IdentityModel.Tokens.Jwt' 6.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
+      "message": "O pacote 'System.IdentityModel.Tokens.Jwt' 6.12.0 tem uma moderado vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
       "libraryId": "System.IdentityModel.Tokens.Jwt",
       "targetGraphs": [
-        "net5.0"
+        "net8.0"
       ]
     },
     {
       "code": "NU1902",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'System.IdentityModel.Tokens.Jwt' 6.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-8g9c-28fc-mcx2",
+      "message": "O pacote 'System.IdentityModel.Tokens.Jwt' 6.12.0 tem uma moderado vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-8g9c-28fc-mcx2",
       "libraryId": "System.IdentityModel.Tokens.Jwt",
       "targetGraphs": [
-        "net5.0"
+        "net8.0"
       ]
     }
   ]

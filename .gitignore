@@ -2,3 +2,10 @@ WebAPI/bin
 WebAPI/obj/
 /config
 /node_modules
+/Pizzaria.WebAPI/bin/Debug/net8.0
+/Pizzaria.WebAPI/obj/Debug/net8.0
+/Pizzaria.Domain/obj/Debug/net8.0
+/Pizzaria.Domain/bin
+.vs/Pizzaria/FileContentIndex/aa1daaf4-6cc0-4af8-bcbd-d3a7eb076a15.vsidx
+.vs/Pizzaria/DesignTimeBuild/.dtbcache.v2
+.vs/Pizzaria/v17/.suo

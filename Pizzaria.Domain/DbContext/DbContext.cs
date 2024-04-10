@@ -5,7 +5,7 @@ using Pizzaria.Domain.Models;
 
 #nullable disable
 
-namespace Pizzaria.Domain.dbContext
+namespace Pizzaria.Domain
 {
     public partial class dbContext : DbContext
     {

@@ -1,6 +1,6 @@
 using AutoMapper;
-using WebAPI.Models;
 using WebAPI.ViewModel;
+using Pizzaria.Domain.Models;
 
 public class FuncionarioProfile: Profile
 {

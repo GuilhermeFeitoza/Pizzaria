@@ -1,5 +1,5 @@
-using WebAPI.Models;
-namespace WebAPI.Repositories
+using Pizzaria.Domain.Models;
+namespace Pizzaria.Domain.Repositories
 {
     public class FuncionarioRepository : GenericRepository<TbFuncionario>, IFuncionarioRepository
     {

@@ -1,13 +1,13 @@
 
-using WebAPI.Models;
-using WebAPI.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using WebAPI.ViewModel;
+using Pizzaria.Domain.Models;
+using Pizzaria.Domain.Repositories;
+using System;
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -68,7 +68,7 @@ namespace WebAPI.Controllers
             {
                 await _repository.Update(id, funcionario);
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception)
             {
                 throw;
             }

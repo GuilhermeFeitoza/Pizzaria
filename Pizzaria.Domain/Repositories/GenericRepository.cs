@@ -1,9 +1,5 @@
-using WebAPI.Models;
-using WebAPI;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-namespace WebAPI.Repositories
+namespace Pizzaria.Domain.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
