@@ -1,10 +1,10 @@
 <template>
-  <div id="myModal" class="modal" v-if="getIsModalFuncionarioOpen">
+  <div id="myModal" class="modal" v-if="getModalFuncionarioOptions.visible">
 
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close" v-on:click="closeModal">&times;</span>
-      <h1>Cadastrar Funcionário </h1>
+      <h1>{{ this.modaltitle }} </h1>
       <div id="form">
         <div>
           <label for="txtCliente">*Nome:</label>
@@ -39,6 +39,9 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import modal from "../../store/modules/modal";
+
+
 
 export default {
   data: function () {
@@ -51,6 +54,8 @@ export default {
       email: "",
       dtAdmissao: "",
       dtNascimento: "",
+      modalAction: 0,
+      modaltitle: ""
     }
   },
   methods: {
@@ -75,8 +80,23 @@ export default {
           Ativo: "S"
         }
         console.dir(payload);
-        await this.addFuncionario(payload);
-        this.toggleModalFuncionario();
+        if (await this.addFuncionario(payload)) {
+          this.toggleModalFuncionario();
+          // app.$toast.open({
+          //   message: 'Cadastrado com sucesso',
+          //   type: 'error',
+          //   // all of other options may go here
+          // });
+
+        } else {
+
+          // app.$toast.open({
+          //   message: 'Something went wrong!',
+          //   type: 'error',
+          //   // all of other options may go here
+          // });
+
+        }
 
       } catch (error) {
         window.alert("erro");
@@ -86,19 +106,52 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('modal', ['getIsModalFuncionarioOpen'])
+    ...mapGetters('modal', ['getModalFuncionarioOptions']),
+    ...mapGetters('funcionarios', ['getSeletedFuncionario']),
+    visible() {
+      return this.getModalFuncionarioOptions.visible;
+    }
+  },
+  watch: {
+
+    visible() {
+
+      if (this.getModalFuncionarioOptions.action.toLowerCase() == 'insert') {
+
+        this.modaltitle = "Cadastrar funcionário";
+      }
+      else if (this.getModalFuncionarioOptions.action.toLowerCase() == 'update') {
+        console.log(this.getSeletedFuncionario);
+        this.modaltitle = "Alterar funcionário";
+        if (this.getSeletedFuncionario != null) {
+          this.nome = this.getSeletedFuncionario.nome;
+          this.usuario = this.getSeletedFuncionario.usuario;
+          this.senha = this.getSeletedFuncionario.senha;
+          this.cpf = this.getSeletedFuncionario.cpf;
+          this.telefone = this.getSeletedFuncionario.telefone;
+          this.email = this.getSeletedFuncionario.email;
+          this.dtAdmissao = this.getSeletedFuncionario.dtAdmissao;
+          this.dtNascimento = this.getSeletedFuncionario.dtNascimento;
+        
+        }
+
+      }
+      else if (this.getModalFuncionarioOptions.action.toLowerCase() == 'view') {
+
+        this.modaltitle = "Consultar funcionário";
+      }
+    }
+
+
 
 
   }
-
 }
 </script>
 
 <style scoped>
 input {
   margin: 10px;
-
-
 }
 
 #form {

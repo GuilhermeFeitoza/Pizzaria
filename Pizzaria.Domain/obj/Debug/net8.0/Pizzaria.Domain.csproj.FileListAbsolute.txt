@@ -19,3 +19,18 @@ C:\Users\Guilherme Feitoza\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\ref
 C:\Users\Guilherme Feitoza\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\Pizzaria.Domain.pdb
 C:\Users\Guilherme Feitoza\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\Pizzaria.Domain.genruntimeconfig.cache
 C:\Users\Guilherme Feitoza\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\ref\Pizzaria.Domain.dll
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\bin\Debug\net8.0\Pizzaria.Domain.deps.json
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\bin\Debug\net8.0\Pizzaria.Domain.runtimeconfig.json
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\bin\Debug\net8.0\Pizzaria.Domain.dll
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\bin\Debug\net8.0\Pizzaria.Domain.pdb
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\Pizzaria.Domain.csproj.AssemblyReference.cache
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\Pizzaria.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\Pizzaria.Domain.AssemblyInfoInputs.cache
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\Pizzaria.Domain.AssemblyInfo.cs
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\Pizzaria.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\Pizzaria.Domain.sourcelink.json
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\Pizzaria.Domain.dll
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\refint\Pizzaria.Domain.dll
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\Pizzaria.Domain.pdb
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\Pizzaria.Domain.genruntimeconfig.cache
+C:\Users\Guilherme\Desktop\Pizzaria\Pizzaria.Domain\obj\Debug\net8.0\ref\Pizzaria.Domain.dll

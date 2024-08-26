@@ -9,3 +9,5 @@ WebAPI/obj/
 .vs/Pizzaria/FileContentIndex/aa1daaf4-6cc0-4af8-bcbd-d3a7eb076a15.vsidx
 .vs/Pizzaria/DesignTimeBuild/.dtbcache.v2
 .vs/Pizzaria/v17/.suo
+Pizzaria.Domain/bin/Debug/net8.0/Pizzaria.Domain.dll
+/Pizzaria.Domain/obj

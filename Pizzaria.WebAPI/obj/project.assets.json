@@ -7865,23 +7865,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Guilherme Feitoza\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Guilherme\\.nuget\\packages\\": {},
+    "E:\\VisualStudio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Guilherme Feitoza\\Desktop\\Pizzaria\\Pizzaria.WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Guilherme\\Desktop\\Pizzaria\\Pizzaria.WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "C:\\Users\\Guilherme Feitoza\\Desktop\\Pizzaria\\Pizzaria.WebAPI\\WebAPI.csproj",
-      "packagesPath": "C:\\Users\\Guilherme Feitoza\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Guilherme Feitoza\\Desktop\\Pizzaria\\Pizzaria.WebAPI\\obj\\",
+      "projectPath": "C:\\Users\\Guilherme\\Desktop\\Pizzaria\\Pizzaria.WebAPI\\WebAPI.csproj",
+      "packagesPath": "C:\\Users\\Guilherme\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Guilherme\\Desktop\\Pizzaria\\Pizzaria.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "E:\\VisualStudio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Guilherme Feitoza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Guilherme\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7897,8 +7897,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Guilherme Feitoza\\Desktop\\Pizzaria\\Pizzaria.Domain\\Pizzaria.Domain.csproj": {
-              "projectPath": "C:\\Users\\Guilherme Feitoza\\Desktop\\Pizzaria\\Pizzaria.Domain\\Pizzaria.Domain.csproj"
+            "C:\\Users\\Guilherme\\Desktop\\Pizzaria\\Pizzaria.Domain\\Pizzaria.Domain.csproj": {
+              "projectPath": "C:\\Users\\Guilherme\\Desktop\\Pizzaria\\Pizzaria.Domain\\Pizzaria.Domain.csproj"
             }
           }
         }
@@ -7907,6 +7907,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -7957,7 +7962,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -7966,7 +7971,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "WebAPI depende de AutoMapper.Extensions.Microsoft.DependencyInjection (>= 5.2.0), mas AutoMapper.Extensions.Microsoft.DependencyInjection 5.2.0 não foi encontrado. A melhor correspondência aproximada de AutoMapper.Extensions.Microsoft.DependencyInjection 6.0.0 foi resolvida.",
+      "message": "WebAPI depends on AutoMapper.Extensions.Microsoft.DependencyInjection (>= 5.2.0) but AutoMapper.Extensions.Microsoft.DependencyInjection 5.2.0 was not found. An approximate best match of AutoMapper.Extensions.Microsoft.DependencyInjection 6.0.0 was resolved.",
       "libraryId": "AutoMapper.Extensions.Microsoft.DependencyInjection",
       "targetGraphs": [
         "net8.0"
@@ -7976,17 +7981,7 @@
       "code": "NU1902",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "O pacote 'System.IdentityModel.Tokens.Jwt' 6.12.0 tem uma moderado vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
-      "libraryId": "System.IdentityModel.Tokens.Jwt",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "O pacote 'System.IdentityModel.Tokens.Jwt' 6.12.0 tem uma moderado vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-8g9c-28fc-mcx2",
+      "message": "Package 'System.IdentityModel.Tokens.Jwt' 6.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
       "libraryId": "System.IdentityModel.Tokens.Jwt",
       "targetGraphs": [
         "net8.0"

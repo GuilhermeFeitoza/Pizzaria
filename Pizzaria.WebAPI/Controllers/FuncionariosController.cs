@@ -58,7 +58,7 @@ namespace WebAPI.Controllers
             return CreatedAtAction(nameof(GetFuncionario), new { Id = funcionario.Id }, funcionario);
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutFuncionario(int id, TbFuncionario funcionario)
+        public async Task<IActionResult> PutFuncionario([FromRoute]int id, [FromBody]TbFuncionario funcionario)
         {
             if (id != funcionario.Id)
             {
