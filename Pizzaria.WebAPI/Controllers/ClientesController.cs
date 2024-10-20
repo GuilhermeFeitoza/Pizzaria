@@ -58,7 +58,7 @@ namespace WebAPI.Controllers
             }
             try
             {
-                await repository.Update(id, cliente);
+                await repository.Update(cliente);
             }
             catch (Exception ex)
             {

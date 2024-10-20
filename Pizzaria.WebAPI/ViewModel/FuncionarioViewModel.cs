@@ -9,8 +9,8 @@ namespace WebAPI.ViewModel{
         public string Nome { get; set; }
         public string Usuario { get; set; }
         public string Senha { get; set; }
-        public DateTime DataAdmissao { get; set; }
-        public DateTime DataNascimento { get; set; }
+        public string DataAdmissao { get; set; }
+        public string  DataNascimento { get; set; }
         public string Ativo { get; set; }
 
 

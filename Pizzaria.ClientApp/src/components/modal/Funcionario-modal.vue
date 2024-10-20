@@ -28,7 +28,7 @@
         </div>
         <div>
           <div class="buttonContainer">
-            <button class="buttonConfirm" @click="addFuncionarioButton">Confirmar</button>
+            <button class="buttonConfirm" @click="confirmarFuncionarioButton">Confirmar</button>
             <button class="buttonExit" @click="closeModal" style="padding-left:20px">Cancelar</button>
           </div>
         </div>
@@ -52,55 +52,52 @@ export default {
       cpf: "",
       telefone: "",
       email: "",
-      dtAdmissao: "",
-      dtNascimento: "",
+      dtAdmissao: null,
+      dtNascimento: null,
       modalAction: 0,
       modaltitle: ""
     }
   },
   methods: {
     ...mapActions('modal', ['toggleModalFuncionario']),
-    ...mapActions('funcionarios', ['addFuncionario']),
+    ...mapActions('funcionarios', ['addFuncionario', 'updateFuncionario', 'getFuncionarioById']),
     closeModal() {
       this.toggleModalFuncionario();
-
-
     },
-    async addFuncionarioButton() {
+    async confirmarFuncionarioButton() {
+      let payload = {
+        IdFunc: this.getSeletedFuncionario,
+        Nome: this.nome,
+        Cpf: this.cpf,
+        Usuario: this.usuario,
+        Senha: this.senha,
+        Email: this.email,
+        DataNascimento: this.dtAdmissao,
+        DataAdmissao: this.dtNascimento,
+        Ativo: "S",
+      }
+      if (this.getModalFuncionarioOptions.action == 'insert') {
+        try {
+          if (await this.addFuncionario(payload)) {
+            this.toggleModalFuncionario();
+            window.alert("Funcionário cadastrado com sucesso");
 
-      try {
-        let payload = {
-          Nome: this.nome,
-          Cpf: this.cpf,
-          Usuario: this.usuario,
-          Senha: this.senha,
-          Email: this.email,
-          DataNascimento: this.dtNascimento,
-          DataAdmissao: this.dtAdmissao,
-          Ativo: "S"
+          } else {
+            window.alert("Erro ao cadastrar");
+          }
+
+        } catch (error) {
+          window.alert("erro");
+
         }
-        console.dir(payload);
-        if (await this.addFuncionario(payload)) {
+      } else if (this.getModalFuncionarioOptions.action == 'update') {
+        if(this.updateFuncionario(payload)){
+          window.alert("Funcionário alterado com sucesso");
           this.toggleModalFuncionario();
-          // app.$toast.open({
-          //   message: 'Cadastrado com sucesso',
-          //   type: 'error',
-          //   // all of other options may go here
-          // });
+        }else{
 
-        } else {
-
-          // app.$toast.open({
-          //   message: 'Something went wrong!',
-          //   type: 'error',
-          //   // all of other options may go here
-          // });
-
+          window.alert("Erro ao cadastrar");
         }
-
-      } catch (error) {
-        window.alert("erro");
-
       }
 
     }
@@ -114,31 +111,31 @@ export default {
   },
   watch: {
 
-    visible() {
+    async visible() {
+      if (this.getModalFuncionarioOptions.visible) {
+        if (this.getModalFuncionarioOptions.action.toLowerCase() == 'insert') {
 
-      if (this.getModalFuncionarioOptions.action.toLowerCase() == 'insert') {
-
-        this.modaltitle = "Cadastrar funcionário";
-      }
-      else if (this.getModalFuncionarioOptions.action.toLowerCase() == 'update') {
-        console.log(this.getSeletedFuncionario);
-        this.modaltitle = "Alterar funcionário";
-        if (this.getSeletedFuncionario != null) {
-          this.nome = this.getSeletedFuncionario.nome;
-          this.usuario = this.getSeletedFuncionario.usuario;
-          this.senha = this.getSeletedFuncionario.senha;
-          this.cpf = this.getSeletedFuncionario.cpf;
-          this.telefone = this.getSeletedFuncionario.telefone;
-          this.email = this.getSeletedFuncionario.email;
-          this.dtAdmissao = this.getSeletedFuncionario.dtAdmissao;
-          this.dtNascimento = this.getSeletedFuncionario.dtNascimento;
-        
+          this.modaltitle = "Cadastrar funcionário";
         }
+        else if (this.getModalFuncionarioOptions.action.toLowerCase() == 'update') {
+          this.modaltitle = "Alterar funcionário";
+          if (this.getSeletedFuncionario != null) {
+            let funcionario = await this.getFuncionarioById(this.getSeletedFuncionario);
+            this.nome = funcionario.Nome
+            this.usuario = funcionario.Usuario
+            this.senha = funcionario.Senha
+            this.cpf = funcionario.Cpf
+            this.telefone = funcionario.Telefone
+            this.email = funcionario.Email
+            this.dtAdmissao = funcionario.DataAdmissao
+            this.dtNascimento = funcionario.DataNascimento
+          }
 
-      }
-      else if (this.getModalFuncionarioOptions.action.toLowerCase() == 'view') {
+        }
+        else if (this.getModalFuncionarioOptions.action.toLowerCase() == 'view') {
 
-        this.modaltitle = "Consultar funcionário";
+          this.modaltitle = "Consultar funcionário";
+        }
       }
     }
 

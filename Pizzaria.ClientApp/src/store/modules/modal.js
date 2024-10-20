@@ -9,6 +9,7 @@ modalFuncionarioOptions:{
 },
 IsModalPizzaOpen:false,
 IsModalResumoOpen:false,
+IsModalIngredienteOpen:false,
 
 
 
@@ -18,16 +19,15 @@ const getters = {
     getIsModalClienteOpen: (state) => state.IsModalClienteOpen,
     getModalFuncionarioOptions:(state) => state.modalFuncionarioOptions,
     getPizzaModalOpen:(state) => state.IsModalPizzaOpen,
-    getResumoModalOpen:(state) => state.IsModalResumoOpen
+    getResumoModalOpen:(state) => state.IsModalResumoOpen,
+    getIngredienteModalIsOpen:(state)  => state.IsModalIngredienteOpen,
 
 }
 
 
 const actions = {
     toggleModalCliente({commit}){
-      
         commit('toggleModalCliente')   
-       
     },
     toggleModalPizza({commit}){
       
@@ -42,6 +42,12 @@ const actions = {
     toggleModalResumo({commit}){
       
         commit('toggleModalResumo')   
+       
+    },
+
+    toggleModalIngrediente({commit}){
+      
+        commit('toggleModalIngrediente')   
        
     },
 
@@ -65,7 +71,12 @@ const mutations = {
     toggleModalResumo(state){
 
         state.IsModalResumoOpen = !state.IsModalResumoOpen
+    },
+    toggleModalIngrediente(state){
+
+        state.IsModalIngredienteOpen = !state.IsModalIngredienteOpen
     }
+
 
 
 

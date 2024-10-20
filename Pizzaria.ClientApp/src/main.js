@@ -15,10 +15,11 @@ import ToastPlugin from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-default.css';
 
 
-import { Grid } from '@progress/kendo-grid-vue-wrapper'
+import { Grid,GridInstaller  } from '@progress/kendo-grid-vue-wrapper'
 import { DatePicker } from '@progress/kendo-vue-dateinputs';
 Vue.component('DatePicker',DatePicker)
 Vue.component('Grid', Grid);
+Vue.use(GridInstaller)
 // const app = createApp({}).mount('#app')
 // app.use(VueToast);
 

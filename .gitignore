@@ -11,3 +11,4 @@ WebAPI/obj/
 .vs/Pizzaria/v17/.suo
 Pizzaria.Domain/bin/Debug/net8.0/Pizzaria.Domain.dll
 /Pizzaria.Domain/obj
+Pizzaria.Domain/bin/Debug/net8.0

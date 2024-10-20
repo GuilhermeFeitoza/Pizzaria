@@ -10,8 +10,16 @@ body {
 
 }
 
+.icon-advanced {
+  background: url('assets/imgs/tomato.svg');
+  background-repeat: no-repeat;
+  background-size: cover; /* stretch the background to cover the whole element */
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+}
 #headerActions {
-  background-color: #ebebeb;
+  background-color: lightgray;
 
 
 }

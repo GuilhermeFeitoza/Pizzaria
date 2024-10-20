@@ -22,7 +22,7 @@ namespace Pizzaria.Domain.Repositories
             await context.Set<T>().AddAsync(obj);
             await context.SaveChangesAsync();
         }
-        public async Task Update(int id, T obj)
+        public async Task Update(T obj)
         {
             context.Set<T>().Update(obj);
             await context.SaveChangesAsync();

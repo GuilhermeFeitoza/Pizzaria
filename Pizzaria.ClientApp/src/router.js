@@ -36,6 +36,12 @@ const routes = [
         path: '/novopedido',
         component: NovoPedido
 
+    },
+    {
+        name: 'Ingredientes',
+        path: '/ingredientes',
+        component: Ingredientes
+
     }
 
 

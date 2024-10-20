@@ -20,9 +20,6 @@
       <span class="text-menu">Clientes</span>
     </router-link>
     <router-link to="/pedidos">
-    <!-- <i class="bi bi-caret-right-fill" style="
-    font-size: 10px;
-"></i> -->
       <i class="bi bi-scooter"></i>
       <span class="text-menu">Pedidos</span>
     </router-link>
@@ -30,6 +27,12 @@
       <div style="width: 10vw">
         <i class="bi bi-plus"></i>
         <span>Novo pedido</span>
+      </div>
+    </router-link>
+    <router-link to="/ingredientes" class="menu-text">
+      <div style="width: 10vw">
+        <i class="icon-advanced"></i>
+        <span>Ingredientes</span>
       </div>
     </router-link>
   </div>

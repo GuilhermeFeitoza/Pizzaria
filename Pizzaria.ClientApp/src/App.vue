@@ -15,6 +15,7 @@
         <Cliente-modal />
         <Funcionario-modal />
         <Pizza-modal/>
+        <ingrediente-modal/>
         <Resumo-pedido-modal></Resumo-pedido-modal>
       </div>
     </div>
@@ -25,7 +26,6 @@
 import NavBar from "./components/NavBar.vue";
 import Home from "./components/Home.vue";
 import ClienteModal from "./components/modal/Cliente-modal.vue";
-
 import "../src/style.css";
 import FuncionarioModal from "./components/modal/Funcionario-modal.vue";
 import MenuBar from "./components/MenuBar.vue";
@@ -34,6 +34,7 @@ import { mapGetters, mapActions } from "vuex";
 import MenuSideBar from "./components/MenuSideBar.vue";
 import PizzaModal from './components/modal/Pizza-modal.vue';
 import ResumoPedidoModal from './components/modal/Resumo-pedido-modal.vue';
+import IngredienteModal from "./components/modal/Ingrediente-modal.vue";
 
 export default {
   name: "App",
@@ -51,6 +52,7 @@ export default {
     MenuSideBar,
     PizzaModal,
     ResumoPedidoModal,
+    IngredienteModal
   },
 };
 </script>

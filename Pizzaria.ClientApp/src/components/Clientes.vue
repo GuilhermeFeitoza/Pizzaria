@@ -49,15 +49,8 @@ export default {
       change: function (e) {
         var rows = e.sender.select();
         rows.each(function (e) {
-         
           var grid = $("#grid").data("kendoGrid");
-      
           var dataItem = grid.dataItem(rows);
-          
-        
-        
-        
-         
         })
       
        

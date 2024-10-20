@@ -2,13 +2,14 @@
     <div>
         <div id="headerActions">
             <img src="../assets/icons/mais.png" @click="openInsertFuncionarioModal()">
-            <img src="../assets/icons/lapis.png" @click = "openUpdateFuncionarioModal()">
-            <img src="../assets/icons/lixo.png" @click="deleteFuncionario()">
+            <img src="../assets/icons/lapis.png" v-show="funcionarioSelecionado != null"
+                @click="openUpdateFuncionarioModal()">
+            <img src="../assets/icons/lixo.png"  @click="deleteFuncionario()">
         </div>
-        <Grid  :dataSource="getFuncionarios" :id="'gridFuncionarios'" :selectable="'multiple cell'"
-            :sortable="true" :filterable="true" :groupable="true">
-
+        <Grid :dataSource="getFuncionarios" :id="'gridFuncionarios'" :selected-field="'selected'" :sortable="true"
+            :filterable="true">
         </Grid>
+        <input type="hidden" id="hdnTeste" />
     </div>
 </template>
 
@@ -18,59 +19,61 @@ import $ from "jquery";
 export default {
     name: "funcionarios",
     methods: {
-        
-    onRowClick(event) {
-      event.dataItem[this.funcionarioSelecionado] =
-        !event.dataItem[this.funcionarioSelecionado];
-    },
+
+
         ...mapActions('modal', ['toggleModalFuncionario']),
-        ...mapActions('funcionarios', ['requestFuncionarios',  'setSeletedFuncionario'
+        ...mapActions('funcionarios', ['requestFuncionarios', 'setSeletedFuncionario', 'deleteFuncionarioAction'
         ]),
-        onChange: function (ev) {
-            var selected = $.map(ev.sender.select(), function (item) {
-                return $(item).text();
-            });
+        onChangeFunc: function (e) {
+            var rows = e.sender.select();
+            var dataItem;
+            rows.each(function (e) {
+                var grid = $("#gridFuncionarios").data("kendoGrid");
+                dataItem = grid.dataItem(rows);
+            })
+            this.funcionarioSelecionado = dataItem.Id;
+            this.setSeletedFuncionario(dataItem.Id);
 
         },
         openInsertFuncionarioModal() {
+
             this.toggleModalFuncionario('insert');
 
         },
         openUpdateFuncionarioModal() {
+
+
             this.toggleModalFuncionario('update');
 
         },
-        deleteFuncionario(){
+        deleteFuncionario() {
 
-           console.log("Deleted") ;
+           if(this.deleteFuncionarioAction(this.funcionarioSelecionado)){
+            alert("Excluido com sucesso");
+            return;
+           }
+           alert("Erro ao excluir funcionário");
         }
     },
     async mounted() {
-        await this.requestFuncionarios();
         $("#gridFuncionarios").kendoGrid({
             columns: [
-                { selectable: true, width: 40 },
-                { field: "IdFuncionario", title: "Id" },
+                { selectable: true, width: 40, },
+                { field: "Id", title: "Id" },
                 { field: "Nome", title: "Nome" },
                 { field: "Usuario", title: "Usuario" },
                 { field: "DataAdmissao", title: "Data de admissão" },
                 { field: "DataNascimento", title: "Data de Nascimento" },
                 { field: "Ativo", title: "Ativo" },
             ],
-            change: function (e) {
-                var rows = e.sender.select();
-                var selected = null;
-                rows.each(function (e) {
-                    var grid = $("#gridFuncionarios").data("kendoGrid");
-                    var dataItem = grid.dataItem(rows);
-                    selected = dataItem;
- 
-                }).bind(this);
-                this.setSeletedFuncionario(selected)
-            },
+            change: this.onChangeFunc,
+
         });
 
+        var grid = $("#gridFuncionarios").data("kendoGrid");
+        grid.bind("change", this.onChangeFunc);
 
+        await this.requestFuncionarios();
     },
     computed: {
         ...mapGetters('funcionarios', ['getFuncionarios'])
@@ -78,7 +81,7 @@ export default {
     },//
 
     data() {
-        
+
         return {
             funcionarioSelecionado: null,
 

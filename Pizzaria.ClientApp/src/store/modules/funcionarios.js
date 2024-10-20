@@ -28,26 +28,45 @@ const actions = {
         }
 
     },
-    async deleteFuncionario({ commit }, param) {
-        console.log('IDFuncionario', param)
-        var response = await axios.delete(urlBase + '/api/funcionarios/' + param);
-        console.log(response);
+    async deleteFuncionarioAction({ commit }, param) {
+        try {
+            var response = await axios.delete(urlBase + '/api/funcionarios/' + param);
+            return true;
+        } catch (error) {
+            return false;
+        }
+    
+
+    },
+
+    async updateFuncionario({ commit }, payload) {
+
+        try {
+
+            console.log(payload,'update');
+            var response = await axios.put(urlBase + '/api/funcionarios', payload)
+            return true;
+
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+
+
 
 
     },
-    
-    async updateFuncionario({commit},payload){
 
-            try {
+    async getFuncionarioById({ commit }, id) {
+        try {
+            var response = await axios.get(urlBase + `/api/funcionarios/${id}`)
+            console.log(response.data)
+            return response.data;
 
-                console.log(payload);
-                var response = await axios.put(urlBase + '/api/funcionarios/' + payload.id , payload)
-        
-            } catch (error) {
-               console.log(error);
-            }
-      
+        } catch (error) {
+            console.error(error)
 
+        }
 
 
     },
@@ -64,6 +83,7 @@ const actions = {
 
     },
     setSeletedFuncionario({ commit }, param) {
+        console.log(param)
         commit('setSeletedFuncionario', param)
 
     }
