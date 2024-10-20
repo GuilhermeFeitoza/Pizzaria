@@ -22,12 +22,23 @@ CREATE TABLE tbFuncionario(
 	Ativo char(1)  NOT NULL,
 );
 
-CREATE TABLE tbIngredientes(
-	IdIngrediente int identity primary key  ,
-	Nome varchar(30)  ,
-	Descricao varchar(20) ,
-	QtdCal int  ,
-	  );
+
+GO
+
+CREATE TABLE [dbo].[tbIngredientes](
+	[IdIngrediente] [int] IDENTITY(1,1) NOT NULL,
+	[Nome] [varchar](30) NULL,
+	[Descricao] [varchar](20) NULL,
+	[QtdCal] [int] NULL,
+	[Preco] [money] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdIngrediente] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
 CREATE TABLE tbPizza(
 	IdPizza int identity primary key,
 	Nome varchar(20),

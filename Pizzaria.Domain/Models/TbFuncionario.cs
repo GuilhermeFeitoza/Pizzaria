@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.SqlTypes;
 using Microsoft.EntityFrameworkCore;
 
 #nullable disable
@@ -29,5 +30,7 @@ namespace Pizzaria.Domain.Models
         [Required]
         [StringLength(1)]
         public string Ativo { get; set; }
+
+     
     }
 }

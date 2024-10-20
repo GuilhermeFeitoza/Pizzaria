@@ -23,6 +23,7 @@ namespace Pizzaria.Domain.Models
         [StringLength(20)]
         public string Descricao { get; set; }
         public int? QtdCal { get; set; }
+        public Decimal Preco { get; set; }
 
         [InverseProperty(nameof(TbPizzaIngrediente.IdIngredienteNavigation))]
         public virtual ICollection<TbPizzaIngrediente> TbPizzaIngredientes { get; set; }

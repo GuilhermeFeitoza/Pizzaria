@@ -1,15 +1,18 @@
 export const modal = 'modal'
 
-const state =  {
-IsModalClienteOpen:false,
-modalFuncionarioOptions:{
-    visible : false,
-    mode: 'insert'
+const state = {
+    IsModalClienteOpen: false,
+    modalFuncionarioOptions: {
+        visible: false,
+        mode: 'insert'
 
-},
-IsModalPizzaOpen:false,
-IsModalResumoOpen:false,
-IsModalIngredienteOpen:false,
+    },
+    IsModalPizzaOpen: false,
+    IsModalResumoOpen: false,
+    modalIngredienteOptions: {
+        visible: false,
+        mode: 'insert'
+    },
 
 
 
@@ -17,73 +20,74 @@ IsModalIngredienteOpen:false,
 const getters = {
 
     getIsModalClienteOpen: (state) => state.IsModalClienteOpen,
-    getModalFuncionarioOptions:(state) => state.modalFuncionarioOptions,
-    getPizzaModalOpen:(state) => state.IsModalPizzaOpen,
-    getResumoModalOpen:(state) => state.IsModalResumoOpen,
-    getIngredienteModalIsOpen:(state)  => state.IsModalIngredienteOpen,
+    getModalFuncionarioOptions: (state) => state.modalFuncionarioOptions,
+    getPizzaModalOpen: (state) => state.IsModalPizzaOpen,
+    getResumoModalOpen: (state) => state.IsModalResumoOpen,
+    getModalIngredientesOptions: (state) => state.modalIngredienteOptions,
 
 }
 
 
 const actions = {
-    toggleModalCliente({commit}){
-        commit('toggleModalCliente')   
+    toggleModalCliente({ commit }) {
+        commit('toggleModalCliente')
     },
-    toggleModalPizza({commit}){
-      
-        commit('toggleModalPizza')   
-       
+    toggleModalPizza({ commit }) {
+
+        commit('toggleModalPizza')
+
     },
-    toggleModalFuncionario({commit},action){
-      
-        commit('toggleModalFuncionario',action)   
-       
+    toggleModalFuncionario({ commit }, action) {
+
+        commit('toggleModalFuncionario', action)
+
     },
-    toggleModalResumo({commit}){
-      
-        commit('toggleModalResumo')   
-       
+    toggleModalResumo({ commit }) {
+
+        commit('toggleModalResumo')
+
     },
 
-    toggleModalIngrediente({commit}){
-      
-        commit('toggleModalIngrediente')   
-       
+    toggleModalIngrediente({ commit }, action) {
+
+        commit('toggleModalIngrediente', action)
+
     },
 
 }
 const mutations = {
 
-    toggleModalCliente(state){
+    toggleModalCliente(state) {
         state.IsModalClienteOpen = !state.IsModalClienteOpen
         console.log(state.IsModalClienteOpen)
     },
-    
-    toggleModalFuncionario(state,action){
+
+    toggleModalFuncionario(state, action) {
         state.modalFuncionarioOptions.visible = !state.modalFuncionarioOptions.visible
         state.modalFuncionarioOptions.action = action;
 
     },
-    toggleModalPizza(state){
+    toggleModalPizza(state) {
         state.IsModalPizzaOpen = !state.IsModalPizzaOpen
 
     },
-    toggleModalResumo(state){
+    toggleModalResumo(state) {
 
         state.IsModalResumoOpen = !state.IsModalResumoOpen
     },
-    toggleModalIngrediente(state){
+    toggleModalIngrediente(state, action) {
 
-        state.IsModalIngredienteOpen = !state.IsModalIngredienteOpen
+        state.modalIngredienteOptions.visible = !state.modalIngredienteOptions.visible
+        state.modalIngredienteOptions.action = action;
     }
 
 
 
 
 }
-export default{
+export default {
     state,
     mutations,
     getters,
-    actions    
+    actions
 }

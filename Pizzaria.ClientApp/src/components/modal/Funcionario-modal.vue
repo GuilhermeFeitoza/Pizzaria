@@ -91,10 +91,10 @@ export default {
 
         }
       } else if (this.getModalFuncionarioOptions.action == 'update') {
-        if(this.updateFuncionario(payload)){
+        if (this.updateFuncionario(payload)) {
           window.alert("Funcionário alterado com sucesso");
           this.toggleModalFuncionario();
-        }else{
+        } else {
 
           window.alert("Erro ao cadastrar");
         }
