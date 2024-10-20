@@ -5,7 +5,7 @@
       <img src="../assets/icons/mais.png" @click="openModal()" />
 
     </div>
-    <h1 style="font-family: Calibri">Cardapio</h1>
+    <h1 style="font-family: Calibri">Pizzas</h1>
     <div style="display: inline-flex; max-width: 80%; flex-wrap: wrap">
       <card-pizza
         :nomeProduto="'Portuguesa'"

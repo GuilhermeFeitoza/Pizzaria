@@ -16,15 +16,17 @@ namespace WebAPI.Controllers
         public IngredientesController(IIngredientesRepository ingredientesRepository)
         {
             _ingredientesRepository = ingredientesRepository;
+            serializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
+
+        JsonSerializerSettings serializerSettings = new JsonSerializerSettings();
+
 
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
 
             var ingredientes = await _ingredientesRepository.GetAll();
-            var serializerSettings = new JsonSerializerSettings();
-            serializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             var json = JsonConvert.SerializeObject(ingredientes, serializerSettings);
             return Ok(json);
 
@@ -55,7 +57,8 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var ingrediente = await _ingredientesRepository.GetById(id);
-            return Ok(ingrediente);
+            var json = JsonConvert.SerializeObject(ingrediente, serializerSettings);
+            return Ok(json);
         }
 
 

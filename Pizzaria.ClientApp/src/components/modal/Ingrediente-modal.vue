@@ -3,7 +3,7 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close" v-on:click="closeModal">&times;</span>
-            <h1>{{ this.title }} Ingrediente</h1>
+            <h1>{{ this.modaltitle }} Ingrediente</h1>
             <div id="form">
                 <div>
                     <label for="txtNome">*Nome:</label>
@@ -43,50 +43,61 @@ export default {
             nome: "",
             preco: 0,
             cal: 0,
+            modaltitle:"",
         };
     },
     methods: {
         ...mapActions("modal", ["toggleModalIngrediente"]),
-        ...mapActions("ingredientes", ["addIngrediente"]),
+        ...mapActions("ingredientes", ["addIngrediente", "getIngredienteById","updateIngrediente"]),
         closeModal() {
             this.toggleModalIngrediente();
         },
         async save() {
+            let payload = {
+                IdIngrediente: this.getSelectedIngrediente,
+                Nome: this.nome,
+                Descricao: "",
+                Preco: this.preco,
+                QtdCal: this.cal
+
+
+            }
             if (this.getModalIngredientesOptions.action == 'insert') {
-                let payload = {
-                    Nome: this.nome,
-                    Descricao: "",
-                    Preco: this.preco,
-                    QtdCal: this.cal
-
-
-                }
                 if (await this.addIngrediente(payload)) {
                     alert("Inserido com sucesso!!")
+                    this.toggleModalIngrediente();
                     return;
                 }
-
                 alert("Erro ao inserir!!")
+            } else if (this.getModalIngredientesOptions.action == 'update') {
+                if (await this.updateIngrediente(payload)) {
+                    alert("Alterado com sucesso!!")
+                    this.toggleModalIngrediente();
+                    return;
+                }
+                alert("Erro ao alterar ingrediente!!")
             }
 
         }
     },
     computed: {
         ...mapGetters("modal", ["getModalIngredientesOptions"]),
-        title() {
-            return this.getModalIngredientesOptions.action == "insert" ? "Cadastrar" : "Alterar"
-
-        },
+        ...mapGetters("ingredientes", ["getSelectedIngrediente"]),
         visible() {
             return this.getModalIngredientesOptions.visible;
         }
     },
     watch: {
-        visible() {
+        async visible() {
             if (this.getModalIngredientesOptions.action == "update") {
-
-                this.getIngrediente();
-
+                this.modaltitle = "Alterar";
+                let ingrediente = await this.getIngredienteById(this.getSelectedIngrediente);
+                this.nome = ingrediente.nome;
+                this.preco = ingrediente.preco;
+                this.cal = ingrediente.qtdCal;
+            }
+            else if (this.getModalIngredientesOptions.action == "insert") {
+                this.modaltitle = "Cadastrar";
             }
 
         }

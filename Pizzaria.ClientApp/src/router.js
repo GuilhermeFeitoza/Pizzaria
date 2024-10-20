@@ -18,8 +18,8 @@ const routes = [
         component: Funcionarios,
     },
     {
-        name: 'Cardapio',
-        path: '/cardapio',
+        name: 'Pizzas',
+        path: '/pizzas',
         component: Cardapio,
     },
     {

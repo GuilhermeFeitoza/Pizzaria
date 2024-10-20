@@ -33,6 +33,7 @@ namespace WebAPI
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
             services.AddScoped<IIngredientesRepository, IngredientesRepository>();
+            services.AddScoped<IPizzaRepository, PizzaRepository>();
             services.AddAutoMapper(typeof(FuncionarioProfile));
             services.AddDbContext<dbContext>(options =>
             {
