@@ -58,6 +58,10 @@ cursor: pointer;
 
 }
 
+.main-container {
+  padding-left: 2vw;
+
+}
 .card-pedidos-status-text{
   font-size: 1vw;
   position: relative;
@@ -66,14 +70,7 @@ cursor: pointer;
 
   
   }
-.card-pedidos {
-  font-size:1vw;
-  max-width: 50%;
-  width: 27%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 1.2vw;
-  margin-top:1vw;
-}
+
 .sidebar {
   height: 100%; /* 100% Full-height */
   width: 12vw; /* 0 width - change this with JavaScript */

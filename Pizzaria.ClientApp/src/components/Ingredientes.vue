@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-container">
     <br />
     <div id="headerActions">
       <img src="../assets/icons/mais.png" @click="openModalAdd()" />

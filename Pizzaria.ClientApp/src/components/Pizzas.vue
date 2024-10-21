@@ -1,12 +1,13 @@
 <template>
-  <div>
+  <div class="main-container">
     <br />
     <div id="headerActions">
       <img src="../assets/icons/mais.png" @click="openModal()" />
 
     </div>
     <h1 style="font-family: Calibri">Pizzas</h1>
-    <div style="display: inline-flex; max-width: 80%; flex-wrap: wrap" v-for="pizza in pizzas" v-bind:key="pizza.IdPizza">
+    <div style="display: inline-flex; max-width: 80%; flex-wrap: wrap" v-for="pizza in pizzas"
+      v-bind:key="pizza.IdPizza">
       <card-pizza :nomeProduto="pizza.Nome" :imgSrc="'calabresa.jpg'" :price="pizza.Preco"
         :description="pizza.Ingredientes"></card-pizza>
     </div>
@@ -19,7 +20,7 @@ import CardPizza from "./partial/card-produto.vue";
 export default {
   data() {
     return {
-      pizzas : [],
+      pizzas: [],
       pedidos: [
         { img: require("../assets/imgs/brigadeiro.jpg") },
         { img: require("../assets/imgs/peperoni.jpg") },
@@ -41,7 +42,7 @@ export default {
 
 
   },
- async mounted() {
+  async mounted() {
 
     this.pizzas = await this.requestPizzas();
 

@@ -1,9 +1,9 @@
 <template>
-  <div >
+  <div class="main-container">
 
-  <Ultimos-pedidos/>
-  <Mais-pedidos/>
-  
+    <Ultimos-pedidos />
+    <Mais-pedidos />
+
 
   </div>
 </template>
@@ -16,12 +16,12 @@ import MaisPedidos from './partial/mais-pedidos.vue'
 
 export default {
   components: {
-    
+
     UltimosPedidos,
     MaisPedidos,
-   
 
-    }
+
+  }
 };
 </script>
 <style scoped>
