@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-container">
     <h1>Novo Pedido</h1>
     <div>
       <span @click="changeMenu('pizza')" style="cursor: pointer"

@@ -1,15 +1,17 @@
 <template>
-  <div class="main-container">
+  <div>
     <br />
     <div id="headerActions">
       <img src="../assets/icons/mais.png" @click="openModalAdd()" />
 
     </div>
-    <h1 style="font-family: Calibri">Ingredientes</h1>
-    <div v-for="ingrediente in ingredientes" :key="ingrediente.id"
-      style="display: inline-flex; max-width: 80%; flex-wrap: wrap">
-      <ingrediente-item :preco="ingrediente.preco" :id="ingrediente.idIngrediente" :nome="ingrediente.nome"
-        :qtdCal="ingrediente.qtdCal"></ingrediente-item>
+    <div class="main-container">
+      <h1 style="font-family: Calibri">Ingredientes</h1>
+      <div v-for="ingrediente in ingredientes" :key="ingrediente.id"
+        style="display: inline-flex; max-width: 80%; flex-wrap: wrap">
+        <ingrediente-item :preco="ingrediente.preco" :id="ingrediente.idIngrediente" :nome="ingrediente.nome"
+          :qtdCal="ingrediente.qtdCal"></ingrediente-item>
+      </div>
     </div>
   </div>
 </template>

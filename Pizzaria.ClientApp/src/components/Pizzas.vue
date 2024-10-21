@@ -1,15 +1,19 @@
 <template>
-  <div class="main-container">
-    <br />
-    <div id="headerActions">
-      <img src="../assets/icons/mais.png" @click="openModal()" />
+  <div>
+    <div>
+      <br />
+      <div id="headerActions">
+        <img src="../assets/icons/mais.png" @click="openModal()" />
 
-    </div>
-    <h1 style="font-family: Calibri">Pizzas</h1>
-    <div style="display: inline-flex; max-width: 80%; flex-wrap: wrap" v-for="pizza in pizzas"
-      v-bind:key="pizza.IdPizza">
-      <card-pizza :nomeProduto="pizza.Nome" :imgSrc="'calabresa.jpg'" :price="pizza.Preco"
-        :description="pizza.Ingredientes"></card-pizza>
+      </div>
+      <div class="main-container">
+        <h1 style="font-family: Calibri">Pizzas</h1>
+        <div style="display: inline-flex; max-width: 80%; flex-wrap: wrap" v-for="pizza in pizzas"
+          v-bind:key="pizza.IdPizza">
+          <card-pizza :nomeProduto="pizza.Nome" :imgSrc="'calabresa.jpg'" :price="pizza.Preco"
+            :description="pizza.Ingredientes"></card-pizza>
+        </div>
+      </div>
     </div>
   </div>
 </template>
