@@ -18,6 +18,15 @@ body {
   height: 20px;
   width: 20px;
 }
+.icon-pizzas{
+  background: url('assets/imgs/pizzas.svg');
+  background-repeat: no-repeat;
+  background-size: cover; /* stretch the background to cover the whole element */
+  display: inline-block;
+  height: 35px;
+  width: 35px;
+
+}
 #headerActions {
   background-color: lightgray;
 

@@ -7,6 +7,7 @@ import Vuex from 'vuex';
 import funcionarios from './modules/funcionarios';
 import novoPedido from './modules/novopedido';
 import ingredientes  from './modules/ingredientes';
+import pizzas from './modules/pizza'
 
 Vue.use(Vuex);
 
@@ -17,7 +18,8 @@ export default new Vuex.Store({
     login : { namespaced: true , ...login},
     funcionarios:{namespaced:true,...funcionarios},
     novoPedido:{namespaced:true,...novoPedido},
-    ingredientes:{namespaced:true,...ingredientes}
+    ingredientes:{namespaced:true,...ingredientes},
+    pizzas: {namespaced:true,...pizzas}
   }
 });
 

@@ -7,36 +7,9 @@
       :numberOfSales="'100'"
       :imgSrc="'portuguesa.jpg'"
       :price="'R$50,00'"
-      :description="'Mussarela,palmito,azeitona,presunto,ovo e ervilha'"
+      :description="''"
     ></card-pizza>
-     <card-pizza
-      :nomeProduto="'Brigadeiro'"
-      :numberOfSales="'100'"
-      :imgSrc="'brigadeiro.jpg'"
-      :price="'R$60,00'"
-      :description="'Brigadeiro,morango e o delicioso chocolate da casa'"
-    ></card-pizza>
-     <card-pizza
-      :nomeProduto="'Portuguesa'"
-      :numberOfSales="'100'"
-      :imgSrc="'portuguesa.jpg'"
-      :price="'R$50,00'"
-      :description="'Mussarela,palmito,azeitona,presunto,ovo e ervilha'"
-    ></card-pizza>
-     <card-pizza
-      :nomeProduto="'Portuguesa'"
-      :numberOfSales="'100'"
-      :imgSrc="'portuguesa.jpg'"
-      :price="'R$50,00'"
-      :description="'Mussarela,palmito,azeitona,presunto,ovo e ervilha'"
-    ></card-pizza>
-     <card-pizza
-      :nomeProduto="'Portuguesa'"
-      :numberOfSales="'100'"
-      :imgSrc="'portuguesa.jpg'"
-      :price="'R$50,00'"
-      :description="'Mussarela,palmito,azeitona,presunto,ovo e ervilha'"
-    ></card-pizza>
+   
     
     </div>
   </div>

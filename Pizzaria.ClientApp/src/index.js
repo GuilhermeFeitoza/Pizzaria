@@ -3,7 +3,7 @@ import Vue from "vue";
 import Home from "./components/Home.vue"
 import Clientes from "./components/Clientes.vue"
 import Funcionarios from "./components/Funcionarios.vue"
-import Cardapio from "./components/Cardapio.vue"
+import Pizzas from "./components/Pizzas.vue"
 import Pedidos from "./components/Pedidos.vue"
 import Login from "./components/login.vue"
 import NovoPedido from "./components/NovoPedido.vue"
@@ -30,9 +30,9 @@ const routes = [
         component: Funcionarios,
     },
     {
-        name: 'Cardapio',
+        name: 'Pizzas',
         path: '/cardapio',
-        component: Cardapio,
+        component: Pizzas,
     },
     {
         name: 'Pedidos',

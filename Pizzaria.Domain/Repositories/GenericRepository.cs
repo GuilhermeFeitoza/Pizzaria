@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 namespace Pizzaria.Domain.Repositories
 {
@@ -33,5 +34,11 @@ namespace Pizzaria.Domain.Repositories
             context.Set<T>().Remove(entity);
             await context.SaveChangesAsync();
         }
+        public IQueryable<T> Query()
+        {
+            return context.Set<T>()
+                .AsNoTracking();// Opcional, dependendo do uso
+        }
+
     }
 }

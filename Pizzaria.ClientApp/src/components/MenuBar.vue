@@ -7,7 +7,7 @@
       </router-link>
       <router-link to="/cardapio" class="menu-text">
         <div class="menu-rounded imgCardapio"></div>
-        <span class="text-menu">Cardapio</span>
+        <span class="text-menu">Pizzas</span>
       </router-link>
 
 

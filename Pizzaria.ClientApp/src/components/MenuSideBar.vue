@@ -11,8 +11,8 @@
       </div>
     </router-link>
     <router-link to="/cardapio" class="menu-text">
-      <i class="bi bi-card-heading"></i>
-      <span class="text-menu">Cardapio</span>
+      <i class="icon-pizzas"></i>
+      <span class="text-menu">Pizzas</span>
     </router-link>
 
     <router-link to="/clientes">

@@ -20,7 +20,7 @@ const routes = [
     {
         name: 'Pizzas',
         path: '/pizzas',
-        component: Cardapio,
+        component: Pizzas,
     },
     {
         name: 'Pedidos',

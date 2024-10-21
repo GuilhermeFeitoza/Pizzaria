@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Pizzaria.Domain.Models;
 using Pizzaria.Domain.Repositories;
 using System;
+using WebAPI.ViewModel;
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -13,25 +14,53 @@ namespace WebAPI.Controllers
     public class PizzaController : Controller
     {
         private readonly IPizzaRepository repository;
-        public PizzaController(IPizzaRepository _context)
+        private readonly IIngredientesRepository ingredienteRepository;
+        private readonly IPizzaIngredientesRepository pizzaIngredienteRepository;
+        public PizzaController(IPizzaRepository _context, IIngredientesRepository _ingredientesRepository, IPizzaIngredientesRepository _pizzaIngredienteRepository)
         {
             repository = _context;
+            ingredienteRepository = _ingredientesRepository;
+            pizzaIngredienteRepository = _pizzaIngredienteRepository;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TbPizza>>> GetPizza()
+        public async Task<ActionResult<IEnumerable<PizzaViewModel>>> GetPizza()
         {
-            var Pizza = await repository.GetAll();
-            if (Pizza == null)
+            var pizza = await repository.GetAll();
+            var listPizza = new List<PizzaViewModel>();
+            foreach (var item in pizza)
+            {
+                var pizzaVm = new PizzaViewModel
+                {
+                    IdPizza = item.IdPizza,
+                    Nome = item.Nome,
+                    Preco = item.Preco,
+                    Tamanho = item.Tamanho,
+                    Ingredientes = new List<string>(),
+
+                };
+                var pizzaIngredientes = ingredienteRepository.Query()
+                .Join(pizzaIngredienteRepository.Query().Where(d => d.IdPizza == item.IdPizza),
+                ingrediente => ingrediente.IdIngrediente,
+                pizza => pizza.IdIngrediente,
+                (ingrediente, pizza) => ingrediente.Nome).Distinct().ToList();
+
+                pizzaVm.Ingredientes = pizzaIngredientes;
+                listPizza.Add(pizzaVm);
+
+            }
+            if (listPizza == null)
             {
                 return BadRequest();
             }
-            return Ok(Pizza.ToList());
+            return Ok(listPizza);
         }
         // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<ActionResult<TbPizza>> GetPizza(int id)
         {
             var Pizza = await repository.GetById(id);
+
+
             if (Pizza == null)
             {
                 return NotFound("Pizza não encontrada pelo id informado");
@@ -40,12 +69,12 @@ namespace WebAPI.Controllers
         }
         // POST api/<controller>  
         [HttpPost]
-        public async Task<IActionResult> PostPizza([FromBody]TbPizza Pizza)
+        public async Task<IActionResult> PostPizza([FromBody] TbPizza Pizza)
         {
             if (Pizza == null)
             {
                 return BadRequest("Pizza é null");
-            }            
+            }
             await repository.Insert(Pizza);
             return CreatedAtAction(nameof(GetPizza), new { Id = Pizza.IdPizza }, Pizza);
         }
