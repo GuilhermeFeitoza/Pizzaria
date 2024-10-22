@@ -69,14 +69,36 @@ namespace WebAPI.Controllers
         }
         // POST api/<controller>  
         [HttpPost]
-        public async Task<IActionResult> PostPizza([FromBody] TbPizza Pizza)
+        public async Task<IActionResult> PostPizza([FromBody] PostPizzaViewModel Pizza)
         {
             if (Pizza == null)
             {
                 return BadRequest("Pizza é null");
             }
-            await repository.Insert(Pizza);
-            return CreatedAtAction(nameof(GetPizza), new { Id = Pizza.IdPizza }, Pizza);
+
+            var pizza = new TbPizza()
+            {
+                Nome = Pizza.Nome,
+                Preco = Pizza.Preco,
+                Tamanho = Pizza.Tamanho,
+            };
+
+            var insertedPizza = await repository.Insert(pizza);
+            foreach (var item in Pizza.Ingredientes)
+            {
+                var pizzaIngredienteObj = new TbPizzaIngrediente
+                {
+                    IdPizza = insertedPizza.IdPizza,
+                    IdIngrediente = item
+
+                };
+
+                await pizzaIngredienteRepository.Insert(pizzaIngredienteObj);
+
+            }
+
+
+            return CreatedAtAction(nameof(GetPizza), new { Id = insertedPizza.IdPizza }, insertedPizza);
         }
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPizza(int id, TbPizza Pizza)
@@ -99,6 +121,14 @@ namespace WebAPI.Controllers
         public async Task<ActionResult<TbPizza>> DeletePizza(int id)
         {
             var Pizza = await repository.GetById(id);
+            
+            var pizzasIngredientes = pizzaIngredienteRepository.Query().Where(d=>d.IdPizza == id).ToList();
+            foreach (var item in pizzasIngredientes)
+            {
+                await pizzaIngredienteRepository.Delete(item.IdPizzaIngrediente);
+            }
+           
+
             if (Pizza == null)
             {
                 return NotFound($"Produto de {id} foi não encontrado");

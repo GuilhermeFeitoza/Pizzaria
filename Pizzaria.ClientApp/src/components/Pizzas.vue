@@ -10,7 +10,7 @@
         <h1 style="font-family: Calibri">Pizzas</h1>
         <div style="display: inline-flex; max-width: 80%; flex-wrap: wrap" v-for="pizza in pizzas"
           v-bind:key="pizza.IdPizza">
-          <card-pizza :nomeProduto="pizza.Nome" :imgSrc="'calabresa.jpg'" :price="pizza.Preco"
+          <card-pizza :id="pizza.IdPizza" :nomeProduto="pizza.Nome" :imgSrc="'noimage.png'" :price="pizza.Preco"
             :description="pizza.Ingredientes"></card-pizza>
         </div>
       </div>

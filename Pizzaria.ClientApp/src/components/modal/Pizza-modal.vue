@@ -17,20 +17,20 @@
           <label for="txtEmail">*Tamanho:</label>
           <div class="container">
             <label class="radio-inline">
-              <input type="radio" name="a" value="P" />Pequena
+              <input type="radio" name="a" value=4 />Pequena
             </label>
             <label class="radio-inline">
-              <input type="radio" name="a" value="M" />Média
+              <input type="radio" name="a" value=8 />Padrão
             </label>
             <label class="radio-inline">
-              <input type="radio" name="a" value="G" />Grande
+              <input type="radio" name="a" value=12 />Grande
             </label>
           </div>
           <div>
             <label for="txtCpf">*Ingredientes:</label>
-            <li style= "list-style-type: none;" v-for="item in items" v-bind:key="item.id">
+            <li style="list-style-type: none;" v-for="item in items" v-bind:key="item.idIngrediente">
               <label class="checkbox-inline">
-                <input type="checkbox" name="a" value="G" />{{ item.nome }}
+                <input type="checkbox" name="a" :value="item.idIngrediente" @change="onChange($event)" />{{ item.nome }}
               </label>
             </li>
           </div>
@@ -39,14 +39,10 @@
 
         <div>
           <div class="buttonContainer">
-            <button class="buttonConfirm" @click="toggleModalPizza">
+            <button class="buttonConfirm" @click="cadastrarPizza">
               Confirmar
             </button>
-            <button
-              class="buttonExit"
-              @click="closeModal"
-              style="padding-left: 20px"
-            >
+            <button class="buttonExit" @click="closeModal" style="padding-left: 20px">
               Sair
             </button>
           </div>
@@ -57,6 +53,7 @@
 </template>
 
 <script>
+import { event } from "jquery";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -64,21 +61,55 @@ export default {
     return {
       nome: "",
       preco: 0,
-      tamanho: "",
-      items: [
-        {id:1,nome:'Calabresa'},
-        {id:2,nome:'Mussarela'}
-        ],
+      tamanho: 8,
+      items: [],
+      selectedIngredientes: []
+
     };
   },
   methods: {
     ...mapActions("modal", ["toggleModalPizza"]),
+    ...mapActions("ingredientes", ["requestIngredientes"]),
+    ...mapActions("pizzas", ["addPizza"]),
     closeModal() {
       this.toggleModalPizza();
     },
+    onChange(e) {
+
+      let idIngrediente = e.target.value;
+      if (e.target.checked) {
+        this.selectedIngredientes.push(idIngrediente)
+      } else {
+        const index = this.selectedIngredientes.indexOf(idIngrediente);
+        if (index > -1) { // only splice array when item is found
+          this.selectedIngredientes.splice(index, 1); // 2nd parameter means remove one item only
+        }
+
+      }
+
+    },
+    cadastrarPizza() {
+
+      let payload = {
+        Nome: this.nome,
+        Preco: this.preco,
+        Tamanho: this.tamanho,
+        Ingredientes: this.selectedIngredientes
+
+      };
+
+      this.addPizza(payload);
+    }
+
+  },
+  watch: {
+    async getPizzaModalOpen() {
+      this.items = await this.requestIngredientes();
+    }
   },
   computed: {
     ...mapGetters("modal", ["getPizzaModalOpen"]),
+
   },
 };
 </script>
@@ -87,6 +118,7 @@ export default {
 input {
   margin: 10px;
 }
+
 #form {
   width: 100%;
 }

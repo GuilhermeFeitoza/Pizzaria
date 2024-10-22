@@ -22,7 +22,7 @@ const actions = {
                 Preco: param.Preco,
                 QtdCal: param.QtdCal
             }
-            var request = await axios.put(urlBase + '/api/Pizzas', payload)
+            var request = await axios.put(urlBase + '/api/Pizza', payload)
             return true;
         } catch (error) {
             return false;
@@ -71,7 +71,7 @@ const actions = {
     },
     async deletePizza({ commit }, param) {
         try {
-            var response = await axios.delete(urlBase + '/api/Pizzas/' + param);
+            var response = await axios.delete(urlBase + '/api/Pizza/' + param);
             return true;
         } catch (error) {
             return false;
@@ -80,13 +80,8 @@ const actions = {
     },
     async addPizza({ commit }, param) {
         try {
-            let payload = {
-                Nome : param.Nome,
-                Preco : param.Preco,
-                Tamanho: param.Tamanho,
-            }
-            console.log(payload);
-            var request = await axios.post(urlBase + '/api/Pizzas', payload)
+            console.log(param);
+            var request = await axios.post(urlBase + '/api/Pizza', param)
             return true;
         } catch (error) {
             return false;

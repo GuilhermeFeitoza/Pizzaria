@@ -18,10 +18,11 @@ namespace Pizzaria.Domain.Repositories
         {
             return await context.Set<T>().FindAsync(id);
         }
-        public async Task Insert(T obj)
+        public async Task<T> Insert(T obj)
         {
             await context.Set<T>().AddAsync(obj);
             await context.SaveChangesAsync();
+            return obj;
         }
         public async Task Update(T obj)
         {
