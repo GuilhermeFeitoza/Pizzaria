@@ -16,11 +16,13 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 import CardPizza from "./partial/card-produto.vue";
+import PizzaModal from "../components/modal/Pizza-modal.vue";
 export default {
   data() {
     return {
@@ -35,15 +37,14 @@ export default {
   },
   components: {
     CardPizza,
+    PizzaModal
   },
   methods: {
     ...mapActions('modal', ['toggleModalPizza']),
-    ...mapActions('pizzas', ['requestPizzas']),
+    ...mapActions('pizzas', ['requestPizzas','getPizzaById']),
     openModal() {
-      this.toggleModalPizza();
-
+      this.toggleModalPizza("insert");
     }
-
 
   },
   async mounted() {

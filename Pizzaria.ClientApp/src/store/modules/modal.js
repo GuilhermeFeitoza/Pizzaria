@@ -1,18 +1,25 @@
 export const modal = 'modal'
 
 const state = {
-    IsModalClienteOpen: false,
+
     modalFuncionarioOptions: {
         visible: false,
-        mode: 'insert'
+        action: 'insert'
+
+    },
+  
+    modalIngredienteOptions: {
+        visible: false,
+        action: 'insert'
+    },
+    modalPizzaOptions: {
+        visible: false,
+        action: 'insert'
 
     },
     IsModalPizzaOpen: false,
     IsModalResumoOpen: false,
-    modalIngredienteOptions: {
-        visible: false,
-        mode: 'insert'
-    },
+    IsModalClienteOpen: false,
 
 
 
@@ -21,7 +28,7 @@ const getters = {
 
     getIsModalClienteOpen: (state) => state.IsModalClienteOpen,
     getModalFuncionarioOptions: (state) => state.modalFuncionarioOptions,
-    getPizzaModalOpen: (state) => state.IsModalPizzaOpen,
+    getPizzaModalOptions: (state) => state.modalPizzaOptions,
     getResumoModalOpen: (state) => state.IsModalResumoOpen,
     getModalIngredientesOptions: (state) => state.modalIngredienteOptions,
 
@@ -32,9 +39,8 @@ const actions = {
     toggleModalCliente({ commit }) {
         commit('toggleModalCliente')
     },
-    toggleModalPizza({ commit }) {
-
-        commit('toggleModalPizza')
+    toggleModalPizza({ commit },action) {
+        commit('toggleModalPizza',action)
 
     },
     toggleModalFuncionario({ commit }, action) {
@@ -67,9 +73,10 @@ const mutations = {
         state.modalFuncionarioOptions.action = action;
 
     },
-    toggleModalPizza(state) {
-        state.IsModalPizzaOpen = !state.IsModalPizzaOpen
-
+    toggleModalPizza(state,action) {
+        state.modalPizzaOptions.action = action;
+        state.modalPizzaOptions.visible = !state.modalPizzaOptions.visible;
+       
     },
     toggleModalResumo(state) {
 

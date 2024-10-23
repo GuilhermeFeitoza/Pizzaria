@@ -58,14 +58,54 @@ namespace WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<TbPizza>> GetPizza(int id)
         {
-            var Pizza = await repository.GetById(id);
+            //var Pizza = await repository.GetById(id);
+            // var pizza =  repository.Query().Where(d=>d.IdPizza == id)
+            //     .Join(pizzaIngredienteRepository.Query().Where(d => d.IdPizza == id),
+            //     pizza => pizza.IdPizza,
+            //     pizzaIngre => pizzaIngre.IdPizza,
+            //     (pizza, ingrediente ) => new {pizza, ingrediente})
+            //     .Join(ingredienteRepository.Query(), 
+            //     b => b.ingrediente.IdIngrediente , c=>c.IdIngrediente,  (pizza, ingredienteNome ) =>
+            //     new PizzaViewModel{
+            //         IdPizza =  pizza.pizza.IdPizza,
+            //         Nome = pizza.pizza.Nome,
+            //         Tamanho = pizza.pizza.Tamanho,
+            //         Preco = pizza.pizza.Preco,
+            //         Ingredientes = ingredienteNome.,
+            //     }
+
+            //     );
+
+            var item = await repository.GetById(id);
+            var listPizza = new List<PizzaViewModel>();
+
+            var pizzaVm = new PizzaViewModel
+            {
+                IdPizza = item.IdPizza,
+                Nome = item.Nome,
+                Preco = item.Preco,
+                Tamanho = item.Tamanho,
+                Ingredientes = new List<string>(),
+
+            };
+
+            var pizzaIngredientes = ingredienteRepository.Query()
+            .Join(pizzaIngredienteRepository.Query().Where(d => d.IdPizza == item.IdPizza),
+            ingrediente => ingrediente.IdIngrediente,
+            pizza => pizza.IdIngrediente,
+            (ingrediente, pizza) => ingrediente.Nome).Distinct().ToList();
+
+            pizzaVm.Ingredientes = pizzaIngredientes;
+            listPizza.Add(pizzaVm);
 
 
-            if (Pizza == null)
+
+
+            if (item == null)
             {
                 return NotFound("Pizza não encontrada pelo id informado");
             }
-            return Ok(Pizza);
+            return Ok(pizzaVm);
         }
         // POST api/<controller>  
         [HttpPost]
@@ -121,13 +161,13 @@ namespace WebAPI.Controllers
         public async Task<ActionResult<TbPizza>> DeletePizza(int id)
         {
             var Pizza = await repository.GetById(id);
-            
-            var pizzasIngredientes = pizzaIngredienteRepository.Query().Where(d=>d.IdPizza == id).ToList();
+
+            var pizzasIngredientes = pizzaIngredienteRepository.Query().Where(d => d.IdPizza == id).ToList();
             foreach (var item in pizzasIngredientes)
             {
                 await pizzaIngredienteRepository.Delete(item.IdPizzaIngrediente);
             }
-           
+
 
             if (Pizza == null)
             {

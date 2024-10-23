@@ -21,7 +21,7 @@
 <script>
 import { mapActions } from "vuex";
 export default {
-  
+
   props: {
     id: Number,
     nomeProduto: String,
@@ -32,7 +32,12 @@ export default {
 
   },
   methods: {
-    ...mapActions('pizzas', ["deletePizza"]),
+    ...mapActions('pizzas', ["deletePizza", 'setSelectedPizza']),
+    ...mapActions('modal', ['toggleModalPizza']),
+    updateIngredienteClick(id) {
+      this.setSelectedPizza(id);
+      this.toggleModalPizza("update");
+    },
     async deletePizzaClick(id) {
 
       if (await this.deletePizza(id)) {
