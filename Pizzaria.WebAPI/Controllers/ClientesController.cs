@@ -25,7 +25,15 @@ namespace WebAPI.Controllers
             {
                 return BadRequest();
             }
-            return Ok(Clientes.ToList());
+            return Ok(Clientes.Select(d => new
+            {
+                d.IdCliente,
+                d.Nome,
+                d.Cpf,
+                d.DataNascimento
+            }
+
+            ).ToList());
         }
         // GET: api/Products/5
         [HttpGet("{id}")]
@@ -40,22 +48,19 @@ namespace WebAPI.Controllers
         }
         // POST api/<controller>  
         [HttpPost]
-        public async Task<IActionResult> PostCliente([FromBody]TbCliente cliente)
+        public async Task<IActionResult> PostCliente([FromBody] TbCliente cliente)
         {
             if (cliente == null)
             {
                 return BadRequest("Cliente é null");
-            }            
+            }
             await repository.Insert(cliente);
             return CreatedAtAction(nameof(GetCliente), new { Id = cliente.IdCliente }, cliente);
         }
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCliente(int id, TbCliente cliente)
+        [HttpPut]
+        public async Task<IActionResult> PutCliente(TbCliente cliente)
         {
-            if (id != cliente.IdCliente)
-            {
-                return BadRequest($"O código do produto {id} não confere");
-            }
+           
             try
             {
                 await repository.Update(cliente);

@@ -2,10 +2,11 @@
   <div>
     <div id="headerActions">
       <img src="../assets/icons/mais.png" v-on:click="openModal" />
-      <img src="../assets/icons/lapis.png" />
-      <img src="../assets/icons/lixo.png" v-on:click="removerCliente" />
+      <img src="../assets/icons/lapis.png" @click="editarCliente"/>
+      <img src="../assets/icons/lixo.png" @click="removerCliente" />
     </div>
-    <Grid :dataSource="getClientes" :id="'grid'"> </Grid>
+    <Grid :dataSource="getClientes" :id="'gridClientes'" :selected-field="'selected'" :sortable="true"
+      :filterable="true"> </Grid>
   </div>
 </template>
 
@@ -16,27 +17,39 @@ export default {
   name: "clientes",
   methods: {
     ...mapActions("modal", ["toggleModalCliente"]),
-    ...mapActions("cliente", ["requestClientes","deleteCliente","setSeletedCliente"]),
-    
+    ...mapActions("cliente", ["requestClientes", "deleteCliente", "setSeletedCliente","getClienteById"]),
+    onChangeFunc: function (e) {
+      var rows = e.sender.select();
+      var dataItem;
+      rows.each(function (e) {
+        var grid = $("#gridClientes").data("kendoGrid");
+        dataItem = grid.dataItem(rows);
+      })
+      this.clienteSelecionado = dataItem.IdCliente;
+      this.setSeletedCliente(dataItem.IdCliente);
+
+    },
+
     onRowClick(event) {
       event.dataItem[this.clienteSelecionado] =
         !event.dataItem[this.clienteSelecionado];
     },
-    async removerCliente(){
-
-        await this.deleteCliente(this.clienteSelecionado);
-
-
+    async removerCliente() {
+      await this.deleteCliente(this.clienteSelecionado);
     },
     openModal() {
-      this.toggleModalCliente();
+      this.toggleModalCliente('insert');
+    },
+    editarCliente() {
+      this.toggleModalCliente('update');
     },
   },
   computed: {
     ...mapGetters("cliente", ["getClientes"]),
   },
   async mounted() {
-    $("#grid").kendoGrid({
+    $( document ).ready(
+    $("#gridClientes").kendoGrid({
       columns: [
         { selectable: true, width: 40 },
         { field: "IdCliente", title: "Id" },
@@ -46,16 +59,10 @@ export default {
         { field: "Email", title: "Email" },
         { field: "Ativo", title: "Ativo" },
       ],
-      change: function (e) {
-        var rows = e.sender.select();
-        rows.each(function (e) {
-          var grid = $("#grid").data("kendoGrid");
-          var dataItem = grid.dataItem(rows);
-        })
-      
-       
-      },
-    });
+      change: this.onChangeFunc
+
+    })
+  );
     await this.requestClientes();
   },
 
@@ -67,5 +74,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

@@ -7,7 +7,7 @@
       :numberOfSales="'100'"
       :imgSrc="'portuguesa.jpg'"
       :price="'R$50,00'"
-      :description="''"
+      :description="[]"
     ></card-pizza>
    
     

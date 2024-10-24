@@ -1,9 +1,9 @@
 <template>
-  <div id="myModal" class="modal" v-if="getIsModalClienteOpen">
+  <div id="myModal" class="modal" v-if="getModalClienteOptions.visible">
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close" v-on:click="closeModal">&times;</span>
-      <h1>Cadastrar cliente</h1>
+      <h1>{{ this.title }} cliente</h1>
       <div id="form">
         <div>
           <label for="txtCliente">*Nome:</label>
@@ -27,14 +27,10 @@
         </div>
         <div>
           <div class="buttonContainer">
-            <button class="buttonConfirm" @click="cadastrarCliente">
+            <button class="buttonConfirm" @click="confirmButton">
               Confirmar
             </button>
-            <button
-              class="buttonExit"
-              @click="cancelar"
-              style="padding-left: 20px"
-            >
+            <button class="buttonExit" @click="cancelar" style="padding-left: 20px">
               Sair
             </button>
           </div>
@@ -58,13 +54,38 @@ export default {
       ativo: "S",
     };
   },
+
   methods: {
     ...mapActions("modal", ["toggleModalCliente"]),
-    ...mapActions("cliente", ["addCliente"]),
+    ...mapActions("cliente", ["addCliente", "getClienteById", "update"]),
     closeModal() {
       this.toggleModalCliente();
     },
-    cadastrarCliente() {
+    confirmButton() {
+
+      if (this.getModalClienteOptions.action == 'insert') {
+        this.cadastrarCliente();
+
+      } else {
+        this.alterarCliente();
+      }
+    },
+    async alterarCliente() {
+      let payload = {
+        IdCliente: this.getSeletedCliente,
+        Nome: this.nome,
+        Cpf: this.cpf,
+        Email: this.email,
+        Telefone: this.telefone,
+        DataNascimento: this.data,
+        Ativo: this.ativo,
+      };
+      await this.update(payload);
+
+      this.toggleModalCliente();
+    },
+
+    async cadastrarCliente() {
       let payload = {
         Nome: this.nome,
         Cpf: this.cpf,
@@ -73,8 +94,7 @@ export default {
         DataNascimento: this.data,
         Ativo: this.ativo,
       };
-      console.log(payload);
-      this.addCliente(payload);
+      await this.addCliente(payload);
       this.toggleModalCliente();
     },
     cancelar() {
@@ -82,8 +102,33 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("modal", ["getIsModalClienteOpen"]),
+    ...mapGetters("modal", ["getModalClienteOptions"]),
+    ...mapGetters("cliente", ["getSeletedCliente"]),
+    visible() {
+      return this.getModalClienteOptions.visible;
+    }
   },
+  watch: {
+
+    async visible() {
+      if (this.getModalClienteOptions.action == "insert") {
+        this.title = "Cadastrar"
+      } else {
+        this.title = "Alterar"
+        console.log(this.getSeletedCliente)
+        var cliente = await this.getClienteById(this.getSeletedCliente);
+        this.nome = cliente.Nome
+        this.cpf = cliente.Cpf
+        this.email = cliente.Email
+        this.telefone = cliente.Telefone
+        this.data = cliente.Data
+        this.ativo = cliente.Ativo
+
+      }
+
+    }
+
+  }
 };
 </script>
 
@@ -91,6 +136,7 @@ export default {
 input {
   margin: 10px;
 }
+
 #form {
   width: 100%;
 }

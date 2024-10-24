@@ -5,9 +5,7 @@ const state = {
     modalFuncionarioOptions: {
         visible: false,
         action: 'insert'
-
     },
-  
     modalIngredienteOptions: {
         visible: false,
         action: 'insert'
@@ -15,18 +13,21 @@ const state = {
     modalPizzaOptions: {
         visible: false,
         action: 'insert'
+    },
 
+    modalClienteOptions: {
+        visible: false,
+        action: 'insert'
     },
     IsModalPizzaOpen: false,
     IsModalResumoOpen: false,
-    IsModalClienteOpen: false,
 
 
 
 }
 const getters = {
 
-    getIsModalClienteOpen: (state) => state.IsModalClienteOpen,
+    getModalClienteOptions: (state) => state.modalClienteOptions,
     getModalFuncionarioOptions: (state) => state.modalFuncionarioOptions,
     getPizzaModalOptions: (state) => state.modalPizzaOptions,
     getResumoModalOpen: (state) => state.IsModalResumoOpen,
@@ -36,11 +37,11 @@ const getters = {
 
 
 const actions = {
-    toggleModalCliente({ commit }) {
-        commit('toggleModalCliente')
+    toggleModalCliente({ commit },action) {
+        commit('toggleModalCliente',action)
     },
-    toggleModalPizza({ commit },action) {
-        commit('toggleModalPizza',action)
+    toggleModalPizza({ commit }, action) {
+        commit('toggleModalPizza', action)
 
     },
     toggleModalFuncionario({ commit }, action) {
@@ -63,9 +64,9 @@ const actions = {
 }
 const mutations = {
 
-    toggleModalCliente(state) {
-        state.IsModalClienteOpen = !state.IsModalClienteOpen
-        console.log(state.IsModalClienteOpen)
+    toggleModalCliente(state,action) {
+        state.modalClienteOptions.visible = !state.modalClienteOptions.visible
+        state.modalClienteOptions.action = action;
     },
 
     toggleModalFuncionario(state, action) {
@@ -73,10 +74,10 @@ const mutations = {
         state.modalFuncionarioOptions.action = action;
 
     },
-    toggleModalPizza(state,action) {
+    toggleModalPizza(state, action) {
         state.modalPizzaOptions.action = action;
         state.modalPizzaOptions.visible = !state.modalPizzaOptions.visible;
-       
+
     },
     toggleModalResumo(state) {
 
