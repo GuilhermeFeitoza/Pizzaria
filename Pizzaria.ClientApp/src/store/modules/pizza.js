@@ -50,16 +50,14 @@ const actions = {
         } catch (error) {
 
             return [
-                { idPizza: 1, nome: "Camarão", preco: 10.00, qtdCal: 89 },
-                { idPizza: 2, nome: "Calabresa", preco: 10.00, qtdCal: 89 },
-                { idPizza: 3, nome: "Cheedar", preco: 10.00, qtdCal: 89 },
-                { idPizza: 4, nome: "Catupiry", preco: 10.00, qtdCal: 89 },
-                { idPizza: 5, nome: "Cebola", preco: 10.00, qtdCal: 89 },
-                { idPizza: 6, nome: "Alho", preco: 5.00, qtdCal: 89 },
-                { idPizza: 7, nome: "Peperoni", preco: 10.00, qtdCal: 89 },
-                { idPizza: 8, nome: "Cream cheese", preco: 10.00, qtdCal: 89 },
-                { idPizza: 9, nome: "Azeitona", preco: 10.00, qtdCal: 89 },
-                { idPizza: 10, nome: "Mussarela", preco: 10.00, qtdCal: 89 },
+                { IdPizza: 1,  Nome: "Pizza de Camarão", Preco: 10.00, QtdCal: 89 },
+                { IdPizza: 2,  Nome: "Pizza de Calabresa", Preco: 10.00, QtdCal: 89 },
+                { IdPizza: 3,  Nome: "Pizza de Cheedar", Preco: 10.00, QtdCal: 89 },
+                { IdPizza: 4,  Nome: "Pizza de Catupiry", Preco: 10.00, QtdCal: 89 },
+                { IdPizza: 5,  Nome: "Pizza de Cebola", Preco: 10.00, QtdCal: 89 },
+                { IdPizza: 6,  Nome: "Pizza de Alho", Preco: 5.00, QtdCal: 89 },
+                { IdPizza: 7,  Nome: "Pizza de Peperoni", Preco: 10.00, QtdCal: 89 },
+                { IdPizza: 8,  Nome: "Pizza de Cream cheese", Preco: 10.00, QtdCal: 89 },
 
             ];
             console.error(error)

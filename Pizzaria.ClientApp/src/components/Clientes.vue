@@ -1,12 +1,11 @@
 <template>
   <div>
     <div id="headerActions">
-      <img src="../assets/icons/mais.png" v-on:click="openModal" />
-      <img src="../assets/icons/lapis.png" @click="editarCliente"/>
+      <img src="../assets/icons/mais.png" @click="openModal" />
+      <img src="../assets/icons/lapis.png" @click="editarCliente" />
       <img src="../assets/icons/lixo.png" @click="removerCliente" />
     </div>
-    <Grid :dataSource="getClientes" :id="'gridClientes'" :selected-field="'selected'" :sortable="true"
-      :filterable="true"> </Grid>
+    <Grid :dataSource="getClientes" :id="'gridClientes'" :selected-field="'selected'" :filterable="true"> </Grid>
   </div>
 </template>
 
@@ -17,7 +16,8 @@ export default {
   name: "clientes",
   methods: {
     ...mapActions("modal", ["toggleModalCliente"]),
-    ...mapActions("cliente", ["requestClientes", "deleteCliente", "setSeletedCliente","getClienteById"]),
+    ...mapActions("cliente", ["requestClientes", "deleteCliente", "setSeletedCliente", "getClienteById"]),
+
     onChangeFunc: function (e) {
       var rows = e.sender.select();
       var dataItem;
@@ -30,10 +30,6 @@ export default {
 
     },
 
-    onRowClick(event) {
-      event.dataItem[this.clienteSelecionado] =
-        !event.dataItem[this.clienteSelecionado];
-    },
     async removerCliente() {
       await this.deleteCliente(this.clienteSelecionado);
     },
@@ -43,28 +39,29 @@ export default {
     editarCliente() {
       this.toggleModalCliente('update');
     },
+  }, 
+  async mounted() {
+    $(document).ready(
+      $("#gridClientes").kendoGrid({
+        columns: [
+          { selectable: true, width: 40 },
+          { field: "IdCliente", title: "Id" },
+          { field: "Nome", title: "Nome" },
+          { field: "Cpf", title: "CPF" },
+          { field: "Telefone", title: "Telefone" },
+          { field: "Email", title: "Email" },
+          { field: "Ativo", title: "Ativo" },
+        ],
+        change: this.onChangeFunc
+
+      })
+    );
+    await this.requestClientes();
   },
   computed: {
     ...mapGetters("cliente", ["getClientes"]),
   },
-  async mounted() {
-    $( document ).ready(
-    $("#gridClientes").kendoGrid({
-      columns: [
-        { selectable: true, width: 40 },
-        { field: "IdCliente", title: "Id" },
-        { field: "Nome", title: "Nome" },
-        { field: "Cpf", title: "CPF" },
-        { field: "Telefone", title: "Telefone" },
-        { field: "Email", title: "Email" },
-        { field: "Ativo", title: "Ativo" },
-      ],
-      change: this.onChangeFunc
-
-    })
-  );
-    await this.requestClientes();
-  },
+ 
 
   data() {
     return {

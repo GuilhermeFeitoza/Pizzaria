@@ -70,9 +70,6 @@ export default {
 
         });
 
-        var grid = $("#gridFuncionarios").data("kendoGrid");
-        grid.bind("change", this.onChangeFunc);
-
         await this.requestFuncionarios();
     },
     computed: {
