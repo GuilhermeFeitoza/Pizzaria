@@ -62,14 +62,12 @@ CREATE TABLE tbAvaliacao(
 	Ativo char(1)
 )
 CREATE TABLE tbBebidas(
-	IdBebida int identity,
+	IdBebida int primary key identity,
 	Nome varchar(20),
 	Preco decimal,
 	Ativo char(1),
-	
 
 )
-
 
 CREATE TABLE tbPizza_Ingrediente(
 IdPizzaIngrediente INT IDENTITY PRIMARY KEY,
@@ -85,3 +83,10 @@ TipoPedido CHAR(1),
 FormaPagamentoPedido Varchar(20),
 )
 
+
+
+CREATE TABLE tbPedido_Produto(
+IdPedidoProduto INT IDENTITY PRIMARY KEY,
+IdPizza int foreign key (IdPizza) References tbPizza,
+IdBebida int FOREIGN key (IdBebida)REFERENCES tbBebidas
+)

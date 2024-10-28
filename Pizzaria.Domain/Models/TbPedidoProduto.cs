@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 namespace Pizzaria.Domain.Models
 {
-    public partial class TbPizzaIngrediente
+    public partial class TbPedidoProduto
     {
-        public int IdPizzaIngrediente { get; set; }
+        public int IdPedidoProduto { get; set; }
         public int? IdPizza { get; set; }
-        public int? IdIngrediente { get; set; }
+        public int? IdBebida { get; set; }
 
-        public virtual TbIngrediente IdIngredienteNavigation { get; set; }
+        public virtual TbBebida IdBebidaNavigation { get; set; }
         public virtual TbPizza IdPizzaNavigation { get; set; }
     }
 }

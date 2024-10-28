@@ -19,6 +19,7 @@
 import { mapActions } from "vuex";
 export default {
   props: {
+    idProduto:Number,
     bebida: false,
     img: "",
     valorProduto: Number,
@@ -67,6 +68,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+  padding-top: 50%;
 }
 .btn {
   width: 40px;
@@ -88,15 +90,23 @@ export default {
   font-family: ‘Open Sans’;
   font-weight: 900;
   color: #202020;
+ 
 }
 .price {
+
   font-size: 25px;
 }
 .card {
   max-width: 60%;
+  max-height: 20vw;
   width: 20%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 1.2vw;
   height: 20vw;
+}
+.img-card-cart{
+
+    width: 50%;
+    margin-left: 20%;
 }
 </style>

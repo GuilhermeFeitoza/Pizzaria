@@ -6,7 +6,7 @@ const state = {
 }
 const getters = {
     getTotalPedido: (state) => state.totalPedido,
-    getItensPedido:(state) => state.itensPedido,
+    getItensPedido: (state) => state.itensPedido,
 }
 const actions = {
 
@@ -20,6 +20,9 @@ const actions = {
 
         commit("addProdutoPedido", item)
 
+    },
+    clearPedido({ commit }) {
+        commit("clearPedido")
     }
 }
 
@@ -38,6 +41,10 @@ const mutations = {
         state.totalPedido = state.totalPedido - valor;
 
     },
+    clearPedido(state) {
+       state.totalPedido = 0.0;
+       state.itensPedido = [];
+    }
 
 
 }
