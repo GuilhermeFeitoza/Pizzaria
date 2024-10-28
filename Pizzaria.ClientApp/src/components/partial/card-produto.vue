@@ -77,6 +77,7 @@ export default {
   border-radius: 0.5vw;
   margin-left: 0.5vw;
   font-size: 1.5vw;
+  min-width: 20vw;
   width: 20vw;
   height: 100%;
 

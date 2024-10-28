@@ -1,5 +1,6 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using Pizzaria.Domain.Models;
 namespace Pizzaria.Domain.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class

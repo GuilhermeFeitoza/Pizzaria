@@ -8,6 +8,7 @@ import funcionarios from './modules/funcionarios';
 import novoPedido from './modules/novopedido';
 import ingredientes  from './modules/ingredientes';
 import pizzas from './modules/pizza'
+import bebidas from './modules/bebidas';
 
 Vue.use(Vuex);
 
@@ -19,7 +20,8 @@ export default new Vuex.Store({
     funcionarios:{namespaced:true,...funcionarios},
     novoPedido:{namespaced:true,...novoPedido},
     ingredientes:{namespaced:true,...ingredientes},
-    pizzas: {namespaced:true,...pizzas}
+    pizzas: {namespaced:true,...pizzas},
+    bebidas : {namespaced:true,...bebidas}
   }
 });
 

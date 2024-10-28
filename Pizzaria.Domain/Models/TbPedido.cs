@@ -11,6 +11,8 @@ namespace Pizzaria.Domain.Models
         public string StatusPedido { get; set; }
         public decimal? ValorPedido { get; set; }
         public string TipoPedido { get; set; }
+        public DateTime? DataPedido { get; set; }
         public string FormaPagamentoPedido { get; set; }
+        public string Endereco { get; set; }
     }
 }

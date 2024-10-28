@@ -67,8 +67,9 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
-  padding-top: 50%;
+  position: relative;
+  bottom: -5vw;
+ 
 }
 .btn {
   width: 40px;
@@ -99,6 +100,7 @@ export default {
 .card {
   max-width: 60%;
   max-height: 20vw;
+  min-width: 20%;
   width: 20%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 1.2vw;

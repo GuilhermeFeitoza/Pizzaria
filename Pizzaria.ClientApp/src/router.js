@@ -42,6 +42,12 @@ const routes = [
         path: '/ingredientes',
         component: Ingredientes
 
+    },
+    {
+        name: 'Bebidas',
+        path:'/bebidas',
+        component: Bebidas
+
     }
 
 

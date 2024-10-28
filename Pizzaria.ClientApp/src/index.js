@@ -8,6 +8,7 @@ import Pedidos from "./components/Pedidos.vue"
 import Login from "./components/login.vue"
 import NovoPedido from "./components/NovoPedido.vue"
 import Ingredientes from "./components/Ingredientes.vue";
+import Bebidas from './components/Bebidas.vue';
 Vue.use(VueRouter)
 
 const routes = [
@@ -31,7 +32,7 @@ const routes = [
     },
     {
         name: 'Pizzas',
-        path: '/cardapio',
+        path: '/pizzas',
         component: Pizzas,
     },
     {
@@ -54,6 +55,12 @@ const routes = [
         name: 'Ingredientes',
         path: '/ingredientes',
         component: Ingredientes
+
+    },
+    {
+        name: 'Bebidas',
+        path:'/bebidas',
+        component: Bebidas
 
     }
 

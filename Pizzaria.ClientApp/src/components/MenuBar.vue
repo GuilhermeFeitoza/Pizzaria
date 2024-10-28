@@ -5,9 +5,15 @@
         <div class="menu-rounded imgFuncionarios">  </div>
         <span class="text-menu" style="position:relative;right:9vw">Funcionários</span>
       </router-link>
-      <router-link to="/cardapio" class="menu-text">
+
+
+      <router-link to="/pizzas" class="menu-text">
         <div class="menu-rounded imgCardapio"></div>
         <span class="text-menu">Pizzas</span>
+      </router-link>
+      <router-link to="/bebidas" class="menu-text">
+        <div class="menu-rounded imgCardapio"></div>
+        <span class="text-menu">Bebidas</span>
       </router-link>
 
 

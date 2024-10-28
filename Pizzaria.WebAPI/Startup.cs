@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using Pizzaria.Domain;
 using Pizzaria.Domain.Repositories;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 namespace WebAPI
 {
     public class Startup
@@ -35,8 +36,12 @@ namespace WebAPI
             services.AddScoped<IIngredientesRepository, IngredientesRepository>();
             services.AddScoped<IPizzaRepository, PizzaRepository>();
             services.AddScoped<IPizzaIngredientesRepository, PizzaIngredienteRepository>();
+            services.AddScoped<IBebidasRepository, BebidasRepository>();
+            services.AddScoped<IPedidoRepository, PedidoRepository>();
+            services.AddScoped<IPedidoProdutoRepository, PedidoProdutoRepository>();
+
             services.AddAutoMapper(typeof(FuncionarioProfile));
-            services.AddDbContext<dbContext>(options =>
+            services.AddDbContext<Pizzaria.Domain.Models.dbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });

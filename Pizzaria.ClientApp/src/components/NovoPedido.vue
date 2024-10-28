@@ -20,8 +20,8 @@
 
     <h2 v-if="isBebida">Bebidas</h2>
     <div v-if="isBebida" class="div-produtos">
-      <Card-pizza-carrinho v-for="bebida in bebidas" v-bind:key="bebida.id" :nomeProduto="bebida.nome"
-        :valorProduto="bebida.preco" :img="bebida.img"></Card-pizza-carrinho>
+      <Card-pizza-carrinho v-for="bebida in bebidas" v-bind:key="bebida.IdBebida" :nomeProduto="bebida.Nome"
+        :valorProduto="bebida.Preco" :img="'bebida.jpg'"></Card-pizza-carrinho>
     </div>
     <br />
     <br />
@@ -43,13 +43,7 @@ export default {
       isBebida: false,
       isPizza: true,
       pizzas: [],
-      bebidas: [
-        { id: 10, img: "bebida.jpg", nome: "Coca-Cola", preco: 10.0 },
-        { id: 12, img: "bebida.jpg", nome: "Coca-Cola", preco: 10.0 },
-        { id: 13, img: "bebida.jpg", nome: "Guaraná", preco: 10.0 },
-        { id: 14, img: "bebida.jpg", nome: "Pepsi", preco: 10.0 },
-        { id: 15, img: "bebida.jpg", nome: "Dolly", preco: 10.0 },
-      ],
+      bebidas: [],
     };
   },
   components: {
@@ -61,11 +55,15 @@ export default {
   async mounted() {
 
     this.pizzas = await this.requestPizzas();
+    this.bebidas = await this.requestBebidas();
+    console.log(bebidas);
+    
 
   },
   methods: {
     ...mapActions("modal", ["toggleModalResumo"]),
     ...mapActions("pizzas", ["requestPizzas"]),
+    ...mapActions("bebidas", ["requestBebidas"]),
     ...mapActions("novoPedido",["clearPedido"]),
     formatPrice(value) {
       let val = (value / 1).toFixed(2).replace(".", ",");

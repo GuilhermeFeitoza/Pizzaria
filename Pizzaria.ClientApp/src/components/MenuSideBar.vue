@@ -10,10 +10,15 @@
         <span>Funcionários</span>
       </div>
     </router-link>
-    <router-link to="/cardapio" class="menu-text">
+    <router-link to="/pizzas" class="menu-text">
       <i class="icon-pizzas"></i>
       <span class="text-menu">Pizzas</span>
     </router-link>
+    <router-link to="/bebidas" class="menu-text">
+        <div class="icon-drink"></div>
+        <span class="text-menu">Bebidas</span>
+      </router-link>
+
 
     <router-link to="/clientes">
       <i class="bi bi-people-fill"></i>
@@ -52,5 +57,31 @@ export default {
 .menu-text {
   position: relative;
   left: 0px;
+}
+
+.icon-advanced {
+  background: url('../assets/imgs/tomato.svg');
+  background-repeat: no-repeat;
+  background-size: cover; /* stretch the background to cover the whole element */
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+}
+.icon-drink {
+  background: url('../assets/imgs/drinks.svg');
+  background-repeat: no-repeat;
+  background-size: cover; /* stretch the background to cover the whole element */
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+.icon-pizzas{
+  background: url('../assets/imgs/pizzas.svg');
+  background-repeat: no-repeat;
+  background-size: cover; /* stretch the background to cover the whole element */
+  display: inline-block;
+  height: 35px;
+  width: 35px;
+
 }
 </style>

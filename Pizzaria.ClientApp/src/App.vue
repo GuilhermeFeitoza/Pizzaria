@@ -14,12 +14,13 @@
         <router-view />
         <Cliente-modal />
         <Funcionario-modal />
-        <Pizza-modal/>
-        <ingrediente-modal/>
+        <Pizza-modal />
+        <ingrediente-modal />
+        <Bebida-modal />
         <Resumo-pedido-modal></Resumo-pedido-modal>
       </div>
     </div>
-  
+
   </div>
 </template>
 <script>
@@ -35,6 +36,7 @@ import MenuSideBar from "./components/MenuSideBar.vue";
 import PizzaModal from './components/modal/Pizza-modal.vue';
 import ResumoPedidoModal from './components/modal/Resumo-pedido-modal.vue';
 import IngredienteModal from "./components/modal/Ingrediente-modal.vue";
+import BebidaModal from "./components/modal/Bebida-modal.vue";
 
 export default {
   name: "App",
@@ -52,7 +54,8 @@ export default {
     MenuSideBar,
     PizzaModal,
     ResumoPedidoModal,
-    IngredienteModal
+    IngredienteModal,
+    BebidaModal
   },
 };
 </script>

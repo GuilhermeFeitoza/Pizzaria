@@ -14,7 +14,10 @@ const state = {
         visible: false,
         action: 'insert'
     },
-
+    modalBebidaOptions: {
+        visible: false,
+        action: 'insert'
+    },
     modalClienteOptions: {
         visible: false,
         action: 'insert'
@@ -28,6 +31,7 @@ const state = {
 const getters = {
 
     getModalClienteOptions: (state) => state.modalClienteOptions,
+    getModalBebidaOptions:(state) => state.modalBebidaOptions,
     getModalFuncionarioOptions: (state) => state.modalFuncionarioOptions,
     getPizzaModalOptions: (state) => state.modalPizzaOptions,
     getResumoModalOpen: (state) => state.IsModalResumoOpen,
@@ -53,6 +57,10 @@ const actions = {
 
         commit('toggleModalResumo')
 
+    },
+    toggleModalBebida({commit},action){
+
+        commit('toggleModalBebida',action)
     },
 
     toggleModalIngrediente({ commit }, action) {
@@ -87,6 +95,10 @@ const mutations = {
 
         state.modalIngredienteOptions.visible = !state.modalIngredienteOptions.visible
         state.modalIngredienteOptions.action = action;
+    },
+    toggleModalBebida(state, action) {
+        state.modalBebidaOptions.visible = !state.modalBebidaOptions.visible
+        state.modalBebidaOptions.action = action;
     }
 
 

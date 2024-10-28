@@ -63,7 +63,7 @@ CREATE TABLE tbAvaliacao(
 )
 CREATE TABLE tbBebidas(
 	IdBebida int primary key identity,
-	Nome varchar(20),
+	Nome varchar(50),
 	Preco decimal,
 	Ativo char(1),
 
@@ -80,8 +80,11 @@ IdPedido INT IDENTITY PRIMARY KEY ,
 StatusPedido CHAR(1),
 ValorPedido Decimal,
 TipoPedido CHAR(1),
+DataPedido DATETIME, 
 FormaPagamentoPedido Varchar(20),
+Endereco VARCHAR(100),
 )
+
 
 
 

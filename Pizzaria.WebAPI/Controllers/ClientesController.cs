@@ -77,7 +77,7 @@ namespace WebAPI.Controllers
             var cliente = await repository.GetById(id);
             if (cliente == null)
             {
-                return NotFound($"Produto de {id} foi não encontrado");
+                return NotFound($"Cliente de {id} foi não encontrado");
             }
             await repository.Delete(id);
             return Ok(cliente);

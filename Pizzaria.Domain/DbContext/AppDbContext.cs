@@ -1,11 +1,10 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Pizzaria.Domain.Models;
 
 #nullable disable
 
-namespace Pizzaria.Domain
+namespace Pizzaria.Domain.Models
 {
     public partial class AppDbContext : DbContext
     {
@@ -24,6 +23,7 @@ namespace Pizzaria.Domain
         public virtual DbSet<TbFuncionario> TbFuncionarios { get; set; }
         public virtual DbSet<TbIngrediente> TbIngredientes { get; set; }
         public virtual DbSet<TbPedido> TbPedidos { get; set; }
+        public virtual DbSet<TbPedidoProduto> TbPedidoProdutos { get; set; }
         public virtual DbSet<TbPizza> TbPizzas { get; set; }
         public virtual DbSet<TbPizzaIngrediente> TbPizzaIngredientes { get; set; }
         public virtual DbSet<TbUsuario> TbUsuarios { get; set; }
@@ -33,108 +33,198 @@ namespace Pizzaria.Domain
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-MT4EHQR\\DB;Initial Catalog=Pizzaria;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-GI024AH;Initial Catalog=Pizzaria;Integrated Security=True");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
-
             modelBuilder.Entity<TbAvaliacao>(entity =>
             {
                 entity.HasKey(e => e.IdAvaliacao)
-                    .HasName("PK__tbAvalia__78C432D88F885A32");
+                    .HasName("PK__tbAvalia__78C432D840D3E8E1");
+
+                entity.ToTable("tbAvaliacao");
 
                 entity.Property(e => e.Ativo)
+                    .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength(true);
 
-                entity.Property(e => e.Comentario).IsUnicode(false);
+                entity.Property(e => e.Comentario)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Titulo).IsUnicode(false);
+                entity.Property(e => e.Titulo)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<TbBebida>(entity =>
             {
+                entity.HasKey(e => e.IdBebida)
+                    .HasName("PK__tbBebida__A111F0E36ECD3DDC");
+
+                entity.ToTable("tbBebidas");
+
                 entity.Property(e => e.Ativo)
+                    .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength(true);
 
-                entity.Property(e => e.IdBebida).ValueGeneratedOnAdd();
+                entity.Property(e => e.Nome)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Nome).IsUnicode(false);
+                entity.Property(e => e.Preco).HasColumnType("decimal(18, 0)");
             });
 
             modelBuilder.Entity<TbCliente>(entity =>
             {
                 entity.HasKey(e => e.IdCliente)
-                    .HasName("PK__tbClient__D5946642D79AE591");
+                    .HasName("PK__tbClient__D59466428A8C8115");
+
+                entity.ToTable("tbCliente");
 
                 entity.Property(e => e.Ativo)
+                    .IsRequired()
+                    .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength(true);
 
-                entity.Property(e => e.Cpf).IsUnicode(false);
+                entity.Property(e => e.Cpf)
+                    .IsRequired()
+                    .HasMaxLength(11)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Email).IsUnicode(false);
+                entity.Property(e => e.DataNascimento).HasColumnType("datetime");
 
-                entity.Property(e => e.Nome).IsUnicode(false);
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Telefone).IsUnicode(false);
+                entity.Property(e => e.Nome)
+                    .IsRequired()
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Telefone)
+                    .IsRequired()
+                    .HasMaxLength(12)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<TbFuncionario>(entity =>
             {
+                entity.ToTable("tbFuncionario");
+
                 entity.Property(e => e.Ativo)
+                    .IsRequired()
+                    .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength(true);
 
-                entity.Property(e => e.Nome).IsUnicode(false);
+                entity.Property(e => e.DataAdmissao).HasColumnType("datetime");
 
-                entity.Property(e => e.Senha).IsUnicode(false);
+                entity.Property(e => e.DataNascimento).HasColumnType("datetime");
 
-                entity.Property(e => e.Usuario).IsUnicode(false);
+                entity.Property(e => e.Nome)
+                    .IsRequired()
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Senha)
+                    .IsRequired()
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Usuario)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<TbIngrediente>(entity =>
             {
                 entity.HasKey(e => e.IdIngrediente)
-                    .HasName("PK__tbIngred__3DA4DD60AD382A6A");
+                    .HasName("PK__tbIngred__3DA4DD603E4BF00F");
 
-                entity.Property(e => e.Descricao).IsUnicode(false);
+                entity.ToTable("tbIngredientes");
 
-                entity.Property(e => e.Nome).IsUnicode(false);
+                entity.Property(e => e.Descricao)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Nome)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Preco).HasColumnType("money");
             });
 
             modelBuilder.Entity<TbPedido>(entity =>
             {
                 entity.HasKey(e => e.IdPedido)
-                    .HasName("PK__tbPedido__9D335DC3D38EEF59");
+                    .HasName("PK__tbPedido__9D335DC3BE1D06C3");
 
-                entity.Property(e => e.FormaPagamentoPedido).IsUnicode(false);
+                entity.ToTable("tbPedido");
+
+                entity.Property(e => e.FormaPagamentoPedido)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.StatusPedido)
+                    .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength(true);
 
                 entity.Property(e => e.TipoPedido)
+                    .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength(true);
+
+                entity.Property(e => e.ValorPedido).HasColumnType("decimal(18, 0)");
+            });
+
+            modelBuilder.Entity<TbPedidoProduto>(entity =>
+            {
+                entity.HasKey(e => e.IdPedidoProduto)
+                    .HasName("PK__tbPedido__6A8B1AE822BC55FA");
+
+                entity.ToTable("tbPedido_Produto");
+
+                entity.HasOne(d => d.IdBebidaNavigation)
+                    .WithMany(p => p.TbPedidoProdutos)
+                    .HasForeignKey(d => d.IdBebida)
+                    .HasConstraintName("FK__tbPedido___IdBeb__6A30C649");
+
+                entity.HasOne(d => d.IdPizzaNavigation)
+                    .WithMany(p => p.TbPedidoProdutos)
+                    .HasForeignKey(d => d.IdPizza)
+                    .HasConstraintName("FK__tbPedido___IdPiz__693CA210");
             });
 
             modelBuilder.Entity<TbPizza>(entity =>
             {
                 entity.HasKey(e => e.IdPizza)
-                    .HasName("PK__tbPizza__52072C78AEA15B06");
+                    .HasName("PK__tbPizza__52072C787A238516");
 
-                entity.Property(e => e.Nome).IsUnicode(false);
+                entity.ToTable("tbPizza");
+
+                entity.Property(e => e.Nome)
+                    .HasMaxLength(80)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Preco).HasColumnType("decimal(18, 0)");
             });
 
             modelBuilder.Entity<TbPizzaIngrediente>(entity =>
             {
                 entity.HasKey(e => e.IdPizzaIngrediente)
-                    .HasName("PK__tbPizza___A3940042C09F00DD");
+                    .HasName("PK__tbPizza___A39400424B70B16C");
+
+                entity.ToTable("tbPizza_Ingrediente");
 
                 entity.HasOne(d => d.IdIngredienteNavigation)
                     .WithMany(p => p.TbPizzaIngredientes)
@@ -150,15 +240,22 @@ namespace Pizzaria.Domain
             modelBuilder.Entity<TbUsuario>(entity =>
             {
                 entity.HasKey(e => e.IdUsuario)
-                    .HasName("PK__tbUsuari__5B65BF97FB83C981");
+                    .HasName("PK__tbUsuari__5B65BF97C7801380");
+
+                entity.ToTable("tbUsuario");
 
                 entity.Property(e => e.Ativo)
+                    .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength(true);
 
-                entity.Property(e => e.Nome).IsUnicode(false);
+                entity.Property(e => e.Nome)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Senha).IsUnicode(false);
+                entity.Property(e => e.Senha)
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.IdClienteNavigation)
                     .WithMany(p => p.TbUsuarios)
