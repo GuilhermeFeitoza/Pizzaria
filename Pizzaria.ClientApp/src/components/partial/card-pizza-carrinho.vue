@@ -24,6 +24,7 @@ export default {
     img: "",
     valorProduto: Number,
     nomeProduto: "",
+    tipo: "",
   },
   data() {
     return {
@@ -43,8 +44,10 @@ export default {
     },
     addItemPedido() {
       let pizza = {
+        id: this.idProduto,
         nome: this.nomeProduto,
         valor: this.valorProduto,
+        tipoProduto: this.tipo,
       };
       this.addProdutoPedido(pizza);
     },

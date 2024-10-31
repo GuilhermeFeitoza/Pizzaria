@@ -196,19 +196,24 @@ namespace Pizzaria.Domain.Models
             modelBuilder.Entity<TbPedidoProduto>(entity =>
             {
                 entity.HasKey(e => e.IdPedidoProduto)
-                    .HasName("PK__tbPedido__6A8B1AE822BC55FA");
+                    .HasName("PK__tbPedido__6A8B1AE899F0DE3B");
 
                 entity.ToTable("tbPedido_Produto");
 
                 entity.HasOne(d => d.IdBebidaNavigation)
                     .WithMany(p => p.TbPedidoProdutos)
                     .HasForeignKey(d => d.IdBebida)
-                    .HasConstraintName("FK__tbPedido___IdBeb__6A30C649");
+                    .HasConstraintName("FK__tbPedido___IdBeb__04E4BC85");
+
+                entity.HasOne(d => d.IdPedidoNavigation)
+                    .WithMany(p => p.TbPedidoProdutos)
+                    .HasForeignKey(d => d.IdPedido)
+                    .HasConstraintName("FK__tbPedido___IdPed__02FC7413");
 
                 entity.HasOne(d => d.IdPizzaNavigation)
                     .WithMany(p => p.TbPedidoProdutos)
                     .HasForeignKey(d => d.IdPizza)
-                    .HasConstraintName("FK__tbPedido___IdPiz__693CA210");
+                    .HasConstraintName("FK__tbPedido___IdPiz__03F0984C");
             });
 
             modelBuilder.Entity<TbPizza>(entity =>

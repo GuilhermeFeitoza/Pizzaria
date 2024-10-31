@@ -15,12 +15,12 @@
     <h2 v-if="isPizza">Pizzas</h2>
     <div class="div-produtos" v-if="isPizza">
       <Card-pizza-carrinho v-for="pizza in pizzas" v-bind:key="pizza.IdPizza" :idProduto="pizza.IdPizza" :nomeProduto="pizza.Nome"
-        :valorProduto="pizza.Preco" :img="'noimage.png'"></Card-pizza-carrinho>
+        :valorProduto="pizza.Preco" :img="'noimage.png'" :tipo ="'P'"></Card-pizza-carrinho>
     </div>
 
     <h2 v-if="isBebida">Bebidas</h2>
     <div v-if="isBebida" class="div-produtos">
-      <Card-pizza-carrinho v-for="bebida in bebidas" v-bind:key="bebida.IdBebida" :nomeProduto="bebida.Nome"
+      <Card-pizza-carrinho v-for="bebida in bebidas" v-bind:key="bebida.IdBebida" :idProduto="bebida.IdBebida" :tipo ="'B'" :nomeProduto="bebida.Nome"
         :valorProduto="bebida.Preco" :img="'bebida.jpg'"></Card-pizza-carrinho>
     </div>
     <br />

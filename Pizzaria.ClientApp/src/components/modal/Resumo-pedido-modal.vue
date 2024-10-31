@@ -10,7 +10,7 @@
       <span class="close" v-on:click="toggleModalResumo">&times;</span>
       <div>
         <div class="buttonContainer">
-          <button class="buttonConfirm" @click="toggleModalResumo">
+          <button class="buttonConfirm" @click="createPedidoClick">
             Confirmar
           </button>
           <button
@@ -28,14 +28,36 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-
+    // public int IdPedido { get; set; }
+    // public string StatusPedido { get; set; }
+    // public decimal? ValorPedido { get; set; }
+    // public string TipoPedido { get; set; }
+    // public DateTime? DataPedido { get; set; }
+    // public string FormaPagamentoPedido { get; set; }
+    // public string Endereco { get; set; }
 export default {
   methods: {
     ...mapActions("modal", ["toggleModalResumo"]),
+    ...mapActions("novoPedido", ["createPedido"]),
+    async createPedidoClick(){
+      let payload = {
+        StatusPedido:0,
+        TipoPedido: 'R',
+        DataPedido:null,
+        FormaPagamentoPedido: 'Cartão crédito',
+        Endereco: null,
+        ValorPedido: this.getTotalPedido,
+        ItensPedidos: this.getItensPedido
+
+      }
+      await this.createPedido(payload);
+      this.toggleModalResumo();
+
+    }
   },
   computed: {
     ...mapGetters("modal", ["getResumoModalOpen"]),
-    ...mapGetters("novoPedido", ["getItensPedido"]),
+    ...mapGetters("novoPedido", ["getItensPedido","getTotalPedido"]),
   },
 };
 </script>

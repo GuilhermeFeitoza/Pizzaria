@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Pizzaria.Domain.Models;
 using Pizzaria.Domain.Repositories;
 using System;
+using Pizzaria.WebAPI.ViewModel;
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -41,6 +42,28 @@ namespace WebAPI.Controllers
 
             ).ToList());
         }
+
+          [HttpGet("/getLast")]
+        public async Task<ActionResult<IEnumerable<TbPedido>>> GetPedidos([FromQuery]int top)
+        {
+            var Pedidos = await repository.GetAll();
+            if (Pedidos == null)
+            {
+                return BadRequest();
+            }
+            return Ok(Pedidos.Select(d => new
+            {
+                d.IdPedido,
+                d.DataPedido,
+                d.Endereco,
+                d.FormaPagamentoPedido,
+                d.StatusPedido,
+                d.ValorPedido,
+                d.TipoPedido
+            }
+
+            ).ToList().Take(top));
+        }
         // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<ActionResult<TbPedido>> GetPedido(int id)
@@ -54,13 +77,50 @@ namespace WebAPI.Controllers
         }
         // POST api/<controller>  
         [HttpPost]
-        public async Task<IActionResult> PostPedido([FromBody] TbPedido pedido)
+        public async Task<IActionResult> PostPedido([FromBody] PedidoViewModel pedido)
         {
             if (pedido == null)
             {
                 return BadRequest("Pedido é null");
             }
-            await repository.Insert(pedido);
+
+            var pedidoDb = new TbPedido()
+            {
+                Endereco = pedido.Endereco,
+                DataPedido = DateTime.Now,
+                FormaPagamentoPedido = pedido.FormaPagamentoPedido,
+                TipoPedido = pedido.TipoPedido,
+                StatusPedido = pedido.StatusPedido,
+                ValorPedido = pedido.ValorPedido,
+
+            };
+
+            var inserted = await repository.Insert(pedidoDb);
+            foreach (var item in pedido.ItensPedidos)
+            {
+                TbPedidoProduto itenPedido = null;
+
+                if (item.tipoProduto == "B")
+                {
+                    itenPedido = new TbPedidoProduto()
+                    {
+                        IdBebida = item.id,
+                        IdPizza = null,
+                        IdPedido = inserted.IdPedido,
+                    };
+                }
+                else
+                {
+                    itenPedido = new TbPedidoProduto()
+                    {
+                        IdBebida = null,
+                        IdPizza = item.id,
+                        IdPedido = inserted.IdPedido,
+                    };
+                }
+                await _pedidoProdutoRepository.Insert(itenPedido);
+            }
+
             return CreatedAtAction(nameof(GetPedido), new { Id = pedido.IdPedido }, pedido);
         }
         [HttpPut]

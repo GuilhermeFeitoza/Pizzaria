@@ -90,6 +90,8 @@ Endereco VARCHAR(100),
 
 CREATE TABLE tbPedido_Produto(
 IdPedidoProduto INT IDENTITY PRIMARY KEY,
+IdPedido int foreign key (IdPedido) References tbPedido,
 IdPizza int foreign key (IdPizza) References tbPizza,
 IdBebida int FOREIGN key (IdBebida)REFERENCES tbBebidas
 )
+

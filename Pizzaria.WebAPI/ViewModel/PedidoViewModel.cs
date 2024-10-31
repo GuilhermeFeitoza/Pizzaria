@@ -1,17 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
 
-namespace Pizzaria.Domain.Models
+namespace Pizzaria.WebAPI.ViewModel
 {
-    public partial class TbPedido
+    public class PedidoViewModel
     {
-        public TbPedido()
-        {
-            TbPedidoProdutos = new HashSet<TbPedidoProduto>();
-        }
-
         public int IdPedido { get; set; }
         public string StatusPedido { get; set; }
         public decimal? ValorPedido { get; set; }
@@ -20,6 +15,16 @@ namespace Pizzaria.Domain.Models
         public string FormaPagamentoPedido { get; set; }
         public string Endereco { get; set; }
 
-        public virtual ICollection<TbPedidoProduto> TbPedidoProdutos { get; set; }
+        public List<ItenPedido> ItensPedidos {get;set;}
     }
+    public class ItenPedido {
+        public int id {get;set;}
+        public string nome {get;set;}
+
+        public decimal valor {get;set;}
+
+        public string tipoProduto{get;set;}
+
+    }
+
 }

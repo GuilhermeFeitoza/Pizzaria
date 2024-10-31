@@ -1,5 +1,6 @@
 export const novopedido = 'novopedido';
-
+const axios = require('axios');
+const urlBase = "https://localhost:5001";
 const state = {
     totalPedido: 0,
     itensPedido: [],
@@ -23,6 +24,20 @@ const actions = {
     },
     clearPedido({ commit }) {
         commit("clearPedido")
+    },
+
+    async createPedido({ commit }, payload) {
+        try {
+            var response = await axios.post(urlBase + '/api/pedidos',payload)
+            var jsonResponse = JSON.parse(JSON.stringify(response.data));
+
+        } catch (error) {
+           
+
+        }
+
+
+        commit("clearPedido")
     }
 }
 
@@ -42,8 +57,8 @@ const mutations = {
 
     },
     clearPedido(state) {
-       state.totalPedido = 0.0;
-       state.itensPedido = [];
+        state.totalPedido = 0.0;
+        state.itensPedido = [];
     }
 
 
