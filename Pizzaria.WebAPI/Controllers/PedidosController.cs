@@ -15,12 +15,42 @@ namespace WebAPI.Controllers
     {
         private readonly IPedidoRepository repository;
         private readonly IPedidoProdutoRepository _pedidoProdutoRepository;
+        private readonly IPizzaRepository _pizzaRepository;
 
-        public PedidosController(IPedidoRepository repo, IPedidoProdutoRepository pedidoProdutoRepository)
+        public PedidosController(IPedidoRepository repo, IPedidoProdutoRepository pedidoProdutoRepository, IPizzaRepository pizzaRepository)
         {
             repository = repo;
             _pedidoProdutoRepository = pedidoProdutoRepository;
+            _pizzaRepository = pizzaRepository;
         }
+
+
+        [HttpGet("getMostOrdered")]
+
+        public async Task<ActionResult<IEnumerable<TbPedido>>> GetMaisPedidos()
+        {
+
+            var top5PizzasMaisPedidas = _pedidoProdutoRepository.Query()
+                .Where(a => a.IdPizza != null)
+                .Join(
+                    _pizzaRepository.Query(),
+                    pedidoProduto => pedidoProduto.IdPizza,
+                    pizza => pizza.IdPizza,
+                    (pedidoProduto, pizza) => new { pizza.Nome }
+                )
+                .GroupBy(x => x.Nome)
+                .Select(g => new
+                {
+                    Nome = g.Key,
+                    NumeroDeVendas = g.Count()
+                })
+                .OrderByDescending(x => x.NumeroDeVendas)
+                .Take(5)
+                .ToList();
+            return Ok(top5PizzasMaisPedidas);
+        }
+
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TbPedido>>> GetPedidos()
         {
@@ -43,8 +73,8 @@ namespace WebAPI.Controllers
             ).ToList());
         }
 
-          [HttpGet("/getLast")]
-        public async Task<ActionResult<IEnumerable<TbPedido>>> GetPedidos([FromQuery]int top)
+        [HttpGet("getLast")]
+        public async Task<ActionResult<IEnumerable<TbPedido>>> GetPedidos([FromQuery] int top)
         {
             var Pedidos = await repository.GetAll();
             if (Pedidos == null)
@@ -62,7 +92,7 @@ namespace WebAPI.Controllers
                 d.TipoPedido
             }
 
-            ).ToList().Take(top));
+            ).ToList().Take(top).OrderByDescending(d => d.StatusPedido).ThenByDescending(d => d.DataPedido));
         }
         // GET: api/Products/5
         [HttpGet("{id}")]
@@ -147,6 +177,21 @@ namespace WebAPI.Controllers
             }
             await repository.Delete(id);
             return Ok(pedido);
+        }
+
+
+        [HttpPut("cancelOrder/{id}")]
+        public async Task<ActionResult<TbPedido>> CancelPedido(int id)
+        {
+            var pedido = await repository.GetById(id);
+            if (pedido != null)
+            {
+                pedido.StatusPedido = "C";
+                await repository.Update(pedido);
+
+            }
+            return Ok();
+
         }
     }
 

@@ -7,28 +7,38 @@
       </router-link>
     </div>
     <div class="main-container" v-for="pedido in pedidos">
-      <card-pedidos :dataPedido="'Segunda-Feira,21 de dezembro de 2022 20:05'" :status="'E'" :precoPedido="'33,00'"
-        :tipoPedido="'RETIRADA'"></card-pedidos>
+      <card-pedidos :idPedido="pedido.IdPedido" :dataPedido="pedido.DataPedido" :status="pedido.StatusPedido"
+        :precoPedido="pedido.ValorPedido" :tipoPedido="pedido.tipoPedido""></card-pedidos>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import CardPedidos from "./partial/card-pedidos.vue";
 export default {
+  data() {
+    return {
+      pedidos: []
+
+
+    }
+  },
+  methods: {
+    ...mapActions("pedidos", ['requestPedidos'])
+
+
+  },
+  async mounted() {
+
+    this.pedidos = await this.requestPedidos();
+  },
   components: {
     CardPedidos,
   },
   computed: {
 
-    data() {
-      return {
-        pedidos : []
 
-
-      }
-    }
 
   }
 };

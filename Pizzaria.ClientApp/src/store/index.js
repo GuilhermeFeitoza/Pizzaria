@@ -9,6 +9,7 @@ import novoPedido from './modules/novopedido';
 import ingredientes  from './modules/ingredientes';
 import pizzas from './modules/pizza'
 import bebidas from './modules/bebidas';
+import pedidos from './modules/pedidos';
 
 Vue.use(Vuex);
 
@@ -21,7 +22,8 @@ export default new Vuex.Store({
     novoPedido:{namespaced:true,...novoPedido},
     ingredientes:{namespaced:true,...ingredientes},
     pizzas: {namespaced:true,...pizzas},
-    bebidas : {namespaced:true,...bebidas}
+    bebidas : {namespaced:true,...bebidas},
+    pedidos : {namespaced:true,...pedidos}
   }
 });
 

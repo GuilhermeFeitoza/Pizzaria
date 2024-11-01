@@ -1,26 +1,41 @@
 <template>
   <div>
     <h1>Produtos populares</h1>
-    <div style="display: inline-flex; max-width:80%;flex-wrap: wrap;">
-    <card-pizza
-      :nomeProduto="'Portuguesa'"
-      :numberOfSales="'100'"
-      :imgSrc="'portuguesa.jpg'"
-      :price="'R$50,00'"
-      :description="[]"
-    ></card-pizza>
-   
-    
+    <div style="display: inline-flex; max-width:80%;flex-wrap: wrap;" v-for="pedido in maisPedidos">
+      <card-pizza :nomeProduto="pedido.Nome" :numberOfSales="pedido.NumeroDeVendas" :imgSrc="'noimage.png'" :price="''"
+        :description="[]"></card-pizza>
+
+
     </div>
   </div>
 </template>
 
 <script>
+
 import CardPizza from "./card-produto.vue";
+import { mapActions } from "vuex";
 export default {
+
+  methods:{
+
+    ...mapActions('pedidos', ['requestMaisPedidos']),
+    
+  },
+  data() {
+    return {
+      maisPedidos: [],
+
+    }
+
+  },
   components: {
     CardPizza,
   },
+  async mounted() {
+
+    this.maisPedidos = await this.requestMaisPedidos();
+
+  }
 };
 </script>
 
@@ -41,4 +56,3 @@ export default {
   height: 10vw;
 }
 </style>
-

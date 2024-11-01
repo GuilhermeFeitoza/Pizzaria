@@ -8,6 +8,18 @@ const getters = {
 }
 const actions = {
 
+    async cancelOrder({ commit }, id) {
+        try {
+            var response = await axios.put(urlBase + '/api/pedidos/cancelOrder/' + id)
+            return response.data;
+
+        } catch (error) {
+
+            console.error(error)
+            return [];
+
+        }
+    },
     async requestPedidos({ commit }) {
         try {
             var response = await axios.get(urlBase + '/api/pedidos')
@@ -17,9 +29,35 @@ const actions = {
 
             console.error(error)
             return [];
-       
+
         }
     },
+    async requestUltimosPedidos({ commit }, top) {
+        try {
+            var response = await axios.get(urlBase + '/api/pedidos/getLast?top=' + top)
+            return response.data;
+
+        } catch (error) {
+
+            console.error(error)
+            return [];
+
+        }
+    },
+
+    async requestMaisPedidos({ commit }) {
+
+        try {
+            var response = await axios.get(urlBase + '/api/pedidos/getMostOrdered')
+            return response.data;
+        } catch (error) {
+
+            console.error(error)
+            return [];
+
+        }
+
+    }
 }
 
 

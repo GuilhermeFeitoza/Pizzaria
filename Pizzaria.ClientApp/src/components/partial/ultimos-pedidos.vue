@@ -2,15 +2,9 @@
 
   <div>
     <h1 style="font-family: Calibri">Últimos pedidos</h1>
-    <div class="pedido-container">
-      <card-pedidos :dataPedido="'Terça-Feira,11 de agosto de 2022 20:05'" :precoPedido="'35,00'" :status="'E'"
-        :tipoPedido="'DELIVERY'"></card-pedidos>
-      <card-pedidos :dataPedido="'Quinta-Feira,09 de dezembro de 2022 20:05'" :status="'E'" :precoPedido="'23,00'"
-        :tipoPedido="'RETIRADA'"></card-pedidos>
-      <card-pedidos :dataPedido="'Sabádo,31 de setembro de 2022 20:05'" :status="'E'" :precoPedido="'55,00'"
-        :tipoPedido="'DELIVERY'"></card-pedidos>
-      <card-pedidos :dataPedido="'Segunda-Feira,21 de dezembro de 2022 20:05'" :status="'E'" :precoPedido="'33,00'"
-        :tipoPedido="'RETIRADA'"></card-pedidos>
+    <div class="pedido-container" v-for="pedido in ultimosPedidos">
+      <card-pedidos :idPedido="pedido.IdPedido" :dataPedido="pedido.DataPedido" :status="pedido.StatusPedido"
+        :precoPedido="pedido.ValorPedido" :tipoPedido="pedido.tipoPedido""></card-pedidos>
     </div>
 
   </div>
@@ -18,14 +12,36 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import CardPedidos from './card-pedidos.vue';
 export default {
+  data() {
+    return {
 
+      ultimosPedidos: []
+
+    }
+
+  },
+  computed: {
+
+
+
+
+  },
   components: {
     CardPedidos
 
 
 
+  }, methods: {
+    ...mapActions("pedidos", ["requestUltimosPedidos"]),
+
+
+  }, async mounted() {
+
+
+    this.ultimosPedidos = await this.requestUltimosPedidos(10);
   }
 
 

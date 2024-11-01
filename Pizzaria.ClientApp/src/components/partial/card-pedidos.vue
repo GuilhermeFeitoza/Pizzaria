@@ -1,42 +1,36 @@
 <template>
-  <div class="card-pedidos" :class="{ maisDetalhes: moreDetails }">
-
+  <div class="card-pedidos">
+    <i v-show="this.status == 'P'" @click="cancelOrderClick" class="bi bi-x-circle"
+      style="float: right; color: red;cursor: pointer;"></i>
     <span style="margin-left:0.5vw">
-      {{ this.dataPedido }}
+      {{ this.formatDate(this.dataPedido) }}
     </span>
 
     <br />
     <br />
     <span class="card-pedidos-status-text" style="">
       <img class="icon-size" :src="require(`@/assets/icons/${imgStatus}`)" />
-      <span>{{ this.status == "E" ? "ENTREGUE" : "PREPARANDO" }}</span>
+      <span>{{ this.statusText }}</span>
       <span class="card-pedidos-type-text">
-        {{ this.tipoPedido }}
+        {{ this.tipoPedido == "E" ? "ENTREGA" : "RETIRADA" }}
       </span>
     </span>
     <br />
-    <span style="font-weigth: bold; margin-left:0.5vw">
-      R${{ this.precoPedido }}
-      <img class="icon-size detalhes-pedido" @click="toggleMoreDetails" src="../../assets/icons/setabaixo.png" />
+    <span style="font-weight: bold; margin-left:0.5vw">
+      {{ this.precoPedido.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      }) }}
+      <p class="order-details">Detalhes do pedido</p>
     </span>
-
-    <div v-show="moreDetails">
-      <p>1x Pizza de mussarela</p>
-      <p>1x Pizza de brigadeiro</p>
-      <p>1x Coca-cola zero</p>
-
-      <h3>Forma de pagamento</h3>
-      <p>Cartão de crédito</p>
-      <br />
-      <h3>Endereço entrega</h3>
-      <p>Avenida paulista</p>
-    </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   props: {
+    idPedido: Number,
     status: "E",
     dataPedido: "",
     precoPedido: "",
@@ -49,14 +43,46 @@ export default {
   },
 
   methods: {
-    toggleMoreDetails() {
-      this.moreDetails = !this.moreDetails;
-      return this.moreDetails;
+    ...mapActions('pedidos', ['cancelOrder']),
+    async cancelOrderClick() {
+
+      await this.cancelOrder(this.idPedido);
+      alert("Pedido cancelado")
     },
+    formatDate(inputDate) {
+      const date = new Date(inputDate);
+
+      const options = {
+        hour: '2-digit',
+        minute: '2-digit',
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      };
+
+      return date.toLocaleString('pt-BR', options);
+    },
+
   },
   computed: {
+
+    statusText() {
+      if (this.status == "P") {
+        return "PREPARANDO"
+      } else if (this.status == "C") {
+        return "CANCELADO"
+      } else if (this.status == "E") {
+        return "ENTREGUE"
+
+      }
+
+
+    },
     imgStatus() {
-      if (this.status == "E") {
+      if (this.status == 1) {
+        return "check.png";
+      }
+      else {
         return "check.png";
       }
     },
@@ -76,5 +102,16 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.3vw;
   margin-top: 1vw;
+}
+
+.order-details {
+
+  font-size: 0.8vw;
+  color: #ff6358;
+  font-family: sans-serif;
+  position: relative;
+  left: 17vw;
+  cursor: pointer;
+
 }
 </style>
