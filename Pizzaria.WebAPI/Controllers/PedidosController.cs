@@ -16,12 +16,17 @@ namespace WebAPI.Controllers
         private readonly IPedidoRepository repository;
         private readonly IPedidoProdutoRepository _pedidoProdutoRepository;
         private readonly IPizzaRepository _pizzaRepository;
-
-        public PedidosController(IPedidoRepository repo, IPedidoProdutoRepository pedidoProdutoRepository, IPizzaRepository pizzaRepository)
+        private readonly IBebidasRepository _bebidaRepository;
+        public PedidosController(IPedidoRepository repo,
+        IPedidoProdutoRepository pedidoProdutoRepository,
+         IPizzaRepository pizzaRepository,
+         IBebidasRepository bebidasRepository
+         )
         {
             repository = repo;
             _pedidoProdutoRepository = pedidoProdutoRepository;
             _pizzaRepository = pizzaRepository;
+            _bebidaRepository = bebidasRepository;
         }
 
 
@@ -48,6 +53,32 @@ namespace WebAPI.Controllers
                 .Take(5)
                 .ToList();
             return Ok(top5PizzasMaisPedidas);
+        }
+        [HttpGet("getOrderDetails/{idPedido}")]
+
+        public async Task<ActionResult<IEnumerable<TbPedido>>> GetDetalhes([FromRoute] int idPedido)
+        {
+
+            var pizzasPedido = _pedidoProdutoRepository.Query().Where(d => d.IdPedido == idPedido && d.IdBebida == null)
+         .Join(_pizzaRepository.Query(), pedidoProduto => pedidoProduto.IdPizza, pizza => pizza.IdPizza, (a, pizza) => new { pizza, a }).Select(s => new
+         {
+             s.pizza.Nome,
+         });
+
+            var bebidasPedido = _pedidoProdutoRepository.Query().Where(d => d.IdPedido == idPedido && d.IdPizza == null)
+            .Join(_bebidaRepository.Query(), pedidoProduto => pedidoProduto.IdBebida, bebida => bebida.IdBebida, (a, bebida) => new { bebida, a }).Select(s => new
+            {
+                s.bebida.Nome,
+            });
+
+            var ItensPedidos = new
+            {
+                Pizzas = pizzasPedido,
+                Bebidas = bebidasPedido,
+
+            };
+
+            return Ok(ItensPedidos);
         }
 
 

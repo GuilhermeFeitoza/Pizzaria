@@ -18,6 +18,7 @@
         <ingrediente-modal />
         <Bebida-modal />
         <Resumo-pedido-modal></Resumo-pedido-modal>
+        <DetalhesPedidoModal></DetalhesPedidoModal>
       </div>
     </div>
 
@@ -37,6 +38,7 @@ import PizzaModal from './components/modal/Pizza-modal.vue';
 import ResumoPedidoModal from './components/modal/Resumo-pedido-modal.vue';
 import IngredienteModal from "./components/modal/Ingrediente-modal.vue";
 import BebidaModal from "./components/modal/Bebida-modal.vue";
+import DetalhesPedidoModal from './components/modal/Detalhes-Pedido-modal.vue'
 
 export default {
   name: "App",
@@ -55,7 +57,8 @@ export default {
     PizzaModal,
     ResumoPedidoModal,
     IngredienteModal,
-    BebidaModal
+    BebidaModal,
+    DetalhesPedidoModal
   },
 };
 </script>

@@ -21,14 +21,24 @@
         style: 'currency',
         currency: 'BRL'
       }) }}
-      <p class="order-details">Detalhes do pedido</p>
+      <p class="order-details" @click="openDetalhesModal">Detalhes do pedido</p>
+
     </span>
+
   </div>
+
 </template>
 
 <script>
+
 import { mapActions } from 'vuex';
+import DetalhesPedidoModal from '../modal/Detalhes-Pedido-modal.vue';
 export default {
+  components: {
+
+    DetalhesPedidoModal
+
+  },
   props: {
     idPedido: Number,
     status: "E",
@@ -43,7 +53,15 @@ export default {
   },
 
   methods: {
-    ...mapActions('pedidos', ['cancelOrder']),
+    ...mapActions('pedidos', ['cancelOrder', 'requestPedidoDetalhe']),
+    ...mapActions('modal', ['toggleModalDetalhes']),
+
+
+    async openDetalhesModal() {
+      let pedido = await this.requestPedidoDetalhe(this.idPedido);
+      this.toggleModalDetalhes(pedido);
+
+    },
     async cancelOrderClick() {
 
       await this.cancelOrder(this.idPedido);

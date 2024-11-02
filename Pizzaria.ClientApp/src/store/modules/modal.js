@@ -24,6 +24,8 @@ const state = {
     },
     IsModalPizzaOpen: false,
     IsModalResumoOpen: false,
+    IsDetailsModalOpen: false,
+    detalhesModalData: [],
 
 
 
@@ -31,18 +33,20 @@ const state = {
 const getters = {
 
     getModalClienteOptions: (state) => state.modalClienteOptions,
-    getModalBebidaOptions:(state) => state.modalBebidaOptions,
+    getModalBebidaOptions: (state) => state.modalBebidaOptions,
     getModalFuncionarioOptions: (state) => state.modalFuncionarioOptions,
     getPizzaModalOptions: (state) => state.modalPizzaOptions,
     getResumoModalOpen: (state) => state.IsModalResumoOpen,
     getModalIngredientesOptions: (state) => state.modalIngredienteOptions,
+    getDetailsModalOpen: (state) => state.IsDetailsModalOpen,
+    getDetalhesModalData: (state) => state.detalhesModalData,
 
 }
 
 
 const actions = {
-    toggleModalCliente({ commit },action) {
-        commit('toggleModalCliente',action)
+    toggleModalCliente({ commit }, action) {
+        commit('toggleModalCliente', action)
     },
     toggleModalPizza({ commit }, action) {
         commit('toggleModalPizza', action)
@@ -58,9 +62,9 @@ const actions = {
         commit('toggleModalResumo')
 
     },
-    toggleModalBebida({commit},action){
+    toggleModalBebida({ commit }, action) {
 
-        commit('toggleModalBebida',action)
+        commit('toggleModalBebida', action)
     },
 
     toggleModalIngrediente({ commit }, action) {
@@ -69,10 +73,15 @@ const actions = {
 
     },
 
+    toggleModalDetalhes({ commit }, obj) {
+        commit('toggleModalDetalhes', obj);
+    },
+
+
 }
 const mutations = {
 
-    toggleModalCliente(state,action) {
+    toggleModalCliente(state, action) {
         state.modalClienteOptions.visible = !state.modalClienteOptions.visible
         state.modalClienteOptions.action = action;
     },
@@ -99,7 +108,13 @@ const mutations = {
     toggleModalBebida(state, action) {
         state.modalBebidaOptions.visible = !state.modalBebidaOptions.visible
         state.modalBebidaOptions.action = action;
-    }
+    },
+    toggleModalDetalhes(state, obj) {
+        state.IsDetailsModalOpen = !state.IsDetailsModalOpen
+        state.detalhesModalData = obj;
+    },
+
+
 
 
 

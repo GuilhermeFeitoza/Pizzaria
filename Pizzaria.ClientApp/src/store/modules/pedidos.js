@@ -57,6 +57,19 @@ const actions = {
 
         }
 
+
+
+    },
+    async requestPedidoDetalhe({ commit }, id) {
+        try {
+            var response = await axios.get(urlBase + '/api/pedidos/getOrderDetails/' + id)
+            return response.data;
+        } catch (error) {
+
+            console.error(error)
+            return [];
+
+        }
     }
 }
 
