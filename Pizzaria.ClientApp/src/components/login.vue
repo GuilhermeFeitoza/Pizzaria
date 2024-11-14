@@ -14,9 +14,20 @@
             <input type="checkbox" checked="checked" name="remember" />
             Lembre-me
           </label>
+          <br>
+
         </div>
       </div>
+      <br>
+      <div style="width: 100%; margin-left: 3vw;">
+
+        <input name=" rbSouCliente" type="radio" checked="true" />
+        <label for="rbSouCliente">Sou cliente</label>
+        <input name="rbSouCliente" type="radio" />
+        <label for="rbSouCliente">Sou funcionário</label>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -48,10 +59,11 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
 }
-.fields{
-    margin: 2vw;
-    position: relative;
-    left: 2vw;
-    top: 2vw;
+
+.fields {
+  margin: 2vw;
+  position: relative;
+  left: 2vw;
+  top: 2vw;
 }
 </style>

@@ -121,15 +121,7 @@ cursor: pointer;
 
 }
 
-.menu {
-  left: 0;
-  background-color: #FF0000;
-  height: 3vw;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  
-}
+
 
 #linkmenu {
   display: inline-flex;
@@ -282,9 +274,8 @@ float: right;
   background-image: url('./assets/imgs/bgLogin.jpg');
   background-repeat: no-repeat;
   background-size: 100vw;
-
-
-  height: 1000vw;
+  height: 50vw;
+  display: block;
 
 }
 html,body {

@@ -17,7 +17,6 @@ import 'vue-toast-notification/dist/theme-default.css';
 
 import { Grid,GridInstaller  } from '@progress/kendo-grid-vue-wrapper'
 import { DatePicker } from '@progress/kendo-vue-dateinputs';
-import IndexCliente from './client/home/index-cliente.vue';
 Vue.component('DatePicker',DatePicker)
 Vue.component('Grid', Grid);
 Vue.use(GridInstaller)
@@ -29,7 +28,7 @@ Vue.use(GridInstaller)
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(IndexCliente),
+  render: h => h(App),
   router,
   store,
   components: {

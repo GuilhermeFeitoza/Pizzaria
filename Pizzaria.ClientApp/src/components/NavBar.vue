@@ -4,7 +4,7 @@
 
     <div id="welcome">
       <router-link id="sair" to="/login">
-        <span>Seja Bem vindo {{ nomeUsuario }}!!</span>
+        <span style="color: white;">Seja Bem vindo {{ nomeUsuario }}!!</span>
         <img src="../assets/exit.png" @click="logoutClick" />
       </router-link>
     </div>
@@ -34,5 +34,14 @@ export default {
   width: 15vw;
   margin-left: 15vw;
 }
-</style>
 
+.menu {
+  left: 0;
+  background-color: #C70404;
+  height: 3vw;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+
+}
+</style>

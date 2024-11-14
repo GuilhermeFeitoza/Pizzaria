@@ -1,14 +1,15 @@
 <template>
     <div>
-        <header>
-            <NavBar />
-            <menu-side-bar></menu-side-bar>
-        </header>
+
         <br />
         <br />
         <br />
         <br />
         <div style="margin-left:12%">
+            <header>
+                <NavBar />
+                <menu-side-bar></menu-side-bar>
+            </header>
             <router-view />
             <Cliente-modal />
             <Funcionario-modal />
@@ -58,7 +59,7 @@ export default {
         IngredienteModal,
         BebidaModal,
         DetalhesPedidoModal,
-        
+
     },
 };
 

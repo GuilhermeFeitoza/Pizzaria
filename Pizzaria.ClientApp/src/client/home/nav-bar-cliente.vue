@@ -6,20 +6,23 @@
             <ul class="menu-list">
                 <li>FAZER UM PEDIDO</li>
                 <li>CARDAPIO</li>
-                <li>PROMOCÕES</li>
+                <li>PROMOÇÕES</li>
                 <li>ACOMPANHAR MEU PEDIDO</li>
             </ul>
         </div>
         <div class="auth-options">
-            <p>FAZER LOGIN <br>OU CADASTRAR-SE</p>
+            <p><router-link style="color: white;" to="/login"> FAZER LOGIN </router-link ><br>OU CADASTRAR-SE</p>
         </div>
 
         <div class="cart">
             <img src="../../assets/Cliente/carrinho-de-compras.png">
             <p>CARRINHO</p>
-
         </div>
+        <br/>
+        <br/>
     </div>
+   
+
 </template>
 
 <style>
@@ -91,6 +94,7 @@ li {
 }
 
 .menu-cliente {
+
     left: 0;
     background-color: #C70404;
     height: 3.5vw;

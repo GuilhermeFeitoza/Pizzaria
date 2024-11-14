@@ -15,28 +15,12 @@ import EmployeeApp from "./EmployeeApp.vue";
 Vue.use(VueRouter)
 
 const routes = [
+    {
+        name: 'Index',
+        path: '/',
+        component: IndexCliente,
 
 
-    {
-        name: 'Clientes',
-        path: 'admin/clientes',
-        component: Clientes
-    }
-    ,
-    {
-        name: 'Funcionarios',
-        path: '/funcionarios',
-        component: Funcionarios,
-    },
-    {
-        name: 'Pizzas',
-        path: '/pizzas',
-        component: Pizzas,
-    },
-    {
-        name: 'Pedidos',
-        path: '/pedidos',
-        component: Pedidos,
     },
     {
         name: 'Login',
@@ -44,41 +28,68 @@ const routes = [
         component: Login,
     },
     {
-        name: 'NovoPedido',
-        path: '/novopedido',
-        component: NovoPedido
-
-    },
-    {
-        name: 'Ingredientes',
-        path: '/ingredientes',
-        component: Ingredientes
-
-    },
-    {
-        name: 'Bebidas',
-        path: '/bebidas',
-        component: Bebidas
-
-    },
-    {
-        name: 'Avaliações',
-        path: '/avaliacoes',
-        component: Avaliacoes
-
-    },
-    {
-        name: 'Admin',
-        path: '/admin',
-        component: EmployeeApp
-
-    },
-    {
         name: 'Home',
         path: '/home',
-        component: IndexCliente
-    }
-   
+        component: EmployeeApp,
+        children: [
+
+            {
+                name: 'Clientes',
+                path: '/clientes',
+                component: Clientes
+            }
+            ,
+            {
+                name: 'Funcionarios',
+                path: '/funcionarios',
+                component: Funcionarios,
+            },
+            {
+                name: 'Pizzas',
+                path: '/pizzas',
+                component: Pizzas,
+            },
+            {
+                name: 'Pedidos',
+                path: '/pedidos',
+                component: Pedidos,
+            },
+
+            {
+                name: 'NovoPedido',
+                path: '/novopedido',
+                component: NovoPedido
+
+            },
+            {
+                name: 'Ingredientes',
+                path: '/ingredientes',
+                component: Ingredientes
+
+            },
+            {
+                name: 'Bebidas',
+                path: '/bebidas',
+                component: Bebidas
+
+            },
+            {
+                name: 'Avaliações',
+                path: '/avaliacoes',
+                component: Avaliacoes
+
+            },
+            {
+                name: 'Admin',
+                path: '/admin',
+                component: EmployeeApp
+
+            },
+
+        ]
+    },
+
+
 
 
 ]
