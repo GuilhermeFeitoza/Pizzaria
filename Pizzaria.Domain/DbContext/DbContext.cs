@@ -42,7 +42,7 @@ namespace Pizzaria.Domain.Models
             modelBuilder.Entity<TbAvaliacao>(entity =>
             {
                 entity.HasKey(e => e.IdAvaliacao)
-                    .HasName("PK__tbAvalia__78C432D840D3E8E1");
+                    .HasName("PK__tbAvalia__78C432D835E8BC95");
 
                 entity.ToTable("tbAvaliacao");
 
@@ -52,12 +52,23 @@ namespace Pizzaria.Domain.Models
                     .IsFixedLength(true);
 
                 entity.Property(e => e.Comentario)
-                    .HasMaxLength(50)
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DataPedido).HasColumnType("datetime");
+
+                entity.Property(e => e.NomeAvaliador)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Titulo)
                     .HasMaxLength(30)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.IdPedidoNavigation)
+                    .WithMany(p => p.TbAvaliacaos)
+                    .HasForeignKey(d => d.IdPedido)
+                    .HasConstraintName("FK__tbAvaliac__IdPed__160F4887");
             });
 
             modelBuilder.Entity<TbBebida>(entity =>

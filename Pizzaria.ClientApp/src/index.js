@@ -9,19 +9,17 @@ import Login from "./components/login.vue"
 import NovoPedido from "./components/NovoPedido.vue"
 import Ingredientes from "./components/Ingredientes.vue";
 import Bebidas from './components/Bebidas.vue';
+import Avaliacoes from "./components/Avaliacoes.vue";
+import IndexCliente from "./client/home/index-cliente.vue";
+import EmployeeApp from "./EmployeeApp.vue";
 Vue.use(VueRouter)
 
 const routes = [
 
-    {
-        name: 'Home',
-        path: '/home',
-        component: Home
-    },
 
     {
         name: 'Clientes',
-        path: '/clientes',
+        path: 'admin/clientes',
         component: Clientes
     }
     ,
@@ -42,7 +40,7 @@ const routes = [
     },
     {
         name: 'Login',
-        path: '/',
+        path: '/login',
         component: Login,
     },
     {
@@ -59,11 +57,28 @@ const routes = [
     },
     {
         name: 'Bebidas',
-        path:'/bebidas',
+        path: '/bebidas',
         component: Bebidas
 
-    }
+    },
+    {
+        name: 'Avaliações',
+        path: '/avaliacoes',
+        component: Avaliacoes
 
+    },
+    {
+        name: 'Admin',
+        path: '/admin',
+        component: EmployeeApp
+
+    },
+    {
+        name: 'Home',
+        path: '/home',
+        component: IndexCliente
+    }
+   
 
 
 ]

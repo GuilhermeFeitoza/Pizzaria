@@ -9,6 +9,7 @@ namespace Pizzaria.Domain.Models
     {
         public TbPedido()
         {
+            TbAvaliacaos = new HashSet<TbAvaliacao>();
             TbPedidoProdutos = new HashSet<TbPedidoProduto>();
         }
 
@@ -20,6 +21,7 @@ namespace Pizzaria.Domain.Models
         public string FormaPagamentoPedido { get; set; }
         public string Endereco { get; set; }
 
+        public virtual ICollection<TbAvaliacao> TbAvaliacaos { get; set; }
         public virtual ICollection<TbPedidoProduto> TbPedidoProdutos { get; set; }
     }
 }
