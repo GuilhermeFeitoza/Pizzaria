@@ -39,7 +39,14 @@ Avaliações:
 
 
 
+Como rodar
+- Instalar o node  16 com npm
 
+cd Pizzaria.ClientApp
+
+npm install
+
+npm run serve
 
 
 
