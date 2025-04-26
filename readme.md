@@ -12,7 +12,7 @@ Tela inicial cliente :
 
 A segunda area que foi a area que foi totalmente desenvolvida, consiste na parte de gestão da pizzaria.Primeiro o usuário precisa se autenticar no sistema na tela de login
 
-##Login:##
+###Login:###
 ![image](https://github.com/user-attachments/assets/e1da1802-48eb-460a-a1e9-571fe66f5865)
 
 ##Funcionários:##
