@@ -12,28 +12,28 @@ Tela inicial cliente :
 
 A segunda area que foi a area que foi totalmente desenvolvida, consiste na parte de gestão da pizzaria.Primeiro o usuário precisa se autenticar no sistema na tela de login
 
-Login:
+##Login:##
 ![image](https://github.com/user-attachments/assets/e1da1802-48eb-460a-a1e9-571fe66f5865)
 
-Funcionários:
+##Funcionários:##
 ![image](https://github.com/user-attachments/assets/19a59f5a-011a-43c1-8d00-f2306f9d91da)
 
-Pizzas
+##Pizzas##
 ![image](https://github.com/user-attachments/assets/162d4fbc-4635-42d1-926c-ff127711ad4a)
 
-Bebidas
+##Bebidas##
 ![image](https://github.com/user-attachments/assets/fb7949e3-a1f8-41f3-87ad-fd11b6a5bed7)
 
-Clientes:
+##Clientes:##
 ![image](https://github.com/user-attachments/assets/25bd1895-ae97-40a0-b2a9-525c02f004de)
 
-Controle de pedidos:
+##Controle de pedidos:##
 ![image](https://github.com/user-attachments/assets/7655dceb-01b6-4150-ba83-721e40986477)
 
-Ingredientes para criação:
+##Ingredientes para criação:##
 ![image](https://github.com/user-attachments/assets/adf9410e-07a8-4881-8384-bc3528bab4c9)
 
-Avaliações:
+##Avaliações:##
 ![image](https://github.com/user-attachments/assets/858ba2e7-bd5c-4b9f-a3b5-9a8511a6c0d9)
 
 
